@@ -1,0 +1,68 @@
+{
+  "dados": {
+    "funcionarios": [
+      {
+        "fuid": 0,
+        "nome": "Deyvid",
+        "cpf": "123.456.789-10",
+        "email": "deyvid@sgi.com",
+        "senha": "sgi",
+        "salario": 5000.0,
+        "gerente": true
+      }
+    ],
+    "clientes": [
+      {
+        "clid": 0,
+        "nome": "Aldo Testando",
+        "cpf": "123.456.789-11",
+        "email": "aldo@email.com",
+        "renda": 3256.00
+      },
+      {
+        "clid": 1,
+        "nome": "Maria Testando",
+        "cpf": "123.456.789-11",
+        "email": "maria@email.com",
+        "renda": 3256.00
+      },
+      {
+        "clid": 2,
+        "nome": "Roberto Testando",
+        "cpf": "123.456.789-11",
+        "email": "roberto@email.com",
+        "renda": 3256.00
+      },
+      {
+        "clid": 3,
+        "nome": "Irene Testando",
+        "cpf": "123.456.789-11",
+        "email": "irene@email.com",
+        "renda": 3256.00
+      }
+    ],
+    "imoveis": [
+      {
+        "imid": 0,
+        "nomeProprietario": "Alfredo Testando",
+        "valorLocacao": 895.45,
+        "valorVenda": 147.563,
+        "endereco": "Rua asd, 523, alguma cidade",
+        "numQuartos": 2,
+        "numBanheiros": 1,
+        "venda": false,
+        "disponivel": true
+      }
+    ],
+    "contratos": [
+      {
+        "coid": 0,
+        "clid": 0,
+        "imid": 0,
+        "dataInicio": 1686961500000,
+        "dataFim": 1813191900000,
+        "tipo": false
+      }
+    ]
+  }
+}
