@@ -1,18 +1,14 @@
 ![SGI](https://github.com/deyvidandrades/SGI/blob/master/src/views/imagens/icon-192.png)
 
-# SGI - Sistema Gerenciador de Imobiária
-#### [Projeto prático](https://github.com/deyvidandrades/SGI) desenvoldido na disciplina de Engenharia de Software.
+# SGI - Sistema Gerenciador de Imobiliária
+#### Projeto prático desenvolvido na disciplina de Engenharia de Software.
 
 A proposta inicial é de apresentar um sistema de gestão para imobiliárias, onde os gerentes e possam acompanhar andamento dos contratos, cadastrar novos imóveis e clientes. Onde os vendedores possam consultar os contratos em vigência, cadastrar clientes e realizar a venda/locação de um imóvel à um cliente. O foco principal tornar simples os processos de venda e locação de imóveis para diferentes imobiliárias.
 
 # Primeiros passos
-
 Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Veja a implantação de notas sobre como implantar o projeto em um sistema ativo.
 
-**Importante:** Toda a GUI do projeto foi desenvolvida com o *Intellij Idea GUI Designer*, limitando o uso de form designers de outras ide's.
-
 ## Pré-requisitos
-
 O que você precisa instalar para desenvolver e rodar o projeto:
 * [Java Jdk - Java 17](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
@@ -27,7 +23,7 @@ $ git clone https://github.com/deyvidandrades/SGC.git
 $ java -jar SGI.jar
 ```
 
-## Configurações para a Intellij Idea
+## Configurações para a ide Intellij Idea
 
 Importe as bibliotecas utilizadas no projeto, localizadas em: (**src/bibliotecas**):
 ```
@@ -69,16 +65,10 @@ Simule a venda e locação de imóveis, cadastre clientes, novos imóveis, funci
 * [Java Jdk 17+](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Ambiente de desenvolvimento Java
 * [Intellij Idea](https://www.jetbrains.com/idea/download/) - IDE usada no projeto
 * [Commons-io](https://mvnrepository.com/artifact/commons-io/commons-io) para leitura de arquivos.
-* [JSON](https://mvnrepository.com/artifact/org.json/json) - Json-java utilizado para persistência de dados. 
-* [FlatLaf](https://mvnrepository.com/artifact/com.formdev/flatlaf/3.1.1) - Tema moderno para o Java Swing
-
-## Changelog
-- 
+* [JSON](https://mvnrepository.com/artifact/org.json/json) - Json-java utilizado para a manipulação de arquivos JSON.
+* [FlatLaf](https://mvnrepository.com/artifact/com.formdev/flatlaf/3.1.1) - Tema moderno para o Java Swing.
 
 ## Autores
 
 * **Deyvid Andrade** - [GIT](https://github.com/deyvidandrades)
 * **Kleber Salllum** - [GIT](https://github.com/klebersalllum/)
-* 
-## Licença
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes
