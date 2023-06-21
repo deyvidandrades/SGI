@@ -1,4 +1,4 @@
-
+![SGI](https://github.com/deyvidandrades/SGI/blob/master/src/views/imagens/icon-192.png)
 
 # SGI - Sistema Gerenciador de Imobiária
 #### [Projeto prático](https://github.com/deyvidandrades/SGI) desenvoldido na disciplina de Engenharia de Software.
