@@ -78,7 +78,7 @@ Simule a venda e locação de imóveis, cadastre clientes, novos imóveis, funci
 ## Autores
 
 * **Deyvid Andrade** - [GIT](https://github.com/deyvidandrades)
-* **Kleber Salllum** - [GIT](https://github.com/klebersalllum/SGI)
+* **Kleber Salllum** - [GIT](https://github.com/klebersalllum/)
 * 
 ## Licença
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes
