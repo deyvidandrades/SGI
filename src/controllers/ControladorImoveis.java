@@ -1,5 +1,6 @@
 package controllers;
 
+import controllers.entidades.Contrato;
 import controllers.entidades.Imovel;
 import controllers.interfaces.Strings;
 import model.SGIBD;
@@ -57,9 +58,22 @@ public class ControladorImoveis {
     }
 
     public static void removerImovel(int imid) {
-        boolean removido = SGIBD.removerImovel(imid);
+        boolean temContrato = false;
 
-        if (!removido)
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
+        for (Contrato contrato : SGIBD.getContratos()) {
+            if (contrato.getImovel().getImid() == imid) {
+                temContrato = true;
+                break;
+            }
+        }
+
+        if (!temContrato) {
+
+            boolean removido = SGIBD.removerImovel(imid);
+
+            if (!removido)
+                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
+        }else
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EM_VIGENCIA_IMOVEL);
     }
 }

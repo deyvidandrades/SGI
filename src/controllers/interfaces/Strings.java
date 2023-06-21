@@ -3,7 +3,7 @@ package controllers.interfaces;
 public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
-    String VERSAO = "0.1.5";
+    String VERSAO = "0.1.7";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//
@@ -57,6 +57,8 @@ public interface Strings {
     String MENSAGEM_FUNCIONARIO_EXISTENTE = "Não foi possível adicionar o cliente. (Funcionário já existe)";
     String MENSAGEM_FUNCIONARIO_NAO_ATUALIZDO = "Não foi possível atualizar o funciário";
     String MENSAGEM_CONTRATO_EXISTENTE = "Não foi possível adicionar o contrato. (Contrato já existe)";
+    String MENSAGEM_CONTRATO_EM_VIGENCIA_CLIENTE = "Não é possível realizar a operação (Cliente possui contrato em vigencia)";
+    String MENSAGEM_CONTRATO_EM_VIGENCIA_IMOVEL = "Não é possível realizar a operação (Imóvel possui contrato em vigencia)";
 
     //ARQUIVOS//
     String DADOS = "src/model/dados/dados.json";

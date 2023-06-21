@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.entidades.Cliente;
+import controllers.entidades.Contrato;
 import controllers.interfaces.Strings;
 import model.SGIBD;
 
@@ -58,9 +59,24 @@ public class ControladorClientes {
     }
 
     public static void removerCliente(int clid) {
-        boolean removido = SGIBD.removerCliente(clid);
+        boolean temContrato = false;
 
-        if (!removido)
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
+        for (Contrato contrato : SGIBD.getContratos()) {
+            if (contrato.getCliente().getClid() == clid) {
+                temContrato = true;
+                break;
+            }
+        }
+
+        if (!temContrato) {
+
+            boolean removido = SGIBD.removerCliente(clid);
+
+            if (!removido)
+                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
+
+        } else {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EM_VIGENCIA_CLIENTE);
+        }
     }
 }
