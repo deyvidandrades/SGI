@@ -42,8 +42,8 @@ public class ControladorImoveis {
             boolean adicionado = SGIBD.atualizarImovel(new Imovel(
                     imid,
                     proprietario,
-                    Double.parseDouble(valorLocacao),
-                    Double.parseDouble(valorVenda),
+                    Double.parseDouble(valorLocacao.replace(",",".")),
+                    Double.parseDouble(valorVenda.replace(",",".")),
                     endereco,
                     Integer.parseInt(numeroQuartos),
                     Integer.parseInt(numeroBanheiros),
