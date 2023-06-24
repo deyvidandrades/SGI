@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /*
  * Controlador responsável pelo processamento de dados do cliente
  */
-public class ControladorClientes {
+public abstract class ControladorClientes {
 
     private static final SGIBD BD = SGIBD.getInstance();
 

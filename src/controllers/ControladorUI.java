@@ -15,7 +15,7 @@ import java.awt.*;
 /*
  * Classe responsável por coordenar a exibição das interfaces gráficas
  */
-public class ControladorUI implements Dimensoes {
+public abstract class ControladorUI implements Dimensoes {
     private static final SGIBD BD = SGIBD.getInstance();
 
     public static Funcionario funcionarioLogado;

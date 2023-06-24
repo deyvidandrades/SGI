@@ -7,7 +7,7 @@ import model.SGIBD;
 
 import java.util.ArrayList;
 
-public class ControladorImoveis {
+public abstract class ControladorImoveis {
 
 
     private static final SGIBD BD = SGIBD.getInstance();

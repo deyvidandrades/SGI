@@ -3,7 +3,7 @@ package controllers;
 import controllers.entidades.Funcionario;
 import model.SGIBD;
 
-public class ControladorLogin {
+public abstract class ControladorLogin {
     private static final SGIBD BD = SGIBD.getInstance();
 
     public static Boolean autenticarFuncionario(String email, String senha) {

@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ControladorContratos {
+public abstract class ControladorContratos {
 
     private static final SGIBD BD = SGIBD.getInstance();
 
