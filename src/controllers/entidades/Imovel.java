@@ -1,7 +1,6 @@
 package controllers.entidades;
 
 import controllers.interfaces.Serializavel;
-import model.SGIBD;
 
 /*
  * Entidade que representa dados do imóvel
@@ -23,19 +22,6 @@ public class Imovel implements Serializavel {
 
     public Imovel(int imid, String nomeProprietario, double valorLocacao, double valorVenda, String endereco, int numQuartos, int numBanheiros, boolean venda, boolean disponivel) {
         this.imid = imid;
-        this.nomeProprietario = nomeProprietario;
-        this.valorLocacao = valorLocacao;
-        this.valorVenda = valorVenda;
-        this.endereco = endereco;
-        this.numQuartos = numQuartos;
-        this.numBanheiros = numBanheiros;
-        this.venda = venda;
-        this.disponivel = disponivel;
-    }
-
-    /*Imoveis recém criados tem seu id gerado no construtor*/
-    public Imovel(String nomeProprietario, double valorLocacao, double valorVenda, String endereco, int numQuartos, int numBanheiros, boolean venda, boolean disponivel) {
-        this.imid = SGIBD.getProximoIdImovel();
         this.nomeProprietario = nomeProprietario;
         this.valorLocacao = valorLocacao;
         this.valorVenda = valorVenda;

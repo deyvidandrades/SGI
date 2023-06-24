@@ -1,7 +1,6 @@
 package controllers.entidades;
 
 import controllers.interfaces.Serializavel;
-import model.SGIBD;
 
 /*
  * Entidade que representa dados do cliente
@@ -22,16 +21,6 @@ public class Cliente implements Serializavel {
         this.email = email;
         this.renda = renda;
     }
-
-    /*Clientes recém criados tem seu id gerado no construtor*/
-    public Cliente(String nome, String cpf, String email, double renda) {
-        this.clid = SGIBD.getProximoIdCliente();
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.renda = renda;
-    }
-
 
     public int getClid() {
         return clid;

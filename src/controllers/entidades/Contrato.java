@@ -1,7 +1,6 @@
 package controllers.entidades;
 
 import controllers.interfaces.Serializavel;
-import model.SGIBD;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,16 +21,6 @@ public class Contrato implements Serializavel {
 
     public Contrato(int coid, Cliente cliente, Imovel imovel, long dataInicio, long dataFim, boolean tipo) {
         this.coid = coid;
-        this.cliente = cliente;
-        this.imovel = imovel;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.tipo = tipo;
-    }
-
-    /*Contratos recém criados tem seu id gerado no construtor*/
-    public Contrato(Cliente cliente, Imovel imovel, long dataInicio, long dataFim, boolean tipo) {
-        this.coid = SGIBD.getProximoIdContrato();
         this.cliente = cliente;
         this.imovel = imovel;
         this.dataInicio = dataInicio;
