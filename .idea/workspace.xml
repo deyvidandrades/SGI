@@ -12,10 +12,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* atualização do executavel">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,20 +53,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "246",
-    "last_opened_file_path": "/home/dave/IdeaProjects/SGI",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;246&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dave/IdeaProjects/SGI&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/persistencia/dados" />
@@ -180,7 +179,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687389087914</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="+ Correção de erro ao deletar um imóvel ou cliente que possuia um contrato aberto. (ControladorClientes.java, ControladorImoveis.java )&#10;+ Adição de mensagens de erro no Strings.java&#10;* Atualização do executavel">
+      <created>1687391993591</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687391993591</updated>
+    </task>
+    <task id="LOCAL-00006" summary="+ Adição do padrão de projeto Singleton a classe de persistencia SGIBD.java">
+      <created>1687606997406</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687606997406</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador">
+      <created>1687607104153</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687607104153</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +218,9 @@
     <MESSAGE value="src" />
     <MESSAGE value="* Correção de erro de tipo no ControladorImoveis.java" />
     <MESSAGE value="* atualização do executavel" />
-    <option name="LAST_COMMIT_MESSAGE" value="* atualização do executavel" />
+    <MESSAGE value="+ Correção de erro ao deletar um imóvel ou cliente que possuia um contrato aberto. (ControladorClientes.java, ControladorImoveis.java )&#10;+ Adição de mensagens de erro no Strings.java&#10;* Atualização do executavel" />
+    <MESSAGE value="+ Adição do padrão de projeto Singleton a classe de persistencia SGIBD.java" />
+    <MESSAGE value="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador" />
   </component>
 </project>
