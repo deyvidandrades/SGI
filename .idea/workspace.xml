@@ -12,10 +12,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Atualizando controladores para classes abstratas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Imovel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SGIBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SGIBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dados/dados-old.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dados/dados-old.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dados/dados.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dados/dados.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +98,11 @@
       <recent name="$PROJECT_DIR$/src/libs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
       <recent name="controllers" />
       <recent name="controllers.entidades" />
       <recent name="res.valores" />
       <recent name="views" />
-      <recent name="controllers.utils" />
     </key>
   </component>
   <component name="RunManager" selected="JAR Application.JAR">
@@ -200,7 +217,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687607104153</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="* Update de executavel e versão">
+      <created>1687607171345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687607171345</updated>
+    </task>
+    <task id="LOCAL-00009" summary="* Update de executavel e versão">
+      <created>1687607174785</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687607174786</updated>
+    </task>
+    <task id="LOCAL-00010" summary="* Atualizando controladores para classes abstratas">
+      <created>1687612491124</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687612491124</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,6 +259,8 @@
     <MESSAGE value="+ Correção de erro ao deletar um imóvel ou cliente que possuia um contrato aberto. (ControladorClientes.java, ControladorImoveis.java )&#10;+ Adição de mensagens de erro no Strings.java&#10;* Atualização do executavel" />
     <MESSAGE value="+ Adição do padrão de projeto Singleton a classe de persistencia SGIBD.java" />
     <MESSAGE value="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Remoção de segundo construtor desnecessário nas classes de entidade, com função de responsabilidade do respectivo controlador" />
+    <MESSAGE value="* Update de executavel e versão" />
+    <MESSAGE value="* Atualizando controladores para classes abstratas" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Atualizando controladores para classes abstratas" />
   </component>
 </project>
