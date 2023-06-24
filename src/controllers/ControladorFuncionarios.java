@@ -19,7 +19,6 @@ public abstract class ControladorFuncionarios {
     }
 
     private static void salvarFuncionarios() {
-        //todo mensagem
         BD.salvarFuncionarios(arrayFuncionarios);
     }
 

@@ -29,7 +29,6 @@ public abstract class ControladorImoveis {
     }
 
     private static void salvarImoveis() {
-        //todo mensagem
         BD.salvarImoveis(arrayImoveis);
     }
 
