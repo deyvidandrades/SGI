@@ -13,11 +13,11 @@ import java.util.Date;
 public class Contrato implements Serializavel {
 
     private final int coid;
-    private final Cliente cliente;
-    private final Imovel imovel;
-    private final long dataInicio;
-    private final long dataFim;
-    private final boolean tipo;
+    private  Cliente cliente;
+    private  Imovel imovel;
+    private  long dataInicio;
+    private  long dataFim;
+    private  boolean tipo;
 
     public Contrato(int coid, Cliente cliente, Imovel imovel, long dataInicio, long dataFim, boolean tipo) {
         this.coid = coid;
@@ -50,6 +50,26 @@ public class Contrato implements Serializavel {
 
     public boolean isTipo() {
         return tipo;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
+    }
+
+    public void setDataInicio(long dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public void setDataFim(long dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public void setTipo(boolean tipo) {
+        this.tipo = tipo;
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/

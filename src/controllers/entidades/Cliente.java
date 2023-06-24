@@ -9,10 +9,10 @@ import controllers.interfaces.Serializavel;
 public class Cliente implements Serializavel {
 
     private final int clid;
-    private final String nome;
-    private final String cpf;
-    private final String email;
-    private final double renda;
+    private String nome;
+    private String email;
+    private String cpf;
+    private double renda;
 
     public Cliente(int clid, String nome, String cpf, String email, double renda) {
         this.clid = clid;
@@ -40,6 +40,22 @@ public class Cliente implements Serializavel {
 
     public double getRenda() {
         return renda;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setRenda(double renda) {
+        this.renda = renda;
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/

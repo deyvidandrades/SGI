@@ -9,15 +9,15 @@ import controllers.interfaces.Serializavel;
 public class Imovel implements Serializavel {
 
     private final int imid;
-    private final String nomeProprietario;
-    private final double valorLocacao;
-    private final double valorVenda;
-    private final String endereco;
-    private final int numQuartos;
-    private final int numBanheiros;
+    private  String nomeProprietario;
+    private  double valorLocacao;
+    private  double valorVenda;
+    private  String endereco;
+    private  int numQuartos;
+    private  int numBanheiros;
 
-    private final boolean venda;
-    private final boolean disponivel;
+    private  boolean venda;
+    private  boolean disponivel;
 
 
     public Imovel(int imid, String nomeProprietario, double valorLocacao, double valorVenda, String endereco, int numQuartos, int numBanheiros, boolean venda, boolean disponivel) {
@@ -68,6 +68,38 @@ public class Imovel implements Serializavel {
         return disponivel;
     }
 
+
+    public void setNomeProprietario(String nomeProprietario) {
+        this.nomeProprietario = nomeProprietario;
+    }
+
+    public void setValorLocacao(double valorLocacao) {
+        this.valorLocacao = valorLocacao;
+    }
+
+    public void setValorVenda(double valorVenda) {
+        this.valorVenda = valorVenda;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setNumQuartos(int numQuartos) {
+        this.numQuartos = numQuartos;
+    }
+
+    public void setNumBanheiros(int numBanheiros) {
+        this.numBanheiros = numBanheiros;
+    }
+
+    public void setVenda(boolean venda) {
+        this.venda = venda;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/
     public Object[] toObject() {

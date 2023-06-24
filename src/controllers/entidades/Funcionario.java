@@ -9,12 +9,12 @@ import controllers.interfaces.Serializavel;
 public class Funcionario implements Serializavel {
 
     private final int fuid;
-    private final String nome;
-    private final String cpf;
-    private final String email;
-    private final String senha;
-    private final double salario;
-    private final boolean gerente;
+    private  String nome;
+    private  String cpf;
+    private  String email;
+    private  String senha;
+    private  double salario;
+    private  boolean gerente;
 
 
     public Funcionario(int fuid, String nome, String cpf, String email, String senha, double salario, boolean gerente) {
@@ -53,6 +53,30 @@ public class Funcionario implements Serializavel {
 
     public boolean isGerente() {
         return gerente;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public void setGerente(boolean gerente) {
+        this.gerente = gerente;
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/
