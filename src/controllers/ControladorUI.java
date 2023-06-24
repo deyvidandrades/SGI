@@ -70,7 +70,7 @@ public abstract class ControladorUI implements Dimensoes {
             instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_CONTRATO);
             instanciaDialogoTela.setLocation(Dimensoes.getCentroTela(instanciaDialogoTela.getWidth(), instanciaDialogoTela.getHeight()));
             instanciaDialogoTela.setVisible(true);
-        }else
+        } else
             exibirDialogoMensagens(Strings.MENSAGEM_IMOVEL_INDISPONIVEIS);
     }
 

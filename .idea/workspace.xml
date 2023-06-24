@@ -12,9 +12,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Atualização do executavel&#10;* Atalização das configurações da ide">
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Imovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SGIBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SGIBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/imagens/house.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/imagens/house.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +96,7 @@
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.JAR">
+  <component name="RunManager" selected="Application.SGI">
     <configuration name="SGI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="mSGI" />
@@ -248,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687622228564</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários">
+      <created>1687622275741</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687622275741</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +291,7 @@
     <MESSAGE value="- Remoção de strings não utilizadas" />
     <MESSAGE value="* Atualização de controladores&#10;* Otimização das funções da SGIBD.java&#10;* Otimização do codigo dos controladores&#10;* Otimização nas views&#10;* Correção de bug DialogoAlterarContrato.form&#10;* Correção de bugs com parse double." />
     <MESSAGE value="* Atualização do executavel&#10;* Atalização das configurações da ide" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Atualização do executavel&#10;* Atalização das configurações da ide" />
+    <MESSAGE value="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários" />
   </component>
 </project>

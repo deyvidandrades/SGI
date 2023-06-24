@@ -9,15 +9,15 @@ import controllers.interfaces.Serializavel;
 public class Imovel implements Serializavel {
 
     private final int imid;
-    private  String nomeProprietario;
-    private  double valorLocacao;
-    private  double valorVenda;
-    private  String endereco;
-    private  int numQuartos;
-    private  int numBanheiros;
+    private String nomeProprietario;
+    private double valorLocacao;
+    private double valorVenda;
+    private String endereco;
+    private int numQuartos;
+    private int numBanheiros;
 
-    private  boolean venda;
-    private  boolean disponivel;
+    private boolean venda;
+    private boolean disponivel;
 
 
     public Imovel(int imid, String nomeProprietario, double valorLocacao, double valorVenda, String endereco, int numQuartos, int numBanheiros, boolean venda, boolean disponivel) {
@@ -40,61 +40,60 @@ public class Imovel implements Serializavel {
         return nomeProprietario;
     }
 
-    public double getValorLocacao() {
-        return valorLocacao;
-    }
-
-    public double getValorVenda() {
-        return valorVenda;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public int getNumQuartos() {
-        return numQuartos;
-    }
-
-    public int getNumBanheiros() {
-        return numBanheiros;
-    }
-
-    public boolean isVenda() {
-        return venda;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
-
     public void setNomeProprietario(String nomeProprietario) {
         this.nomeProprietario = nomeProprietario;
+    }
+
+    public double getValorLocacao() {
+        return valorLocacao;
     }
 
     public void setValorLocacao(double valorLocacao) {
         this.valorLocacao = valorLocacao;
     }
 
+    public double getValorVenda() {
+        return valorVenda;
+    }
+
     public void setValorVenda(double valorVenda) {
         this.valorVenda = valorVenda;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
+    public int getNumQuartos() {
+        return numQuartos;
+    }
+
     public void setNumQuartos(int numQuartos) {
         this.numQuartos = numQuartos;
+    }
+
+    public int getNumBanheiros() {
+        return numBanheiros;
     }
 
     public void setNumBanheiros(int numBanheiros) {
         this.numBanheiros = numBanheiros;
     }
 
+    public boolean isVenda() {
+        return venda;
+    }
+
     public void setVenda(boolean venda) {
         this.venda = venda;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
     }
 
     public void setDisponivel(boolean disponivel) {

@@ -13,11 +13,11 @@ import java.util.Date;
 public class Contrato implements Serializavel {
 
     private final int coid;
-    private  Cliente cliente;
-    private  Imovel imovel;
-    private  long dataInicio;
-    private  long dataFim;
-    private  boolean tipo;
+    private Cliente cliente;
+    private Imovel imovel;
+    private long dataInicio;
+    private long dataFim;
+    private boolean tipo;
 
     public Contrato(int coid, Cliente cliente, Imovel imovel, long dataInicio, long dataFim, boolean tipo) {
         this.coid = coid;
@@ -36,36 +36,36 @@ public class Contrato implements Serializavel {
         return cliente;
     }
 
-    public Imovel getImovel() {
-        return imovel;
-    }
-
-    public Date getDataInicio() {
-        return new Date(dataInicio);
-    }
-
-    public Date getDataFim() {
-        return new Date(dataFim);
-    }
-
-    public boolean isTipo() {
-        return tipo;
-    }
-
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Imovel getImovel() {
+        return imovel;
     }
 
     public void setImovel(Imovel imovel) {
         this.imovel = imovel;
     }
 
+    public Date getDataInicio() {
+        return new Date(dataInicio);
+    }
+
     public void setDataInicio(long dataInicio) {
         this.dataInicio = dataInicio;
     }
 
+    public Date getDataFim() {
+        return new Date(dataFim);
+    }
+
     public void setDataFim(long dataFim) {
         this.dataFim = dataFim;
+    }
+
+    public boolean isTipo() {
+        return tipo;
     }
 
     public void setTipo(boolean tipo) {

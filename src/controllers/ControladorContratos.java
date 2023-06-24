@@ -77,7 +77,7 @@ public abstract class ControladorContratos {
 
         int indice = 0;
         for (Contrato contrato : arrayContratos) {
-            if (contrato.getCoid() == coid){
+            if (contrato.getCoid() == coid) {
                 ControladorImoveis.alterarDisponibilidade(contrato.getImovel().getImid(), true);
                 break;
             }

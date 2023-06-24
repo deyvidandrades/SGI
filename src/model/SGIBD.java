@@ -18,8 +18,8 @@ import java.util.Map;
 
 public final class SGIBD {
 
-    private static SGIBD INSTANCIA;
     private static final File file = new File(Strings.DADOS);
+    private static SGIBD INSTANCIA;
 
     private SGIBD() {
     }

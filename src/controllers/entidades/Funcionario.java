@@ -9,12 +9,12 @@ import controllers.interfaces.Serializavel;
 public class Funcionario implements Serializavel {
 
     private final int fuid;
-    private  String nome;
-    private  String cpf;
-    private  String email;
-    private  String senha;
-    private  double salario;
-    private  boolean gerente;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String senha;
+    private double salario;
+    private boolean gerente;
 
 
     public Funcionario(int fuid, String nome, String cpf, String email, String senha, double salario, boolean gerente) {
@@ -35,44 +35,44 @@ public class Funcionario implements Serializavel {
         return nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public boolean isGerente() {
-        return gerente;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public boolean isGerente() {
+        return gerente;
     }
 
     public void setGerente(boolean gerente) {

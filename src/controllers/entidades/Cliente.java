@@ -30,28 +30,28 @@ public class Cliente implements Serializavel {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getCpf() {
         return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public double getRenda() {
-        return renda;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public double getRenda() {
+        return renda;
     }
 
     public void setRenda(double renda) {
