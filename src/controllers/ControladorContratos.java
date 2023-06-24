@@ -12,71 +12,94 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class ControladorContratos {
-
     private static final SGIBD BD = SGIBD.getInstance();
+    private static final ArrayList<Contrato> arrayContratos = BD.getContratos();
 
-    public static ArrayList<Contrato> listarContratos() {
-        return BD.getContratos();
+    private static void salvarContratos() {
+        //todo mensagem
+        BD.salvarContratos(arrayContratos);
     }
 
     public static void adicionarContrato(Cliente cliente, Imovel imovel, String dataCriacao, String dataFim, boolean tipo) {
-        if (dataCriacao.isEmpty() || dataFim.isEmpty())
+        if (dataCriacao.isEmpty() || dataFim.isEmpty()) {
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
-        else {
-            try {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date dataC = simpleDateFormat.parse(dataCriacao);
-                Date dataF = simpleDateFormat.parse(dataFim);
+            return;
+        }
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataC = simpleDateFormat.parse(dataCriacao);
+            Date dataF = simpleDateFormat.parse(dataFim);
 
-                boolean adicionado = BD.adicionarContrato(new Contrato(
-                        BD.getProximoIdContrato(),
-                        cliente,
-                        imovel,
-                        dataC.getTime() * 1000,
-                        dataF.getTime() * 1000,
-                        tipo
-                ));
+            ControladorImoveis.alterarDisponibilidade(imovel.getImid(), false);
 
-                if (!adicionado)
-                    ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EXISTENTE);
-            } catch (ParseException e) {
-                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
-            }
+            arrayContratos.add(new Contrato(
+                    BD.getProximoIdContrato(),
+                    cliente,
+                    imovel,
+                    dataC.getTime(),
+                    dataF.getTime(),
+                    tipo
+            ));
+
+            salvarContratos();
+        } catch (ParseException e) {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
         }
     }
 
-
     public static void atualizarContrato(int coid, Cliente cliente, Imovel imovel, String dataCriacao, String dataFim, boolean tipo) {
-        if (dataCriacao.isEmpty() || dataFim.isEmpty())
+        if (dataCriacao.isEmpty() || dataFim.isEmpty()) {
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
-        else {
-            try {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date dataC = simpleDateFormat.parse(dataCriacao);
-                Date dataF = simpleDateFormat.parse(dataFim);
+            return;
+        }
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date dataC = simpleDateFormat.parse(dataCriacao);
+            Date dataF = simpleDateFormat.parse(dataFim);
 
-                boolean adicionado = BD.atualizarContrato(new Contrato(
-                        coid,
-                        cliente,
-                        imovel,
-                        dataC.getTime(),
-                        dataF.getTime(),
-                        tipo
-                ));
-
-                if (!adicionado)
-                    ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EXISTENTE);
-
-            } catch (ParseException e) {
-                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
+            for (Contrato contrato : arrayContratos) {
+                if (contrato.getCoid() == coid) {
+                    contrato.setCliente(cliente);
+                    contrato.setImovel(imovel);
+                    contrato.setDataInicio(dataC.getTime());
+                    contrato.setDataFim(dataF.getTime());
+                    contrato.setTipo(tipo);
+                }
             }
+
+            salvarContratos();
+        } catch (ParseException e) {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
         }
     }
 
     public static void removerContrato(int coid) {
-        boolean removido = BD.removerContrato(coid);
 
-        if (!removido)
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
+        int indice = 0;
+        for (Contrato contrato : arrayContratos) {
+            if (contrato.getCoid() == coid){
+                ControladorImoveis.alterarDisponibilidade(contrato.getImovel().getImid(), true);
+                break;
+            }
+            indice++;
+        }
+
+        arrayContratos.remove(indice);
+        salvarContratos();
+    }
+
+    public static ArrayList<Contrato> getListaContratos(String busca) {
+        ArrayList<Contrato> array = new ArrayList<>();
+
+        for (Contrato contrato : arrayContratos) {
+            if (busca.isEmpty())
+                array.add(contrato);
+            else {
+                if (contrato.getImovel().getEndereco().toUpperCase().contains(busca.toUpperCase()))
+                    array.add(contrato);
+            }
+        }
+        return array;
     }
 }
+

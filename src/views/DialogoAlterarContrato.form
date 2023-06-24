@@ -114,32 +114,14 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="ff448" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <requestFocusEnabled value="true"/>
-                  <text value="Tipo de contrato"/>
-                </properties>
-              </component>
-              <component id="c8124" class="javax.swing.JRadioButton" binding="radioDisponivelVenda">
+              <component id="ebd03" class="javax.swing.JRadioButton" binding="radioDisponivelLocacao">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-328966"/>
-                  <text value="Contrato de Locação"/>
-                </properties>
-              </component>
-              <component id="ebd03" class="javax.swing.JRadioButton" binding="radioDisponivelLocacao">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-328966"/>
                   <selected value="false"/>
-                  <text value="Contrato de venda"/>
+                  <text value="Contrato de locação"/>
                 </properties>
               </component>
               <hspacer id="545be">
@@ -147,6 +129,24 @@
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
+              <component id="c8124" class="javax.swing.JRadioButton" binding="radioDisponivelVenda">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-328966"/>
+                  <text value="Contrato de venda"/>
+                </properties>
+              </component>
+              <component id="ff448" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <requestFocusEnabled value="true"/>
+                  <text value="Tipo de contrato"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="73973" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

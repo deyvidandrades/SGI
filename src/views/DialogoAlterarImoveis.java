@@ -36,8 +36,8 @@ public class DialogoAlterarImoveis extends JDialog {
             fieldValorVenda.setText(String.valueOf(imovel.getValorVenda()));
             fieldNumeroQuartos.setText(String.valueOf(imovel.getNumQuartos()));
             fieldNumeroBanheiros.setText(String.valueOf(imovel.getNumBanheiros()));
-            radioDisponivelLocacao.setSelected(!imovel.isVenda());
-            radioDisponivelVenda.setSelected(imovel.isVenda());
+            radioDisponivelLocacao.setSelected(imovel.isVenda());
+            radioDisponivelVenda.setSelected(!imovel.isVenda());
 
             btnRemoverImovel.addActionListener(e -> {
                 ControladorImoveis.removerImovel(imovel.getImid());

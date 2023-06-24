@@ -13,73 +13,99 @@ import java.util.ArrayList;
 public abstract class ControladorClientes {
 
     private static final SGIBD BD = SGIBD.getInstance();
+    private static final ArrayList<Cliente> arrayClientes = BD.getClientes();
 
-    public static ArrayList<Cliente> listarClientes() {
-        return BD.getClientes();
-    }
-
-    /*
-     * Método recebe dados de cliente, verifica se são válidos e envia um novo Cliente para ser
-     * adicionado a base de dados. Caso não seja adicionado exibe um dialogo de erro.
-     * */
-    public static void adicionarCliente(String nome, String email, String cpf, String renda) {
-        if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || renda.isEmpty())
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
-        else {
-            boolean adicionado = BD.adicionarCliente(new Cliente(
-                    BD.getProximoIdCliente(),
-                    nome,
-                    cpf,
-                    email,
-                    Double.parseDouble(renda.replace(",", "."))
-            ));
-
-            if (!adicionado)
+    private static boolean clienteExiste(String cpf) {
+        for (Cliente cliente : arrayClientes)
+            if (cliente.getCpf().equals(cpf)) {
                 ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CLIENTE_EXISTENTE);
-        }
+                return true;
+            }
+        return false;
     }
 
-    /*
-     * Metodo recebe os dados, Verifica se não são nulos, se forem exibe um dialogo de metodos invalidos.
-     * Um Cliente é criado e enviado para ser atualizado pelo model. Se a operação falhar, exibe um
-     * dialogo com uma mensagem de erro.
-     * */
-    public static void atualizarCliente(int clid, String nome, String email, String cpf, String renda) {
-        if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || renda.isEmpty())
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
-        else {
-            boolean adicionado = BD.atualizarCliente(new Cliente(
-                    clid,
-                    nome,
-                    cpf,
-                    email,
-                    Double.parseDouble(renda.replace(",", "."))
-            ));
-
-            if (!adicionado)
-                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CLIENTE_EXISTENTE);
-        }
-    }
-
-    public static void removerCliente(int clid) {
-        boolean temContrato = false;
-
+    private static boolean verificarExisteContrato(int id) {
         for (Contrato contrato : BD.getContratos()) {
-            if (contrato.getCliente().getClid() == clid) {
-                temContrato = true;
-                break;
+            if (contrato.getCliente().getClid() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void salvarClientes() {
+        BD.salvarClientes(arrayClientes);
+    }
+
+    public static void adicionarCliente(String nome, String email, String cpf, String renda) {
+        if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || renda.isEmpty()) {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            return;
+        }
+
+        if (clienteExiste(cpf)) {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CLIENTE_EXISTENTE);
+            return;
+        }
+
+        arrayClientes.add(new Cliente(
+                BD.getProximoIdCliente(),
+                nome,
+                cpf,
+                email,
+                Double.parseDouble(renda.replace(",", "."))
+        ));
+
+        salvarClientes();
+    }
+
+    public static void atualizarCliente(String nome, String email, String cpf, String renda) {
+        if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || renda.isEmpty()) {
+            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            return;
+        }
+
+        for (Cliente cliente : arrayClientes) {
+            if (cliente.getCpf().equals(cpf)) {
+                cliente.setNome(nome);
+                cliente.setEmail(email);
+                cliente.setCpf(cpf);
+                cliente.setRenda(Double.parseDouble(renda.replace(",", ".")));
             }
         }
 
-        if (!temContrato) {
+        salvarClientes();
+    }
 
-            boolean removido = BD.removerCliente(clid);
+    public static void removerCliente(int clid) {
 
-            if (!removido)
-                ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
-
-        } else {
+        if (verificarExisteContrato(clid)) {
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EM_VIGENCIA_CLIENTE);
+            return;
         }
+
+        int indice = 0;
+        for (Cliente cliente : arrayClientes) {
+            if (cliente.getClid() == clid)
+                break;
+            indice++;
+        }
+
+        arrayClientes.remove(indice);
+        salvarClientes();
+    }
+
+    public static ArrayList<Cliente> getListaClientes(String busca) {
+        ArrayList<Cliente> array = new ArrayList<>();
+
+        for (Cliente cliente : arrayClientes) {
+            if (busca.isEmpty())
+                array.add(cliente);
+            else {
+                if (cliente.getNome().toUpperCase().contains(busca.toUpperCase()))
+                    array.add(cliente);
+            }
+        }
+        return array;
     }
 }

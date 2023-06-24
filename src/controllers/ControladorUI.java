@@ -64,11 +64,14 @@ public abstract class ControladorUI implements Dimensoes {
     public static void exibirDialogoAlterarContratos(int contratoID) {
         Contrato contrato = BD.getContratoByID(contratoID);
 
-        instanciaDialogoTela = new DialogoAlterarContrato(contrato, BD.getImoveis(), BD.getClientes());
-        instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
-        instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_CONTRATO);
-        instanciaDialogoTela.setLocation(Dimensoes.getCentroTela(instanciaDialogoTela.getWidth(), instanciaDialogoTela.getHeight()));
-        instanciaDialogoTela.setVisible(true);
+        if (ControladorImoveis.imoveisDisponiveis()) {
+            instanciaDialogoTela = new DialogoAlterarContrato(contrato, BD.getImoveis(), BD.getClientes());
+            instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
+            instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_CONTRATO);
+            instanciaDialogoTela.setLocation(Dimensoes.getCentroTela(instanciaDialogoTela.getWidth(), instanciaDialogoTela.getHeight()));
+            instanciaDialogoTela.setVisible(true);
+        }else
+            exibirDialogoMensagens(Strings.MENSAGEM_IMOVEL_INDISPONIVEIS);
     }
 
     public static void exibirDialogoAlterarFuncionarios(int funcionarioID) {

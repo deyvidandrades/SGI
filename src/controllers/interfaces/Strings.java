@@ -3,7 +3,7 @@ package controllers.interfaces;
 public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
-    String VERSAO = "0.1.8";
+    String VERSAO = "0.1.9";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//

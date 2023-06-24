@@ -78,7 +78,7 @@ public class DialogoAlterarCliente extends JDialog {
             if (cliente == null)
                 ControladorClientes.adicionarCliente(fieldNome.getText(), fieldEmail.getText(), fieldCPF.getText(), fieldRenda.getText());
             else
-                ControladorClientes.atualizarCliente(cliente.getClid(), fieldNome.getText(), fieldEmail.getText(), fieldCPF.getText(), fieldRenda.getText());
+                ControladorClientes.atualizarCliente(fieldNome.getText(), fieldEmail.getText(), fieldCPF.getText(), fieldRenda.getText());
 
             ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
             dispose();

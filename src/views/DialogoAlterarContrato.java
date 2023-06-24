@@ -29,17 +29,11 @@ public class DialogoAlterarContrato extends JDialog {
     private JPanel panelTermino;
     private JLabel lblVigencia;
 
-    private final ButtonGroup grupoBtnRadio = new ButtonGroup();
-
     @SuppressWarnings("deprecation")
     public DialogoAlterarContrato(Contrato contrato, ArrayList<Imovel> imoveis, ArrayList<Cliente> clientes) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
-
-
-        grupoBtnRadio.add(radioDisponivelVenda);
-        grupoBtnRadio.add(radioDisponivelLocacao);
 
         for (int i = 0; i <= 10; i++) {
             comboVigencia.addItem(String.valueOf(i));
@@ -49,7 +43,8 @@ public class DialogoAlterarContrato extends JDialog {
             comboCliente.addItem(cliente.getClid() + ": " + cliente.getCpf() + " - " + cliente.getNome());
 
         for (Imovel imovel : imoveis)
-            comboImoveis.addItem(imovel.getImid() + ": " + imovel.getEndereco());
+            if (imovel.isDisponivel())
+                comboImoveis.addItem(imovel.getImid() + ": " + imovel.getEndereco());
 
         fieldDataCriacao.setEditable(contrato == null);
         fieldDataTermino.setEditable(contrato == null);
@@ -87,6 +82,10 @@ public class DialogoAlterarContrato extends JDialog {
             setTitle(Strings.CADASTRAR_CONTRATO);
         }
 
+        ButtonGroup grupoBtnRadio = new ButtonGroup();
+        grupoBtnRadio.add(radioDisponivelVenda);
+        grupoBtnRadio.add(radioDisponivelLocacao);
+
         btnCancelar.addActionListener(e -> dispose());
 
         btnSalvar.addActionListener(e -> {
@@ -116,12 +115,12 @@ public class DialogoAlterarContrato extends JDialog {
                         contrato.getImovel(),
                         simple.format(contrato.getDataInicio()),
                         simple.format(dataUpdate),
-                        grupoBtnRadio.getSelection().isSelected()
+                        radioDisponivelVenda.isSelected()
                 );
-
-                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-                dispose();
             }
+
+            ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+            dispose();
         });
     }
 }

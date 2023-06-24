@@ -72,9 +72,9 @@ public class TelaDashboard implements FrameInterface {
 
         lblTipoFuncionario.setText(funcionarioLogado.isGerente() ? Strings.GERENTE : Strings.FUNCIONARIO);
         lblStats.setText(
-                ControladorClientes.listarClientes().size() + Strings.CLIENTES + " | " +
-                        ControladorContratos.listarContratos().size() + Strings.CONTRATOS + " | " +
-                        ControladorImoveis.listarImoveis().size() + Strings.IMOVEIS
+                ControladorClientes.getListaClientes("").size() + Strings.CLIENTES + " | " +
+                        ControladorContratos.getListaContratos("").size() + Strings.CONTRATOS + " | " +
+                        ControladorImoveis.getListaImoveis("").size() + Strings.IMOVEIS
         );
 
         btnCadastrarContrato.setEnabled(funcionarioLogado.isGerente());
@@ -97,10 +97,10 @@ public class TelaDashboard implements FrameInterface {
     }
 
     public void atualizarDadosTabelas() {
-        configurarTabelaClientes(false);
-        configurarTabelaImoveis(false);
-        configurarTabelaContratos(false);
-        configurarTabelaFuncionarios(false);
+        configurarTabelaClientes();
+        configurarTabelaImoveis();
+        configurarTabelaContratos();
+        configurarTabelaFuncionarios();
     }
 
     private void inicializarTabelas() {
@@ -156,7 +156,7 @@ public class TelaDashboard implements FrameInterface {
         buscarClientes.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaClientes(true);
+                configurarTabelaClientes();
             }
 
             @Override
@@ -173,7 +173,7 @@ public class TelaDashboard implements FrameInterface {
         buscarImoveis.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaImoveis(true);
+                configurarTabelaImoveis();
             }
 
             @Override
@@ -190,7 +190,7 @@ public class TelaDashboard implements FrameInterface {
         buscarContratos.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaContratos(true);
+                configurarTabelaContratos();
             }
 
             @Override
@@ -207,7 +207,7 @@ public class TelaDashboard implements FrameInterface {
         buscarFuncionarios.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaFuncionarios(true);
+                configurarTabelaFuncionarios();
             }
 
             @Override
@@ -222,7 +222,7 @@ public class TelaDashboard implements FrameInterface {
         });
     }
 
-    private void configurarTabelaClientes(boolean busca) {
+    private void configurarTabelaClientes() {
         DefaultTableModel model = new DefaultTableModel() {
 
             @Override
@@ -236,15 +236,8 @@ public class TelaDashboard implements FrameInterface {
             model.addColumn(name);
         }
 
-        for (Cliente cliente : ControladorClientes.listarClientes()) {
-            if (busca && !buscarClientes.getText().isEmpty()) {
-                if (cliente.getNome().toUpperCase().contains(buscarClientes.getText().toUpperCase())) {
-                    model.addRow(cliente.toObject());
-                }
-            } else {
-                model.addRow(cliente.toObject());
-            }
-        }
+        for (Cliente cliente : ControladorClientes.getListaClientes(buscarClientes.getText()))
+            model.addRow(cliente.toObject());
 
         tabelaClientes.setModel(model);
 
@@ -254,7 +247,7 @@ public class TelaDashboard implements FrameInterface {
         tabelaClientes.getColumnModel().getColumn(0).setWidth(0);
     }
 
-    private void configurarTabelaImoveis(boolean busca) {
+    private void configurarTabelaImoveis() {
         DefaultTableModel model = new DefaultTableModel() {
 
             @Override
@@ -268,15 +261,8 @@ public class TelaDashboard implements FrameInterface {
             model.addColumn(name);
         }
 
-        for (Imovel imovel : ControladorImoveis.listarImoveis()) {
-            if (busca && !buscarImoveis.getText().isEmpty()) {
-                if (imovel.getEndereco().toUpperCase().contains(buscarImoveis.getText().toUpperCase())) {
-                    model.addRow(imovel.toObject());
-                }
-            } else {
-                model.addRow(imovel.toObject());
-            }
-        }
+        for (Imovel imovel : ControladorImoveis.getListaImoveis(buscarImoveis.getText()))
+            model.addRow(imovel.toObject());
 
         tabelaImoveis.setModel(model);
 
@@ -285,7 +271,7 @@ public class TelaDashboard implements FrameInterface {
         tabelaImoveis.getColumnModel().getColumn(0).setWidth(0);
     }
 
-    private void configurarTabelaContratos(boolean busca) {
+    private void configurarTabelaContratos() {
         DefaultTableModel model = new DefaultTableModel() {
 
             @Override
@@ -299,15 +285,10 @@ public class TelaDashboard implements FrameInterface {
             model.addColumn(name);
         }
 
-        for (Contrato contrato : ControladorContratos.listarContratos()) {
-            if (busca && !buscarContratos.getText().isEmpty()) {
-                if (contrato.getImovel().getEndereco().toUpperCase().contains(buscarContratos.getText().toUpperCase())) {
-                    model.addRow(contrato.toObject());
-                }
-            } else {
-                model.addRow(contrato.toObject());
-            }
-        }
+
+        for (Contrato contrato : ControladorContratos.getListaContratos(buscarContratos.getText()))
+            model.addRow(contrato.toObject());
+
 
         tabelaContratos.setModel(model);
 
@@ -316,7 +297,7 @@ public class TelaDashboard implements FrameInterface {
         tabelaContratos.getColumnModel().getColumn(0).setWidth(0);
     }
 
-    private void configurarTabelaFuncionarios(boolean busca) {
+    private void configurarTabelaFuncionarios() {
         System.out.println(buscarFuncionarios.getText().toUpperCase());
         DefaultTableModel model = new DefaultTableModel() {
 
@@ -331,15 +312,8 @@ public class TelaDashboard implements FrameInterface {
             model.addColumn(name);
         }
 
-        for (Funcionario funcionario : ControladorFuncionarios.listarFuncionarios()) {
-            if (busca && !buscarFuncionarios.getText().isEmpty()) {
-                if (funcionario.getNome().toUpperCase().contains(buscarFuncionarios.getText().toUpperCase())) {
-                    model.addRow(funcionario.toObject());
-                }
-            } else {
-                model.addRow(funcionario.toObject());
-            }
-        }
+        for (Funcionario funcionario : ControladorFuncionarios.getListaFuncionarios(buscarFuncionarios.getText()))
+            model.addRow(funcionario.toObject());
 
         tabelaFuncionarios.setModel(model);
 
