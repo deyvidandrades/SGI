@@ -16,11 +16,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public interface SGIBD {
-    File file = new File(Strings.DADOS);
+public final class SGIBD {
+
+    private static SGIBD INSTANCIA;
+    private static final File file = new File(Strings.DADOS);
+
+    private SGIBD() {}
+
+    public static synchronized SGIBD getInstance() {
+        if (INSTANCIA == null) {
+            INSTANCIA = new SGIBD();
+        }
+
+        return INSTANCIA;
+    }
 
     /*ACESSO AOS DADOS*/
-    static JSONArray carregarDados(String key) {
+    private JSONArray carregarDados(String key) {
         String content = "";
 
         try {
@@ -32,7 +44,7 @@ public interface SGIBD {
         return new JSONObject(content).getJSONObject(Strings.DADOS_RAIZ).getJSONArray(key);
     }
 
-    static boolean salvarDados(String key, JSONObject novoObjeto) {
+    private boolean salvarDados(String key, JSONObject novoObjeto) {
 
         if (novoObjeto == null)
             return false;
@@ -71,7 +83,7 @@ public interface SGIBD {
         }
     }
 
-    static boolean removerDados(String key, int objectId) {
+    private boolean removerDados(String key, int objectId) {
 
         JSONArray arrayFuncionarios = carregarDados(Strings.DADOS_FUNCIONARIOS);
         JSONArray arrayClientes = carregarDados(Strings.DADOS_CLIENTES);
@@ -127,7 +139,7 @@ public interface SGIBD {
         }
     }
 
-    static JSONArray removerItemArray(JSONArray array, String key, int objectId) {
+    private JSONArray removerItemArray(JSONArray array, String key, int objectId) {
         int i = 0;
         boolean encontrou = false;
         while (i < array.length() && !encontrou) {
@@ -145,7 +157,7 @@ public interface SGIBD {
     }
 
     /*FLUXO DE FUNCIONARIOS*/
-    static ArrayList<Funcionario> getFuncionarios() {
+    public ArrayList<Funcionario> getFuncionarios() {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
         for (Object object : carregarDados(Strings.DADOS_FUNCIONARIOS)) {
@@ -167,7 +179,7 @@ public interface SGIBD {
         return funcionarios;
     }
 
-    static Funcionario getFuncionarioByID(int funcionarioID) {
+    public Funcionario getFuncionarioByID(int funcionarioID) {
         for (Funcionario funcionario : getFuncionarios()) {
             if (funcionario.getFuid() == funcionarioID)
                 return funcionario;
@@ -176,7 +188,7 @@ public interface SGIBD {
         return null;
     }
 
-    static boolean adicionarFuncionario(Funcionario novoFuncionario) {
+    public boolean adicionarFuncionario(Funcionario novoFuncionario) {
         for (Funcionario funcionario : getFuncionarios()) {
             if (funcionario.getCpf().equals(novoFuncionario.getCpf()))
                 return atualizarFuncionario(novoFuncionario);
@@ -185,22 +197,22 @@ public interface SGIBD {
         return salvarDados(Strings.DADOS_FUNCIONARIOS, new JSONObject(novoFuncionario.toString()));
     }
 
-    static boolean atualizarFuncionario(Funcionario novoFuncionario) {
+    public boolean atualizarFuncionario(Funcionario novoFuncionario) {
         removerFuncionario(novoFuncionario.getFuid());
         return salvarDados(Strings.DADOS_FUNCIONARIOS, new JSONObject(novoFuncionario.toString()));
     }
 
-    static int getProximoIdFuncionario() {
+    public int getProximoIdFuncionario() {
         return getFuncionarios().get(getFuncionarios().size() - 1).getFuid() + 1;
     }
 
-    static boolean removerFuncionario(int fuid) {
+    public boolean removerFuncionario(int fuid) {
         return removerDados(Strings.DADOS_FUNCIONARIOS, fuid);
     }
 
 
     /*FLUXO DE CLIENTES*/
-    static ArrayList<Cliente> getClientes() {
+    public ArrayList<Cliente> getClientes() {
         ArrayList<Cliente> clientes = new ArrayList<>();
 
         for (Object object : carregarDados(Strings.DADOS_CLIENTES)) {
@@ -222,11 +234,11 @@ public interface SGIBD {
 
     }
 
-    static int getProximoIdCliente() {
+    public int getProximoIdCliente() {
         return getClientes().get(getClientes().size() - 1).getClid() + 1;
     }
 
-    static boolean adicionarCliente(Cliente novoCliente) {
+    public boolean adicionarCliente(Cliente novoCliente) {
         for (Cliente cliente : getClientes()) {
             if (cliente.getCpf().equals(novoCliente.getCpf()))
                 return false;
@@ -235,16 +247,16 @@ public interface SGIBD {
         return salvarDados(Strings.DADOS_CLIENTES, new JSONObject(novoCliente.toString()));
     }
 
-    static boolean atualizarCliente(Cliente cliente) {
+    public boolean atualizarCliente(Cliente cliente) {
         removerCliente(cliente.getClid());
         return salvarDados(Strings.DADOS_CLIENTES, new JSONObject(cliente.toString()));
     }
 
-    static boolean removerCliente(int clid) {
+    public boolean removerCliente(int clid) {
         return removerDados(Strings.DADOS_CLIENTES, clid);
     }
 
-    static Cliente getClienteByID(int id) {
+    public Cliente getClienteByID(int id) {
         for (Cliente cliente : getClientes()) {
             if (cliente.getClid() == id)
                 return cliente;
@@ -254,7 +266,7 @@ public interface SGIBD {
     }
 
     /*FLUXO DE IMOVEIS*/
-    static ArrayList<Imovel> getImoveis() {
+    public ArrayList<Imovel> getImoveis() {
         ArrayList<Imovel> imoveis = new ArrayList<>();
 
         for (Object object : carregarDados(Strings.DADOS_IMOVEIS)) {
@@ -279,7 +291,7 @@ public interface SGIBD {
 
     }
 
-    static Imovel getImovelByID(int id) {
+    public Imovel getImovelByID(int id) {
         for (Imovel imovel : getImoveis()) {
             if (imovel.getImid() == id)
                 return imovel;
@@ -288,11 +300,11 @@ public interface SGIBD {
         return null;
     }
 
-    static int getProximoIdImovel() {
+    public int getProximoIdImovel() {
         return getImoveis().get(getImoveis().size() - 1).getImid() + 1;
     }
 
-    static boolean adicionarImovel(Imovel novoImovel) {
+    public boolean adicionarImovel(Imovel novoImovel) {
         for (Imovel imovel : getImoveis()) {
             if (imovel.getEndereco().equals(novoImovel.getEndereco()))
                 return false;
@@ -301,17 +313,17 @@ public interface SGIBD {
         return salvarDados(Strings.DADOS_IMOVEIS, new JSONObject(novoImovel.toString()));
     }
 
-    static boolean atualizarImovel(Imovel imovel) {
+    public boolean atualizarImovel(Imovel imovel) {
         removerImovel(imovel.getImid());
         return salvarDados(Strings.DADOS_IMOVEIS, new JSONObject(imovel.toString()));
     }
 
-    static boolean removerImovel(int imid) {
+    public boolean removerImovel(int imid) {
         return removerDados(Strings.DADOS_IMOVEIS, imid);
     }
 
     /*FLUXO DE CONTRATOS*/
-    static ArrayList<Contrato> getContratos() {
+    public ArrayList<Contrato> getContratos() {
         ArrayList<Contrato> contratos = new ArrayList<>();
 
         for (Object object : carregarDados(Strings.DADOS_CONTRATOS)) {
@@ -332,7 +344,7 @@ public interface SGIBD {
         return contratos;
     }
 
-    static Contrato getContratoByID(int id) {
+    public Contrato getContratoByID(int id) {
         for (Contrato contrato : getContratos()) {
             if (contrato.getCoid() == id)
                 return contrato;
@@ -341,11 +353,11 @@ public interface SGIBD {
         return null;
     }
 
-    static int getProximoIdContrato() {
+    public int getProximoIdContrato() {
         return getContratos().get(getContratos().size() - 1).getCoid() + 1;
     }
 
-    static boolean adicionarContrato(Contrato novoContrato) {
+    public boolean adicionarContrato(Contrato novoContrato) {
         for (Contrato contrato : getContratos()) {
             if (contrato.equals(novoContrato))
                 return false;
@@ -354,24 +366,24 @@ public interface SGIBD {
         return salvarDados(Strings.DADOS_CONTRATOS, new JSONObject(novoContrato.toString()));
     }
 
-    static boolean atualizarContrato(Contrato contrato) {
+    public boolean atualizarContrato(Contrato contrato) {
         removerContrato(contrato.getCoid());
         return salvarDados(Strings.DADOS_CONTRATOS, new JSONObject(contrato.toString()));
     }
 
-    static boolean removerContrato(int coid) {
+    public boolean removerContrato(int coid) {
         return removerDados(Strings.DADOS_CONTRATOS, coid);
     }
 
 
     /*FLUXO CONFIGURACOES*/
 
-    static Map<String, Object> carregarConfiguracoes() {
+    public Map<String, Object> carregarConfiguracoes() {
         JSONArray jsonArray = carregarDados(Strings.DADOS_CONFIGURACOES);
         return ((JSONObject) jsonArray.get(0)).toMap();
     }
 
-    static void salvarConfiguracao(int posicaoMenus, boolean temaEscuro) {
+    public void salvarConfiguracao(int posicaoMenus, boolean temaEscuro) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("posicaoMenus", posicaoMenus);
         jsonObject.put("temaEscuro", temaEscuro);

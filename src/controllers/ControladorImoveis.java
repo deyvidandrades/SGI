@@ -10,8 +10,9 @@ import java.util.ArrayList;
 public class ControladorImoveis {
 
 
+    private static final SGIBD BD = SGIBD.getInstance();
     public static ArrayList<Imovel> listarImoveis() {
-        return SGIBD.getImoveis();
+        return BD.getImoveis();
     }
 
     public static void adicionarImovel(String proprietario, String endereco, String valorLocacao, String valorVenda, String numeroQuartos, String numeroBanheiros, boolean locacao) {
@@ -19,7 +20,8 @@ public class ControladorImoveis {
         if (proprietario.isEmpty() || endereco.isEmpty() || valorLocacao.isEmpty() || valorVenda.isEmpty() || numeroQuartos.isEmpty() || numeroBanheiros.isEmpty())
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
         else {
-            boolean adicionado = SGIBD.adicionarImovel(new Imovel(
+            boolean adicionado = BD.adicionarImovel(new Imovel(
+                    BD.getProximoIdImovel(),
                     proprietario,
                     Double.parseDouble(valorLocacao),
                     Double.parseDouble(valorVenda),
@@ -40,7 +42,7 @@ public class ControladorImoveis {
         if (proprietario.isEmpty() || endereco.isEmpty() || valorLocacao.isEmpty() || valorVenda.isEmpty() || numeroQuartos.isEmpty() || numeroBanheiros.isEmpty())
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
         else {
-            boolean adicionado = SGIBD.atualizarImovel(new Imovel(
+            boolean adicionado = BD.atualizarImovel(new Imovel(
                     imid,
                     proprietario,
                     Double.parseDouble(valorLocacao.replace(",",".")),
@@ -60,7 +62,7 @@ public class ControladorImoveis {
     public static void removerImovel(int imid) {
         boolean temContrato = false;
 
-        for (Contrato contrato : SGIBD.getContratos()) {
+        for (Contrato contrato : BD.getContratos()) {
             if (contrato.getImovel().getImid() == imid) {
                 temContrato = true;
                 break;
@@ -69,7 +71,7 @@ public class ControladorImoveis {
 
         if (!temContrato) {
 
-            boolean removido = SGIBD.removerImovel(imid);
+            boolean removido = BD.removerImovel(imid);
 
             if (!removido)
                 ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);

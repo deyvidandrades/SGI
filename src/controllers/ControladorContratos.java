@@ -13,8 +13,10 @@ import java.util.Date;
 
 public class ControladorContratos {
 
+    private static final SGIBD BD = SGIBD.getInstance();
+
     public static ArrayList<Contrato> listarContratos() {
-        return SGIBD.getContratos();
+        return BD.getContratos();
     }
 
     public static void adicionarContrato(Cliente cliente, Imovel imovel, String dataCriacao, String dataFim, boolean tipo) {
@@ -26,7 +28,8 @@ public class ControladorContratos {
                 Date dataC = simpleDateFormat.parse(dataCriacao);
                 Date dataF = simpleDateFormat.parse(dataFim);
 
-                boolean adicionado = SGIBD.adicionarContrato(new Contrato(
+                boolean adicionado = BD.adicionarContrato(new Contrato(
+                        BD.getProximoIdContrato(),
                         cliente,
                         imovel,
                         dataC.getTime() * 1000,
@@ -52,7 +55,7 @@ public class ControladorContratos {
                 Date dataC = simpleDateFormat.parse(dataCriacao);
                 Date dataF = simpleDateFormat.parse(dataFim);
 
-                boolean adicionado = SGIBD.atualizarContrato(new Contrato(
+                boolean adicionado = BD.atualizarContrato(new Contrato(
                         coid,
                         cliente,
                         imovel,
@@ -71,7 +74,7 @@ public class ControladorContratos {
     }
 
     public static void removerContrato(int coid) {
-        boolean removido = SGIBD.removerContrato(coid);
+        boolean removido = BD.removerContrato(coid);
 
         if (!removido)
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO_REMOCAO);
