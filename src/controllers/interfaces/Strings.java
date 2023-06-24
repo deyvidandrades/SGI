@@ -49,16 +49,13 @@ public interface Strings {
     //MENSAGENS//
     String MENSAGEM_LOGIN_INVALIDO = "Nome ou senha inválido.";
     String MENSAGEM_ERRO = "Ocorreu um erro ao realizar a operação. A operação foi cancelada.";
-    String MENSAGEM_ERRO_REMOCAO = "Não foi possível remover o registro selecionado.";
-    String MENSAGEM_ERRO_REMOCAO_FUNCIONARIO_BASE = "Esse funcionário não pode ser removido!";
     String MENSAGEM_DADOS_INVALIDOS = "Dados inválidos. Verifique as informações e tente novamente.";
     String MENSAGEM_CLIENTE_EXISTENTE = "Não foi possível adicionar o cliente. (Cliente já existe)";
     String MENSAGEM_IMOVEL_EXISTENTE = "Não foi possível adicionar o cliente. (Imóvel já existe)";
     String MENSAGEM_FUNCIONARIO_EXISTENTE = "Não foi possível adicionar o cliente. (Funcionário já existe)";
-    String MENSAGEM_FUNCIONARIO_NAO_ATUALIZDO = "Não foi possível atualizar o funciário";
-    String MENSAGEM_CONTRATO_EXISTENTE = "Não foi possível adicionar o contrato. (Contrato já existe)";
     String MENSAGEM_CONTRATO_EM_VIGENCIA_CLIENTE = "Não é possível realizar a operação (Cliente possui contrato em vigencia)";
     String MENSAGEM_CONTRATO_EM_VIGENCIA_IMOVEL = "Não é possível realizar a operação (Imóvel possui contrato em vigencia)";
+    String MENSAGEM_IMOVEL_INDISPONIVEIS = "Não há imóveis disponíveis para locação ou venda.";
 
     //ARQUIVOS//
     String DADOS = "src/model/dados/dados.json";
