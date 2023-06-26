@@ -72,9 +72,9 @@ public class TelaDashboard implements FrameInterface {
 
         lblTipoFuncionario.setText(funcionarioLogado.isGerente() ? Strings.GERENTE : Strings.FUNCIONARIO);
         lblStats.setText(
-                ControladorClientes.getListaClientes("").size() + Strings.CLIENTES + " | " +
-                        ControladorContratos.getListaContratos("").size() + Strings.CONTRATOS + " | " +
-                        ControladorImoveis.getListaImoveis("").size() + Strings.IMOVEIS
+                ControladorClientes.getListaClientes("").size() + " " + Strings.CLIENTES + " | " +
+                        ControladorContratos.getListaContratos("").size()+ " " + Strings.CONTRATOS + " | " +
+                        ControladorImoveis.getListaImoveis("").size() + " " + Strings.IMOVEIS
         );
 
         btnCadastrarContrato.setEnabled(funcionarioLogado.isGerente());
