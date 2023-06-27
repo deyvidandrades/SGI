@@ -54,8 +54,8 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface, Cor
         buttonOK.addActionListener(e -> dispose());
     }
 
-
-    private void configurarCores() {
+    @Override
+    public void configurarCores() {
         contentPane.setBackground(BACKGROUND);
 
         panelTop.setBackground(PAINEIS);

@@ -98,7 +98,8 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
         });
     }
 
-    private void configurarCores() {
+    @Override
+    public void configurarCores() {
         contentPane.setBackground(BACKGROUND);
         panelTop.setBackground(PAINEIS);
         panelTop.setBorder(BORDA);

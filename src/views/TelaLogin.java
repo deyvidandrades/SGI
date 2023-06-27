@@ -9,12 +9,11 @@ import controllers.interfaces.Strings;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class TelaLogin implements FrameInterface ,Cores{
+public class TelaLogin implements FrameInterface, Cores {
 
     private JPanel panelBG;
     private JPasswordField passwordField1;
@@ -46,7 +45,8 @@ public class TelaLogin implements FrameInterface ,Cores{
 
     }
 
-    private void configurarCores() {
+    @Override
+    public void configurarCores() {
         panelBG.setBackground(BACKGROUND);
         panellogin.setBackground(PAINEIS);
         panellogin.setBorder(BORDA);

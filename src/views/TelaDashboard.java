@@ -142,8 +142,8 @@ public class TelaDashboard implements FrameInterface, Cores{
         btnCadastrarContrato.addActionListener(e -> ControladorUI.exibirDialogoAlterarContratos(-1));
         btnCadastrarFuncionario.addActionListener(e -> ControladorUI.exibirDialogoAlterarFuncionarios(-1));
     }
-
-    private void configurarCores() {
+    @Override
+    public void configurarCores() {
         panelBarraMenu.setBackground(PAINEIS);
         panelBarraMenu.setBorder(BORDA);
 

@@ -12,11 +12,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Tema escuro DialogoConfiguracoes">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Classees de interface implementando Cores.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Cores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Cores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoMensagem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoMensagem.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoMensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoMensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687889026302</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="* Tema escuro DialogoAlterarCliente">
+      <created>1687889854323</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687889854323</updated>
+    </task>
+    <task id="LOCAL-00027" summary="* Classees de interface implementando Cores.java">
+      <created>1687890113778</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1687890113778</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -365,6 +387,8 @@
     <MESSAGE value="- Remoção de boleano desnecessario" />
     <MESSAGE value="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
     <MESSAGE value="* Tema escuro DialogoConfiguracoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Tema escuro DialogoConfiguracoes" />
+    <MESSAGE value="* Tema escuro DialogoAlterarCliente" />
+    <MESSAGE value="* Classees de interface implementando Cores.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Classees de interface implementando Cores.java" />
   </component>
 </project>

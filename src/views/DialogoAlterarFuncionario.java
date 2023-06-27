@@ -124,4 +124,9 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
 
         });
     }
+
+    @Override
+    public void configurarCores() {
+
+    }
 }

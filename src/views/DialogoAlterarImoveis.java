@@ -138,4 +138,9 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
             }
         });
     }
+
+    @Override
+    public void configurarCores() {
+
+    }
 }

@@ -126,4 +126,9 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
             dispose();
         });
     }
+
+    @Override
+    public void configurarCores() {
+
+    }
 }
