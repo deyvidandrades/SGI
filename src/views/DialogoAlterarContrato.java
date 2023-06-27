@@ -28,6 +28,18 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
     private JPanel panelTermino;
     private JLabel lblVigencia;
     private JLabel lblTipoContrato;
+    private JLabel lblCliente;
+    private JLabel lblImovel;
+    private JLabel lblCriacao;
+    private JLabel lblTermino;
+    private JLabel lblTipo;
+    private JPanel panelHolderTipo;
+    private JPanel panelExtensao;
+    private JPanel panelHolderImovel;
+    private JPanel panelHolderCliente;
+    private JPanel panelTop;
+    private JPanel panelOpcoes;
+    private JPanel panelBot;
 
     private final ArrayList<Imovel> arrayImoveis = new ArrayList<>();
 
@@ -36,6 +48,7 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
+        configurarCores();
 
         for (int i = 0; i <= 10; i++) {
             comboVigencia.addItem(String.valueOf(i));
@@ -129,6 +142,37 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
 
     @Override
     public void configurarCores() {
+        contentPane.setBackground(BACKGROUND);
+        panelTop.setBackground(PAINEIS);
+        panelTop.setBorder(BORDA);
+        panelBot.setBackground(BACKGROUND);
+        panelOpcoes.setBackground(BACKGROUND);
+
+        panelHolderCliente.setBackground(PAINEIS);
+        panelHolderImovel.setBackground(PAINEIS);
+        panelHolderTipo.setBackground(PAINEIS);
+        panelExtensao.setBackground(PAINEIS);
+        panelCriacao.setBackground(PAINEIS);
+        panelTermino.setBackground(PAINEIS);
+
+        lblTipo.setForeground(TEXTO);
+        lblCliente.setForeground(TEXTO);
+        lblTipoContrato.setForeground(TEXTO);
+        lblCriacao.setForeground(TEXTO);
+        lblImovel.setForeground(TEXTO);
+        lblTermino.setForeground(TEXTO);
+        lblVigencia.setForeground(TEXTO);
+
+        comboImoveis.setBackground(PAINEIS);
+        comboImoveis.setBorder(BORDA);
+        comboImoveis.setForeground(TEXTO);
+        comboCliente.setBackground(PAINEIS);
+        comboCliente.setBorder(BORDA);
+        comboCliente.setForeground(TEXTO);
+        comboVigencia.setBackground(PAINEIS);
+        comboVigencia.setBorder(BORDA);
+        comboVigencia.setForeground(TEXTO);
+
 
     }
 }
