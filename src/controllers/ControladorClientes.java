@@ -108,4 +108,8 @@ public abstract class ControladorClientes {
         }
         return array;
     }
+
+    public static String getNumeroClientes() {
+        return (arrayClientes.size() > 0 ? arrayClientes.size() + " " + Strings.CLIENTES : Strings.NENHUM_CLIENTE) + " | ";
+    }
 }

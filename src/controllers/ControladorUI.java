@@ -11,11 +11,13 @@ import views.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 /*
  * Classe responsável por coordenar a exibição das interfaces gráficas
  */
-public abstract class ControladorUI implements Dimensoes {
+public abstract class ControladorUI extends ControladorAutenticacao implements Dimensoes {
     private static final SGIBD BD = SGIBD.getInstance();
 
     public static Funcionario funcionarioLogado;
@@ -63,9 +65,26 @@ public abstract class ControladorUI implements Dimensoes {
 
     public static void exibirDialogoAlterarContratos(int contratoID) {
         Contrato contrato = BD.getContratoByID(contratoID);
+        ArrayList<Imovel> arrayImoveis = contrato != null ? ControladorImoveis.getListaImoveis("") : ControladorImoveis.getListaImoveisDisponiveis();
+        ArrayList<Cliente> arrayClientes = ControladorClientes.getListaClientes("");
 
-        if (ControladorImoveis.imoveisDisponiveis()) {
-            instanciaDialogoTela = new DialogoAlterarContrato(contrato, BD.getImoveis(), BD.getClientes());
+        int posImovel = 0;
+        int posCliente = 0;
+
+        if (contrato != null) {
+            for (int i = 0; i < arrayImoveis.size(); i++) {
+                if (arrayImoveis.get(i).getImid() == contrato.getImovel().getImid())
+                    posImovel = i;
+            }
+            for (int i = 0; i < arrayClientes.size(); i++) {
+                if (arrayClientes.get(i).getClid() == contrato.getCliente().getClid())
+                    posCliente = i;
+            }
+        }
+
+
+        if (ControladorImoveis.imoveisDisponiveis() || contrato != null) {
+            instanciaDialogoTela = new DialogoAlterarContrato(contrato, arrayImoveis, arrayClientes, posImovel, posCliente);
             instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
             instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_CONTRATO);
             instanciaDialogoTela.setLocation(Dimensoes.getCentroTela(instanciaDialogoTela.getWidth(), instanciaDialogoTela.getHeight()));
@@ -77,7 +96,7 @@ public abstract class ControladorUI implements Dimensoes {
     public static void exibirDialogoAlterarFuncionarios(int funcionarioID) {
         Funcionario funcionario = BD.getFuncionarioByID(funcionarioID);
 
-        instanciaDialogoTela = new DialogoAlterarFuncionario(funcionario);
+        instanciaDialogoTela = new DialogoAlterarFuncionario(funcionario, funcionario != null ? converterDeB64(funcionario.getSenha()) : "");
         instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
         instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_FUNCIONARIO);
         instanciaDialogoTela.setLocation(Dimensoes.getCentroTela(instanciaDialogoTela.getWidth(), instanciaDialogoTela.getHeight()));
@@ -97,4 +116,11 @@ public abstract class ControladorUI implements Dimensoes {
         BD.salvarConfiguracao(pos + 1, (boolean) BD.carregarConfiguracoes().get("temaEscuro"));
     }
 
+    public static void mudarTema(boolean temaEscuro) {
+        BD.salvarConfiguracao((int) BD.carregarConfiguracoes().get("posicaoMenus"), temaEscuro);
+    }
+
+    public static Map<String, Object> getConfiguracoes() {
+        return BD.carregarConfiguracoes();
+    }
 }

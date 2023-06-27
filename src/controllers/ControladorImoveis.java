@@ -111,6 +111,16 @@ public abstract class ControladorImoveis {
         return array;
     }
 
+    public static ArrayList<Imovel> getListaImoveisDisponiveis() {
+        ArrayList<Imovel> array = new ArrayList<>();
+
+        for (Imovel imovel : arrayImoveis)
+            if (imovel.isDisponivel())
+                    array.add(imovel);
+
+        return array;
+    }
+
     public static void alterarDisponibilidade(int imid, boolean disponivel) {
         for (Imovel imovel : arrayImoveis)
             if (imovel.getImid() == imid)
@@ -125,5 +135,9 @@ public abstract class ControladorImoveis {
                 return true;
         }
         return false;
+    }
+
+    public static String getNumeroImoveis() {
+        return (arrayImoveis.size() > 0 ? arrayImoveis.size() + " " + Strings.IMOVEIS : Strings.NENHUM_IMOVEL) + " | ";
     }
 }
