@@ -6,7 +6,7 @@ import model.SGIBD;
 
 import java.util.ArrayList;
 
-public abstract class ControladorFuncionarios {
+public abstract class ControladorFuncionarios extends ControladorAutenticacao {
 
     private static final SGIBD BD = SGIBD.getInstance();
     private static final ArrayList<Funcionario> arrayFuncionarios = BD.getFuncionarios();
@@ -57,7 +57,7 @@ public abstract class ControladorFuncionarios {
                 funcionario.setNome(nome);
                 funcionario.setCpf(cpf);
                 funcionario.setEmail(email);
-                funcionario.setSenha(senha);
+                funcionario.setSenha(converterParaB64(senha));
                 funcionario.setSalario(Double.parseDouble(salario.replace(",", ".")));
                 funcionario.setGerente(gerente);
             }
@@ -91,5 +91,9 @@ public abstract class ControladorFuncionarios {
             }
         }
         return array;
+    }
+
+    public static String getNumeroFuncionarios() {
+        return (arrayFuncionarios.size() > 0 ? arrayFuncionarios.size() + " " + Strings.FUNCIONARIOS : Strings.NENHUM_FUNCIONARIO);
     }
 }
