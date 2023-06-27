@@ -12,19 +12,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Classees de interface implementando Cores.java">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Tema escuro DialogoAlterarFuncionario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Cores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Cores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarImoveis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoMensagem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoMensagem.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoMensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoMensagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,20 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;246&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dave/IdeaProjects/SGI&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "246",
+    "last_opened_file_path": "/home/dave/IdeaProjects/SGI",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/persistencia/dados" />
@@ -349,7 +342,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687890113778</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="* Classees de interface implementando Cores.java">
+      <created>1687890605322</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687890605322</updated>
+    </task>
+    <task id="LOCAL-00029" summary="* Tema escuro DialogoAlterarContrato">
+      <created>1687891243703</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687891243703</updated>
+    </task>
+    <task id="LOCAL-00030" summary="* Tema escuro DialogoAlterarFuncionario">
+      <created>1687891790659</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687891790659</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,8 +378,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="src" />
-    <MESSAGE value="* Correção de erro de tipo no ControladorImoveis.java" />
     <MESSAGE value="* atualização do executavel" />
     <MESSAGE value="+ Correção de erro ao deletar um imóvel ou cliente que possuia um contrato aberto. (ControladorClientes.java, ControladorImoveis.java )&#10;+ Adição de mensagens de erro no Strings.java&#10;* Atualização do executavel" />
     <MESSAGE value="+ Adição do padrão de projeto Singleton a classe de persistencia SGIBD.java" />
@@ -389,6 +401,8 @@
     <MESSAGE value="* Tema escuro DialogoConfiguracoes" />
     <MESSAGE value="* Tema escuro DialogoAlterarCliente" />
     <MESSAGE value="* Classees de interface implementando Cores.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Classees de interface implementando Cores.java" />
+    <MESSAGE value="* Tema escuro DialogoAlterarContrato" />
+    <MESSAGE value="* Tema escuro DialogoAlterarFuncionario" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Tema escuro DialogoAlterarFuncionario" />
   </component>
 </project>

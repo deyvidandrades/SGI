@@ -23,11 +23,29 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
     private JTextField fieldNumeroBanheiros;
     private JRadioButton radioDisponivelVenda;
     private JRadioButton radioDisponivelLocacao;
+    private JPanel panelTop;
+    private JPanel panelBot;
+    private JPanel panelOpcoes;
+    private JPanel panelHolderNome;
+    private JPanel panelHolderEndereco;
+    private JPanel panelHolderValorLocacao;
+    private JPanel panelHolderValorVenda;
+    private JPanel panelHolderQuartos;
+    private JPanel panelHolderBanheiros;
+    private JPanel panelHolderDisponibilidade;
+    private JLabel lblNome;
+    private JLabel lblEndereco;
+    private JLabel lblLocacao;
+    private JLabel lblVenda;
+    private JLabel lblQuartos;
+    private JLabel lblBanheiros;
+    private JLabel lblDisponibilidade;
 
     public DialogoAlterarImoveis(Imovel imovel) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
+        configurarCores();
 
         if (imovel != null) {
             setTitle(Strings.ALTERAR_IMOVEL);
@@ -141,6 +159,56 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
 
     @Override
     public void configurarCores() {
+        contentPane.setBackground(BACKGROUND);
+        panelTop.setBackground(PAINEIS);
+        panelTop.setBorder(BORDA);
+        panelBot.setBackground(BACKGROUND);
+        panelOpcoes.setBackground(BACKGROUND);
 
+        panelHolderNome.setBackground(PAINEIS);
+        panelHolderEndereco.setBackground(PAINEIS);
+        panelHolderValorLocacao.setBackground(PAINEIS);
+        panelHolderValorVenda.setBackground(PAINEIS);
+        panelHolderQuartos.setBackground(PAINEIS);
+        panelHolderBanheiros.setBackground(PAINEIS);
+        panelHolderDisponibilidade.setBackground(PAINEIS);
+
+        radioDisponivelLocacao.setBackground(PAINEIS);
+        radioDisponivelLocacao.setForeground(TEXTO);
+        radioDisponivelVenda.setBackground(PAINEIS);
+        radioDisponivelVenda.setForeground(TEXTO);
+
+        lblNome.setForeground(TEXTO);
+        lblEndereco.setForeground(TEXTO);
+        lblLocacao.setForeground(TEXTO);
+        lblVenda.setForeground(TEXTO);
+        lblQuartos.setForeground(TEXTO);
+        lblBanheiros.setForeground(TEXTO);
+        lblDisponibilidade.setForeground(TEXTO);
+
+
+        fieldNomeProprietario.setBackground(PAINEIS);
+        fieldNomeProprietario.setForeground(TEXTO);
+        fieldNomeProprietario.setBorder(BORDA);
+
+        fieldEndereco.setBackground(PAINEIS);
+        fieldEndereco.setForeground(TEXTO);
+        fieldEndereco.setBorder(BORDA);
+
+        fieldValorLocacao.setBackground(PAINEIS);
+        fieldValorLocacao.setForeground(TEXTO);
+        fieldValorLocacao.setBorder(BORDA);
+
+        fieldValorVenda.setBackground(PAINEIS);
+        fieldValorVenda.setForeground(TEXTO);
+        fieldValorVenda.setBorder(BORDA);
+
+        fieldNumeroQuartos.setBackground(PAINEIS);
+        fieldNumeroQuartos.setForeground(TEXTO);
+        fieldNumeroQuartos.setBorder(BORDA);
+
+        fieldNumeroBanheiros.setBackground(PAINEIS);
+        fieldNumeroBanheiros.setForeground(TEXTO);
+        fieldNumeroBanheiros.setBorder(BORDA);
     }
 }
