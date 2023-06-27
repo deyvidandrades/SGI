@@ -12,9 +12,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Atalização das configurações da ide">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Correção de formatação de texto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Dimensoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Dimensoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SGIBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SGIBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dados/dados.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dados/dados.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +100,11 @@
       <recent name="$PROJECT_DIR$/src/libs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controllers.interfaces" />
       <recent name="model" />
       <recent name="controllers" />
       <recent name="controllers.entidades" />
       <recent name="res.valores" />
-      <recent name="views" />
     </key>
   </component>
   <component name="RunManager" selected="JAR Application.JAR">
@@ -262,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687622762321</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="* Correção de formatação de texto">
+      <created>1687811732222</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687811732223</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,6 +318,7 @@
     <MESSAGE value="* Atualização do executavel&#10;* Atalização das configurações da ide" />
     <MESSAGE value="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários" />
     <MESSAGE value="* Atalização das configurações da ide" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Atalização das configurações da ide" />
+    <MESSAGE value="* Correção de formatação de texto" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Correção de formatação de texto" />
   </component>
 </project>
