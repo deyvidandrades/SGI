@@ -12,7 +12,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Tema escuro DialogoConfiguracoes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarCliente.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -315,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687888731916</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="* Tema escuro DialogoConfiguracoes">
+      <created>1687889026302</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687889026302</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,6 +364,7 @@
     <MESSAGE value="* Alterações de string e dimensoes" />
     <MESSAGE value="- Remoção de boleano desnecessario" />
     <MESSAGE value="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
-    <option name="LAST_COMMIT_MESSAGE" value="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
+    <MESSAGE value="* Tema escuro DialogoConfiguracoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Tema escuro DialogoConfiguracoes" />
   </component>
 </project>

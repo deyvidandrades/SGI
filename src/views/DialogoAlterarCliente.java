@@ -3,6 +3,7 @@ package views;
 import controllers.ControladorClientes;
 import controllers.ControladorUI;
 import controllers.entidades.Cliente;
+import controllers.interfaces.Cores;
 import controllers.interfaces.Strings;
 
 import javax.swing.*;
@@ -18,11 +19,23 @@ public class DialogoAlterarCliente extends JDialog {
     private JTextField fieldCPF;
     private JTextField fieldRenda;
     private JButton btnRemoverCliente;
+    private JPanel panelBot;
+    private JPanel panelTop;
+    private JPanel panelOpcoes;
+    private JPanel panelHolderNome;
+    private JPanel panelHolderCPF;
+    private JPanel panelHolderRenda;
+    private JPanel panelHolderEmail;
+    private JLabel lblNome;
+    private JLabel lblCPF;
+    private JLabel lblRenda;
+    private JLabel lblEmail;
 
     public DialogoAlterarCliente(Cliente cliente) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
+        configurarCores();
 
         if (cliente != null) {
             setTitle(Strings.ALTERAR_CLIENTE);
@@ -83,5 +96,43 @@ public class DialogoAlterarCliente extends JDialog {
             ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
             dispose();
         });
+    }
+
+    private void configurarCores() {
+        contentPane.setBackground(Cores.BACKGROUND);
+        panelTop.setBackground(Cores.PAINEIS);
+        panelTop.setBorder(Cores.BORDA);
+
+        panelBot.setBackground(Cores.BACKGROUND);
+        panelOpcoes.setBackground(Cores.BACKGROUND);
+
+
+        panelHolderNome.setBackground(Cores.PAINEIS);
+        panelHolderCPF.setBackground(Cores.PAINEIS);
+        panelHolderEmail.setBackground(Cores.PAINEIS);
+        panelHolderRenda.setBackground(Cores.PAINEIS);
+
+        fieldNome.setBackground(Cores.PAINEIS);
+        fieldNome.setForeground(Cores.TEXTO);
+        fieldNome.setBorder(Cores.BORDA);
+
+        fieldEmail.setBackground(Cores.PAINEIS);
+        fieldEmail.setForeground(Cores.TEXTO);
+        fieldEmail.setBorder(Cores.BORDA);
+
+        fieldRenda.setBackground(Cores.PAINEIS);
+        fieldRenda.setForeground(Cores.TEXTO);
+        fieldRenda.setBorder(Cores.BORDA);
+
+        fieldCPF.setBackground(Cores.PAINEIS);
+        fieldCPF.setForeground(Cores.TEXTO);
+        fieldCPF.setBorder(Cores.BORDA);
+
+        lblCPF.setForeground(Cores.TEXTO);
+        lblEmail.setForeground(Cores.TEXTO);
+        lblNome.setForeground(Cores.TEXTO);
+        lblRenda.setForeground(Cores.TEXTO);
+
+
     }
 }
