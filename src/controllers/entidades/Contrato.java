@@ -68,6 +68,7 @@ public class Contrato implements Serializavel {
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/
+    @Override
     public Object[] toObject() {
         DateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -80,7 +81,7 @@ public class Contrato implements Serializavel {
                 getCliente().getCpf(),
                 simple.format(getDataInicio()),
                 simple.format(getDataFim()),
-                getImovel().isVenda()? Strings.VENDA : Strings.LOCACAO
+                getImovel().isVenda() ? Strings.VENDA : Strings.LOCACAO
         };
     }
 

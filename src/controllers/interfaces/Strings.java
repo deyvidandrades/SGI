@@ -7,7 +7,7 @@ public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
     String SISTEMA_SGI = "sistemasgi";
-    String VERSAO = "0.2.1";
+    String VERSAO = "0.2.2";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//
@@ -83,4 +83,5 @@ public interface Strings {
 
     String TEMA_CLARO = "Tema claro";
     String TEMA_ESCURO = "Tema escuro";
+    String MENSAGEM_MUDAR_TEMA = "O tema será alterado na próxima inicialização do SGI.";
 }

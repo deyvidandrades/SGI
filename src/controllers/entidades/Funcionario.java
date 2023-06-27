@@ -80,6 +80,7 @@ public class Funcionario implements Serializavel {
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/
+    @Override
     public Object[] toObject() {
         return new Object[]{
                 getFuid(),
