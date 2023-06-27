@@ -37,8 +37,7 @@ public abstract class ControladorContratos {
                     cliente,
                     imovel,
                     dataC.getTime(),
-                    dataF.getTime(),
-                    tipo
+                    dataF.getTime()
             ));
 
             salvarContratos();
@@ -63,7 +62,6 @@ public abstract class ControladorContratos {
                     contrato.setImovel(imovel);
                     contrato.setDataInicio(dataC.getTime());
                     contrato.setDataFim(dataF.getTime());
-                    contrato.setTipo(tipo);
                 }
             }
 
@@ -88,18 +86,52 @@ public abstract class ControladorContratos {
         salvarContratos();
     }
 
-    public static ArrayList<Contrato> getListaContratos(String busca) {
+
+    public static ArrayList<Contrato> getListaContratosAtivos(String busca) {
         ArrayList<Contrato> array = new ArrayList<>();
 
         for (Contrato contrato : arrayContratos) {
-            if (busca.isEmpty())
-                array.add(contrato);
-            else {
-                if (contrato.getImovel().getEndereco().toUpperCase().contains(busca.toUpperCase()))
+            if (!contrato.isTerminado()) {
+                if (busca.isEmpty())
                     array.add(contrato);
+                else {
+                    if (contrato.getImovel().getEndereco().toUpperCase().contains(busca.toUpperCase()))
+                        array.add(contrato);
+                }
             }
         }
         return array;
+    }
+
+    public static ArrayList<Contrato> getListaContratosTerminados(String busca) {
+        ArrayList<Contrato> array = new ArrayList<>();
+
+        for (Contrato contrato : arrayContratos) {
+            if (contrato.isTerminado()) {
+                if (busca.isEmpty())
+                    array.add(contrato);
+                else {
+                    if (contrato.getImovel().getEndereco().toUpperCase().contains(busca.toUpperCase()))
+                        array.add(contrato);
+                }
+            }
+        }
+        return array;
+    }
+
+
+    public static String getNumeroContratos(boolean ativo) {
+        int countAtivos = 0;
+        int countTerminados = 0;
+
+        for (Contrato contrato : arrayContratos)
+            if (!contrato.isTerminado())
+                countAtivos++;
+            else
+                countTerminados ++;
+
+        return ativo ? (countAtivos > 0 ? countAtivos + " " + Strings.CONTRATOS_ATIVOS : Strings.NENHUM_CONTRATO_ATIVO) + " | " :
+                (countTerminados > 0 ? countTerminados + " " + Strings.CONTRATOS_TERMINADOS : Strings.NENHUM_CONTRATO_TERMINADO) + " | " ;
     }
 }
 
