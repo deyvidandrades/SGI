@@ -22,12 +22,27 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
     private JRadioButton radioGerente;
     private JRadioButton radioFuncionario;
     private JTextField fieldSalario;
+    private JPanel panelTop;
+    private JPanel panelBot;
+    private JPanel panelOpcoes;
+    private JPanel panelHolderNome;
+    private JPanel panelHolderCPF;
+    private JPanel panelHolderSalario;
+    private JPanel panelHolderEmail;
+    private JPanel panelHolderSenha;
+    private JPanel panelHolderCargo;
+    private JLabel lblNome;
+    private JLabel lblCPF;
+    private JLabel lblSalario;
+    private JLabel lblEmail;
+    private JLabel lblSenha;
+    private JLabel lblCargo;
 
     public DialogoAlterarFuncionario(Funcionario funcionario, String senha) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
-
+        configurarCores();
 
         btnRemoverFuncionario.setVisible(funcionario != null);
 
@@ -127,6 +142,49 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
 
     @Override
     public void configurarCores() {
+        contentPane.setBackground(BACKGROUND);
+        panelTop.setBackground(PAINEIS);
+        panelTop.setBorder(BORDA);
+        panelBot.setBackground(BACKGROUND);
+        panelOpcoes.setBackground(BACKGROUND);
 
+        panelHolderNome.setBackground(PAINEIS);
+        panelHolderCPF.setBackground(PAINEIS);
+        panelHolderSalario.setBackground(PAINEIS);
+        panelHolderEmail.setBackground(PAINEIS);
+        panelHolderSenha.setBackground(PAINEIS);
+        panelHolderCargo.setBackground(PAINEIS);
+
+        lblNome.setForeground(TEXTO);
+        lblCPF.setForeground(TEXTO);
+        lblSalario.setForeground(TEXTO);
+        lblEmail.setForeground(TEXTO);
+        lblSenha.setForeground(TEXTO);
+        lblCargo.setForeground(TEXTO);
+
+        radioGerente.setBackground(PAINEIS);
+        radioGerente.setForeground(TEXTO);
+        radioFuncionario.setBackground(PAINEIS);
+        radioFuncionario.setForeground(TEXTO);
+
+        fieldNome.setBackground(PAINEIS);
+        fieldNome.setForeground(TEXTO);
+        fieldNome.setBorder(BORDA);
+
+        fieldCPF.setBackground(PAINEIS);
+        fieldCPF.setForeground(TEXTO);
+        fieldCPF.setBorder(BORDA);
+
+        fieldSalario.setBackground(PAINEIS);
+        fieldSalario.setForeground(TEXTO);
+        fieldSalario.setBorder(BORDA);
+
+        fieldEmail.setBackground(PAINEIS);
+        fieldEmail.setForeground(TEXTO);
+        fieldEmail.setBorder(BORDA);
+
+        fieldSenha.setBackground(PAINEIS);
+        fieldSenha.setForeground(TEXTO);
+        fieldSenha.setBorder(BORDA);
     }
 }
