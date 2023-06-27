@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DialogoAlterarContrato extends JDialog implements Cores {
+    private final ArrayList<Imovel> arrayImoveis = new ArrayList<>();
     private JPanel contentPane;
     private JTextField fieldDataCriacao;
     private JComboBox<String> comboCliente;
@@ -40,8 +41,6 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
     private JPanel panelTop;
     private JPanel panelOpcoes;
     private JPanel panelBot;
-
-    private final ArrayList<Imovel> arrayImoveis = new ArrayList<>();
 
     @SuppressWarnings("deprecation")
     public DialogoAlterarContrato(Contrato contrato, ArrayList<Imovel> imoveis, ArrayList<Cliente> clientes, int posicaoImovel, int posicaoCliente) {

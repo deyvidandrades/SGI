@@ -116,7 +116,7 @@ public abstract class ControladorImoveis {
 
         for (Imovel imovel : arrayImoveis)
             if (imovel.isDisponivel())
-                    array.add(imovel);
+                array.add(imovel);
 
         return array;
     }

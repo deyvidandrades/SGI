@@ -128,10 +128,10 @@ public abstract class ControladorContratos {
             if (!contrato.isTerminado())
                 countAtivos++;
             else
-                countTerminados ++;
+                countTerminados++;
 
         return ativo ? (countAtivos > 0 ? countAtivos + " " + Strings.CONTRATOS_ATIVOS : Strings.NENHUM_CONTRATO_ATIVO) + " | " :
-                (countTerminados > 0 ? countTerminados + " " + Strings.CONTRATOS_TERMINADOS : Strings.NENHUM_CONTRATO_TERMINADO) + " | " ;
+                (countTerminados > 0 ? countTerminados + " " + Strings.CONTRATOS_TERMINADOS : Strings.NENHUM_CONTRATO_TERMINADO) + " | ";
     }
 }
 

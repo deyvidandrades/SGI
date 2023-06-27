@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class TelaDashboard implements FrameInterface, Cores{
+public class TelaDashboard implements FrameInterface, Cores {
 
     public JPanel panel1;
     private JTable tabelaClientes;
@@ -142,6 +142,7 @@ public class TelaDashboard implements FrameInterface, Cores{
         btnCadastrarContrato.addActionListener(e -> ControladorUI.exibirDialogoAlterarContratos(-1));
         btnCadastrarFuncionario.addActionListener(e -> ControladorUI.exibirDialogoAlterarFuncionarios(-1));
     }
+
     @Override
     public void configurarCores() {
         panelBarraMenu.setBackground(PAINEIS);
@@ -252,7 +253,6 @@ public class TelaDashboard implements FrameInterface, Cores{
         buscarFuncionarios.setBackground(PAINEIS);
         buscarFuncionarios.setForeground(TEXTO);
         buscarFuncionarios.setBorder(BORDA);
-
 
 
         lblAcesso.setForeground(TEXTO);
