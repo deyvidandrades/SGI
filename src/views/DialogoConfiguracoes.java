@@ -42,11 +42,11 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface, Cor
         comboTemaEscuro.addItem(Strings.TEMA_CLARO);
         comboTemaEscuro.addItem(Strings.TEMA_ESCURO);
 
-        comboPosicaoMenus.addItemListener(e -> ControladorUI.mudarPosicaoMenus(comboPosicaoMenus.getSelectedIndex()));
-        comboTemaEscuro.addItemListener(e -> ControladorUI.mudarTema(comboTemaEscuro.getSelectedIndex() == 1));
-
         comboPosicaoMenus.setSelectedIndex((int) ControladorUI.getConfiguracoes().get("posicaoMenus") - 1);
         comboTemaEscuro.setSelectedIndex((boolean) ControladorUI.getConfiguracoes().get("temaEscuro") ? 1 : 0);
+
+        comboPosicaoMenus.addItemListener(e -> ControladorUI.mudarPosicaoMenus(comboPosicaoMenus.getSelectedIndex()));
+        comboTemaEscuro.addItemListener(e -> ControladorUI.mudarTema(comboTemaEscuro.getSelectedIndex() == 1));
 
         lblVersao.setText(Strings.VERSAO);
         lblDesenvolvidoPor.setText(Strings.FOOTER);

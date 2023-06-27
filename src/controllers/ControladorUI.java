@@ -118,6 +118,7 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
 
     public static void mudarTema(boolean temaEscuro) {
         BD.salvarConfiguracao((int) BD.carregarConfiguracoes().get("posicaoMenus"), temaEscuro);
+        exibirDialogoMensagens(Strings.MENSAGEM_MUDAR_TEMA);
     }
 
     public static Map<String, Object> getConfiguracoes() {
