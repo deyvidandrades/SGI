@@ -7,6 +7,13 @@
         "clid": 1,
         "dataInicio": 1687230000000,
         "imid": 0
+      },
+      {
+        "dataFim": 1877223600000,
+        "coid": 1,
+        "clid": 2,
+        "dataInicio": 1687834800000,
+        "imid": 2
       }
     ],
     "funcionarios": [
@@ -35,7 +42,7 @@
         "fuid": 1,
         "nome": "Deyvid Andrade",
         "email": "deyvid@sgi.com",
-        "gerente": true
+        "gerente": false
       },
       {
         "senha": "am9hb3Npc3RlbWFzZ2k=",
@@ -99,6 +106,17 @@
         "numQuartos": 1,
         "imid": 1,
         "numBanheiros": 1
+      },
+      {
+        "venda": false,
+        "endereco": "Rua ferreira silva",
+        "valorVenda": 125000,
+        "valorLocacao": 852,
+        "disponivel": false,
+        "nomeProprietario": "Francisco de Souza",
+        "numQuartos": 2,
+        "imid": 2,
+        "numBanheiros": 3
       }
     ],
     "configuracoes": [
