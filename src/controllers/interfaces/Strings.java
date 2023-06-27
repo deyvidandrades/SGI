@@ -1,9 +1,13 @@
 package controllers.interfaces;
 
+/*
+ * Classe responsável por armazenar as strings da UI
+ */
 public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
-    String VERSAO = "0.1.9";
+    String SISTEMA_SGI = "sistemasgi";
+    String VERSAO = "0.2.1";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//
@@ -25,8 +29,18 @@ public interface Strings {
     String MENU_ESQUERDA = "Esquerda";
     String IMOVEIS = "Imóveis";
     String CLIENTES = "Clientes";
-    String CONTRATOS = "Contratos";
+    String NENHUM_CLIENTE = "Nenhum cliente cadastrado";
+
+    String NENHUM_CONTRATO_ATIVO = "Nenhum contrato em vigência";
+    String NENHUM_CONTRATO_TERMINADO = "Nenhum contrato terminado";
+    String NENHUM_FUNCIONARIO = "Nenhum funcionário cadastrado";
+    String NENHUM_IMOVEL = "Nenhum imóvel cadastrado";
+    String CONTRATOS_ATIVOS = "Contratos em vigência";
+    String CONTRATOS_TERMINADOS = "Contratos terminados";
     String GERENTE = "Gerente";
+    String VENDA = "Venda";
+    String LOCACAO = "Locação";
+    String FUNCIONARIOS = "Funcionários";
     String FUNCIONARIO = "Funcionário";
     String FOOTER = "por Deyvid Andrade e Klebrer Halley";
 
@@ -67,4 +81,6 @@ public interface Strings {
     String ICONE_CONFIGURACOES = "src/views/imagens/settings-16.png";
     String ICONE_ATUALIZAR = "src/views/imagens/refresh-16.png";
 
+    String TEMA_CLARO = "Tema claro";
+    String TEMA_ESCURO = "Tema escuro";
 }
