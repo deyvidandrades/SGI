@@ -15,7 +15,7 @@ public interface Dimensoes {
     Dimension DIALOGO_MENSAGEM = new Dimension(500, 115);
     Dimension DIALOGO_CONFIGURACOES = new Dimension(450, 380);
     Dimension DIALOGO_ALTERAR_CLIENTE = new Dimension(400, 400);
-    Dimension DIALOGO_ALTERAR_IMOVEL = new Dimension(400, 400);
+    Dimension DIALOGO_ALTERAR_IMOVEL = new Dimension(400, 420);
     Dimension DIALOGO_ALTERAR_CONTRATO = new Dimension(550, 350);
     Dimension DIALOGO_ALTERAR_FUNCIONARIO = new Dimension(520, 280);
 

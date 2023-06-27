@@ -12,30 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Correção de formatação de texto">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/entidades/Contrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Dimensoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Dimensoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/interfaces/Strings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/SGIBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SGIBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dados/dados.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dados/dados.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoConfiguracoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TelaLogin.java" afterDir="false" />
-    </list>
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -289,7 +266,56 @@
       <option name="project" value="LOCAL" />
       <updated>1687811732223</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="+ Adição de tema escuro">
+      <created>1687888546488</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888546488</updated>
+    </task>
+    <task id="LOCAL-00019" summary="+ Adição de hash de senha">
+      <created>1687888585401</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888585401</updated>
+    </task>
+    <task id="LOCAL-00020" summary="+ Adição funcao de contratos ativos e terminados">
+      <created>1687888622919</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888622919</updated>
+    </task>
+    <task id="LOCAL-00021" summary="+ Adição funcao de get numero de itens">
+      <created>1687888648024</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888648024</updated>
+    </task>
+    <task id="LOCAL-00022" summary="* Alterações de string e dimensoes">
+      <created>1687888662081</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888662081</updated>
+    </task>
+    <task id="LOCAL-00023" summary="- Remoção de boleano desnecessario">
+      <created>1687888697773</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888697773</updated>
+    </task>
+    <task id="LOCAL-00024" summary="* update executavel&#10;* update dados&#10;* update configuracoes ide">
+      <created>1687888731916</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687888731916</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,6 +345,13 @@
     <MESSAGE value="* Atalização das configurações da ide&#10;* Remoção de comentários desnecessários" />
     <MESSAGE value="* Atalização das configurações da ide" />
     <MESSAGE value="* Correção de formatação de texto" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Correção de formatação de texto" />
+    <MESSAGE value="+ Adição de tema escuro" />
+    <MESSAGE value="+ Adição de hash de senha" />
+    <MESSAGE value="+ Adição funcao de contratos ativos e terminados" />
+    <MESSAGE value="+ Adição funcao de get numero de itens" />
+    <MESSAGE value="* Alterações de string e dimensoes" />
+    <MESSAGE value="- Remoção de boleano desnecessario" />
+    <MESSAGE value="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
+    <option name="LAST_COMMIT_MESSAGE" value="* update executavel&#10;* update dados&#10;* update configuracoes ide" />
   </component>
 </project>

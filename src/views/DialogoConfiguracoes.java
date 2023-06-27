@@ -23,6 +23,9 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface {
     private JLabel lblConfiguracoes;
     private JLabel lblPosicao;
     private JLabel lblTema;
+    private JLabel lblTitulo;
+    private JLabel lblDescricao;
+    private JLabel lblVersao1;
 
     public DialogoConfiguracoes() {
         setContentPane(contentPane);
@@ -70,6 +73,15 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface {
         comboTemaEscuro.setBackground(Cores.PAINEIS);
         comboTemaEscuro.setBorder(Cores.BORDA);
         comboTemaEscuro.setForeground(Cores.TEXTO);
+
+        lblConfiguracoes.setForeground(Cores.TEXTO);
+        lblPosicao.setForeground(Cores.TEXTO);
+        lblTema.setForeground(Cores.TEXTO);
+        lblTitulo.setForeground(Cores.TEXTO);
+        lblDescricao.setForeground(Cores.TEXTO);
+        lblVersao1.setForeground(Cores.TEXTO);
+        lblVersao.setForeground(Cores.TEXTO);
+        lblDesenvolvidoPor.setForeground(Cores.TEXTO);
 
         panelBot.setBackground(Cores.BACKGROUND);
     }
