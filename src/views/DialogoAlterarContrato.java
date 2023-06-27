@@ -18,8 +18,6 @@ public class DialogoAlterarContrato extends JDialog {
     private JTextField fieldDataCriacao;
     private JComboBox<String> comboCliente;
     private JComboBox<String> comboImoveis;
-    private JRadioButton radioDisponivelVenda;
-    private JRadioButton radioDisponivelLocacao;
     private JComboBox<String> comboVigencia;
     private JButton btnSalvar;
     private JButton btnRemoverContrato;
@@ -28,9 +26,12 @@ public class DialogoAlterarContrato extends JDialog {
     private JPanel panelCriacao;
     private JPanel panelTermino;
     private JLabel lblVigencia;
+    private JLabel lblTipoContrato;
+
+    private final ArrayList<Imovel> arrayImoveis = new ArrayList<>();
 
     @SuppressWarnings("deprecation")
-    public DialogoAlterarContrato(Contrato contrato, ArrayList<Imovel> imoveis, ArrayList<Cliente> clientes) {
+    public DialogoAlterarContrato(Contrato contrato, ArrayList<Imovel> imoveis, ArrayList<Cliente> clientes, int posicaoImovel, int posicaoCliente) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
@@ -39,12 +40,16 @@ public class DialogoAlterarContrato extends JDialog {
             comboVigencia.addItem(String.valueOf(i));
         }
 
-        for (Cliente cliente : clientes)
+        for (Cliente cliente : clientes) {
             comboCliente.addItem(cliente.getClid() + ": " + cliente.getCpf() + " - " + cliente.getNome());
+        }
 
-        for (Imovel imovel : imoveis)
-            if (imovel.isDisponivel())
+        for (Imovel imovel : imoveis) {
+            if (imovel.isDisponivel() || contrato != null) {
                 comboImoveis.addItem(imovel.getImid() + ": " + imovel.getEndereco());
+                arrayImoveis.add(imovel);
+            }
+        }
 
         fieldDataCriacao.setEditable(contrato == null);
         fieldDataTermino.setEditable(contrato == null);
@@ -54,6 +59,11 @@ public class DialogoAlterarContrato extends JDialog {
 
         btnRemoverContrato.setVisible(contrato != null);
 
+
+        boolean venda = contrato != null ? arrayImoveis.get(comboImoveis.getSelectedIndex()).isVenda() : imoveis.get(0).isVenda();
+
+        comboImoveis.addActionListener(e -> lblTipoContrato.setText(venda ? Strings.VENDA : Strings.LOCACAO));
+
         if (contrato != null) {
             setTitle(Strings.ALTERAR_CONTRATO);
             DateFormat simple = new SimpleDateFormat("dd/MM/yyyy");
@@ -61,16 +71,12 @@ public class DialogoAlterarContrato extends JDialog {
             fieldDataCriacao.setText(simple.format(contrato.getDataInicio()));
             fieldDataTermino.setText(simple.format(contrato.getDataFim()));
 
-            comboCliente.setSelectedIndex(contrato.getCliente().getClid());
-            comboImoveis.setSelectedIndex(contrato.getImovel().getImid());
-
-            radioDisponivelLocacao.setSelected(contrato.isTipo());
-            radioDisponivelVenda.setSelected(!contrato.isTipo());
-
             comboCliente.setEnabled(false);
             comboImoveis.setEnabled(false);
-            radioDisponivelVenda.setEnabled(false);
-            radioDisponivelLocacao.setEnabled(false);
+
+            comboCliente.setSelectedIndex(posicaoCliente);
+            comboImoveis.setSelectedIndex(posicaoImovel);
+            lblTipoContrato.setText(venda ? Strings.VENDA : Strings.LOCACAO);
 
             btnRemoverContrato.addActionListener(e -> {
                 ControladorContratos.removerContrato(contrato.getCoid());
@@ -81,10 +87,6 @@ public class DialogoAlterarContrato extends JDialog {
         } else {
             setTitle(Strings.CADASTRAR_CONTRATO);
         }
-
-        ButtonGroup grupoBtnRadio = new ButtonGroup();
-        grupoBtnRadio.add(radioDisponivelVenda);
-        grupoBtnRadio.add(radioDisponivelLocacao);
 
         btnCancelar.addActionListener(e -> dispose());
 
@@ -101,10 +103,10 @@ public class DialogoAlterarContrato extends JDialog {
 
                 ControladorContratos.adicionarContrato(
                         clientes.get(comboCliente.getSelectedIndex()),
-                        imoveis.get(comboImoveis.getSelectedIndex()),
+                        arrayImoveis.get(comboImoveis.getSelectedIndex()),
                         dataCriacao,
                         dataFim,
-                        radioDisponivelVenda.isSelected()
+                        arrayImoveis.get(comboImoveis.getSelectedIndex()).isVenda()
                 );
             } else {
                 Date dataUpdate = contrato.getDataFim();
@@ -115,7 +117,7 @@ public class DialogoAlterarContrato extends JDialog {
                         contrato.getImovel(),
                         simple.format(contrato.getDataInicio()),
                         simple.format(dataUpdate),
-                        radioDisponivelVenda.isSelected()
+                        contrato.getImovel().isVenda()
                 );
             }
 

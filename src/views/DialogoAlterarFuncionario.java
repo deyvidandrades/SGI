@@ -22,7 +22,7 @@ public class DialogoAlterarFuncionario extends JDialog {
     private JRadioButton radioFuncionario;
     private JTextField fieldSalario;
 
-    public DialogoAlterarFuncionario(Funcionario funcionario) {
+    public DialogoAlterarFuncionario(Funcionario funcionario, String senha) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
@@ -36,7 +36,7 @@ public class DialogoAlterarFuncionario extends JDialog {
             fieldCPF.setText(funcionario.getCpf());
             fieldSalario.setText(String.valueOf(funcionario.getSalario()));
             fieldEmail.setText(funcionario.getEmail());
-            fieldSenha.setText(funcionario.getSenha());
+            fieldSenha.setText(senha);
 
             radioFuncionario.setSelected(!funcionario.isGerente());
             radioGerente.setSelected(funcionario.isGerente());

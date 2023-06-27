@@ -21,6 +21,7 @@
         <properties>
           <background color="-328966"/>
           <enabled value="true"/>
+          <focusable value="true"/>
           <font size="16"/>
           <foreground color="-16777216"/>
           <tabLayoutPolicy value="0"/>
@@ -30,7 +31,7 @@
           <color color="-3026479"/>
         </border>
         <children>
-          <grid id="e2578" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+          <grid id="e2578" binding="panelBgCliente" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
             <margin top="8" left="8" bottom="8" right="8"/>
             <constraints>
               <tabbedpane title="   Clientes             " icon="views/imagens/person-focus-16.png" disabled-icon="views/imagens/person-no-focus-16.png"/>
@@ -42,7 +43,7 @@
               <size top="0" left="0" bottom="0" right="0"/>
             </border>
             <children>
-              <grid id="cdbcb" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
+              <grid id="cdbcb" binding="panelHolderCliente" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
                 <margin top="8" left="8" bottom="8" right="8"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -55,7 +56,7 @@
                   <color color="-3026479"/>
                 </border>
                 <children>
-                  <grid id="26904" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                  <grid id="26904" binding="panelTopClientes" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
@@ -65,7 +66,7 @@
                     </properties>
                     <border type="none"/>
                     <children>
-                      <component id="bccac" class="javax.swing.JLabel">
+                      <component id="bccac" class="javax.swing.JLabel" binding="lblClientesCadastrados">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -74,7 +75,7 @@
                           <text value="Clientes cadastrados"/>
                         </properties>
                       </component>
-                      <grid id="34d26" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
+                      <grid id="34d26" binding="panelBuscaCliente" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
@@ -109,7 +110,7 @@
                       </grid>
                     </children>
                   </grid>
-                  <grid id="51ce6" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="51ce6" binding="panelBotClientes" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
@@ -134,7 +135,7 @@
                       </component>
                     </children>
                   </grid>
-                  <scrollpane id="dd7e3">
+                  <scrollpane id="dd7e3" binding="scrollClientes">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -159,142 +160,8 @@
               </grid>
             </children>
           </grid>
-          <grid id="3f1ea" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <tabbedpane title="   Contratos         " icon="views/imagens/document-focus-16.png" disabled-icon="views/imagens/document-no-focus-16.png"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <grid id="6e4da" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="8" left="8" bottom="8" right="8"/>
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-1118482"/>
-                </properties>
-                <border type="none"/>
-                <children>
-                  <grid id="956d5" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
-                    <margin top="8" left="8" bottom="8" right="8"/>
-                    <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <background color="-328966"/>
-                      <enabled value="false"/>
-                    </properties>
-                    <border type="line">
-                      <color color="-3026479"/>
-                    </border>
-                    <children>
-                      <grid id="f84da" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-328966"/>
-                        </properties>
-                        <border type="none"/>
-                        <children>
-                          <component id="83cc8" class="javax.swing.JLabel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <font size="16"/>
-                              <text value="Contratos cadastrados"/>
-                            </properties>
-                          </component>
-                          <grid id="ac29a" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
-                            <margin top="0" left="0" bottom="0" right="0"/>
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <background color="-328966"/>
-                            </properties>
-                            <border type="none"/>
-                            <children>
-                              <component id="a88f4" class="javax.swing.JTextField" binding="buscarContratos">
-                                <constraints>
-                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
-                                    <preferred-size width="150" height="-1"/>
-                                  </grid>
-                                </constraints>
-                                <properties>
-                                  <minimumSize width="150" height="30"/>
-                                  <text value=""/>
-                                </properties>
-                              </component>
-                              <component id="b34fe" class="javax.swing.JLabel" binding="imgContratosBuscar">
-                                <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <requestFocusEnabled value="false"/>
-                                  <text value=""/>
-                                </properties>
-                              </component>
-                            </children>
-                          </grid>
-                        </children>
-                      </grid>
-                      <grid id="f40d3" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                        <margin top="0" left="0" bottom="0" right="0"/>
-                        <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties>
-                          <background color="-328966"/>
-                        </properties>
-                        <border type="none"/>
-                        <children>
-                          <hspacer id="c953">
-                            <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="b6297" class="javax.swing.JButton" binding="btnCadastrarContrato">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                            <properties>
-                              <text value="Novo Contrato"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </grid>
-                      <scrollpane id="d86ec">
-                        <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                        </constraints>
-                        <properties/>
-                        <border type="none"/>
-                        <children>
-                          <component id="4210d" class="javax.swing.JTable" binding="tabelaContratos">
-                            <constraints/>
-                            <properties>
-                              <autoCreateRowSorter value="true"/>
-                              <autoResizeMode value="2"/>
-                              <background color="-328966"/>
-                              <fillsViewportHeight value="false"/>
-                              <updateSelectionOnSort value="true"/>
-                            </properties>
-                          </component>
-                        </children>
-                      </scrollpane>
-                    </children>
-                  </grid>
-                </children>
-              </grid>
-            </children>
-          </grid>
-          <grid id="8cb2e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
-            <margin top="0" left="0" bottom="0" right="0"/>
+          <grid id="8cb2e" binding="panelBgImovel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+            <margin top="8" left="8" bottom="8" right="8"/>
             <constraints>
               <tabbedpane title="   Imóveis             " icon="views/imagens/house-focus-16.png" disabled-icon="views/imagens/house-no-focus-16.png"/>
             </constraints>
@@ -304,134 +171,316 @@
             </properties>
             <border type="none"/>
             <children>
-              <grid id="963af" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="ffe82" binding="panelHolderImovel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
                 <margin top="8" left="8" bottom="8" right="8"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-1118482"/>
+                  <background color="-328966"/>
+                  <enabled value="false"/>
                 </properties>
-                <border type="none"/>
+                <border type="line">
+                  <color color="-3026479"/>
+                </border>
                 <children>
-                  <grid id="ffe82" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
-                    <margin top="8" left="8" bottom="8" right="8"/>
+                  <grid id="2f720" binding="panelTopImovel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <background color="-328966"/>
-                      <enabled value="false"/>
                     </properties>
-                    <border type="line">
-                      <color color="-3026479"/>
-                    </border>
+                    <border type="none"/>
                     <children>
-                      <grid id="2f720" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                      <component id="93a53" class="javax.swing.JLabel" binding="lblImoveisCadastrados">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <focusable value="false"/>
+                          <font size="16"/>
+                          <text value="Imoveis cadastrados"/>
+                        </properties>
+                      </component>
+                      <grid id="efd7e" binding="panelBuscaImovel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <background color="-328966"/>
                         </properties>
                         <border type="none"/>
                         <children>
-                          <component id="93a53" class="javax.swing.JLabel">
+                          <component id="8bb5e" class="javax.swing.JTextField" binding="buscarImoveis">
                             <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
                             </constraints>
                             <properties>
-                              <focusable value="false"/>
-                              <font size="16"/>
-                              <text value="Imoveis cadastrados"/>
+                              <minimumSize width="150" height="30"/>
+                              <text value=""/>
                             </properties>
                           </component>
-                          <grid id="efd7e" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
-                            <margin top="0" left="0" bottom="0" right="0"/>
+                          <component id="98c7e" class="javax.swing.JLabel" binding="imgImoveisBuscar">
                             <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
-                              <background color="-328966"/>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
                             </properties>
-                            <border type="none"/>
-                            <children>
-                              <component id="8bb5e" class="javax.swing.JTextField" binding="buscarImoveis">
-                                <constraints>
-                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
-                                    <preferred-size width="150" height="-1"/>
-                                  </grid>
-                                </constraints>
-                                <properties>
-                                  <minimumSize width="150" height="30"/>
-                                  <text value=""/>
-                                </properties>
-                              </component>
-                              <component id="98c7e" class="javax.swing.JLabel" binding="imgImoveisBuscar">
-                                <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                                </constraints>
-                                <properties>
-                                  <requestFocusEnabled value="false"/>
-                                  <text value=""/>
-                                </properties>
-                              </component>
-                            </children>
-                          </grid>
+                          </component>
                         </children>
                       </grid>
-                      <grid id="eff8a" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    </children>
+                  </grid>
+                  <grid id="eff8a" binding="panelBotImovel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-328966"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <hspacer id="cce22">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </hspacer>
+                      <component id="65354" class="javax.swing.JButton" binding="btnCadastrarImovel">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Cadastrar Imóvel"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <scrollpane id="15ce8" binding="scrollImovel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4d85f" class="javax.swing.JTable" binding="tabelaImoveis">
+                        <constraints/>
+                        <properties>
+                          <autoCreateRowSorter value="true"/>
+                          <autoResizeMode value="2"/>
+                          <background color="-328966"/>
+                          <fillsViewportHeight value="false"/>
+                          <updateSelectionOnSort value="true"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="3f1ea" binding="panelBgContrato" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="8" left="8" bottom="8" right="8"/>
+            <constraints>
+              <tabbedpane title="   Contratos         " icon="views/imagens/document-focus-16.png" disabled-icon="views/imagens/document-no-focus-16.png"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="956d5" binding="panelHolderContrato" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="4">
+                <margin top="8" left="8" bottom="8" right="8"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-328966"/>
+                  <enabled value="false"/>
+                </properties>
+                <border type="line">
+                  <color color="-3026479"/>
+                </border>
+                <children>
+                  <grid id="f84da" binding="panelTopContratoAtivo" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-328966"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="83cc8" class="javax.swing.JLabel" binding="lblContratosVigencia">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                          <text value="Contratos em Vigência"/>
+                        </properties>
+                      </component>
+                      <grid id="ac29a" binding="panelBuscaContratoAtivo" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
-                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <background color="-328966"/>
                         </properties>
                         <border type="none"/>
                         <children>
-                          <hspacer id="cce22">
+                          <component id="a88f4" class="javax.swing.JTextField" binding="buscarContratosAtivos">
                             <constraints>
-                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="65354" class="javax.swing.JButton" binding="btnCadastrarImovel">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
                             </constraints>
                             <properties>
-                              <text value="Cadastrar Imóvel"/>
+                              <minimumSize width="150" height="30"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="b34fe" class="javax.swing.JLabel" binding="imgContratosAtivosBuscar">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
                             </properties>
                           </component>
                         </children>
                       </grid>
-                      <scrollpane id="15ce8">
+                    </children>
+                  </grid>
+                  <grid id="f40d3" binding="panelBotContrato" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-328966"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <hspacer id="c953">
                         <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
-                        <properties/>
+                      </hspacer>
+                      <component id="b6297" class="javax.swing.JButton" binding="btnCadastrarContrato">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Novo Contrato"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <scrollpane id="d86ec" binding="scrollContratoAtivo">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4210d" class="javax.swing.JTable" binding="tabelaContratosAtivos">
+                        <constraints/>
+                        <properties>
+                          <autoCreateRowSorter value="true"/>
+                          <autoResizeMode value="2"/>
+                          <background color="-328966"/>
+                          <fillsViewportHeight value="false"/>
+                          <updateSelectionOnSort value="true"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                  <scrollpane id="396e2" binding="scrollContratoTerminado">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4a345" class="javax.swing.JTable" binding="tabelaContratosTerminados">
+                        <constraints/>
+                        <properties>
+                          <autoCreateRowSorter value="true"/>
+                          <autoResizeMode value="2"/>
+                          <background color="-328966"/>
+                          <fillsViewportHeight value="false"/>
+                          <updateSelectionOnSort value="true"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                  <grid id="ebce" binding="panelTopContratoTerminado" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-328966"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="34fae" class="javax.swing.JLabel" binding="lblContratosTerminados">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font size="16"/>
+                          <text value="Contratos terminados"/>
+                        </properties>
+                      </component>
+                      <grid id="5a47" binding="panelBuscaContratoTerminado" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-328966"/>
+                        </properties>
                         <border type="none"/>
                         <children>
-                          <component id="4d85f" class="javax.swing.JTable" binding="tabelaImoveis">
-                            <constraints/>
+                          <component id="297a5" class="javax.swing.JTextField" binding="buscarContratosTerminados">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="150" height="-1"/>
+                              </grid>
+                            </constraints>
                             <properties>
-                              <autoCreateRowSorter value="true"/>
-                              <autoResizeMode value="2"/>
-                              <background color="-328966"/>
-                              <fillsViewportHeight value="false"/>
-                              <updateSelectionOnSort value="true"/>
+                              <minimumSize width="150" height="30"/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="c2c69" class="javax.swing.JLabel" binding="imgContratosTerminadosBuscar">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <requestFocusEnabled value="false"/>
+                              <text value=""/>
                             </properties>
                           </component>
                         </children>
-                      </scrollpane>
+                      </grid>
                     </children>
                   </grid>
                 </children>
               </grid>
             </children>
           </grid>
-          <grid id="2ff55" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="2ff55" binding="panelBgFuncionario" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="8" left="8" bottom="8" right="8"/>
             <constraints>
               <tabbedpane title="   Funcionários   " icon="views/imagens/funcionario-focus-16.png" disabled-icon="views/imagens/funcionario-no-focus-16.png"/>
@@ -441,7 +490,7 @@
             </properties>
             <border type="none"/>
             <children>
-              <grid id="f946b" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
+              <grid id="f946b" binding="panelHolderFuncionario" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="8">
                 <margin top="8" left="8" bottom="8" right="8"/>
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -453,7 +502,7 @@
                   <color color="-3026479"/>
                 </border>
                 <children>
-                  <grid id="c0c6d" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+                  <grid id="c0c6d" binding="panelTopFuncionario" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
@@ -463,7 +512,7 @@
                     </properties>
                     <border type="none"/>
                     <children>
-                      <component id="d6853" class="javax.swing.JLabel">
+                      <component id="d6853" class="javax.swing.JLabel" binding="lblFuncionariosCadastrados">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
                         </constraints>
@@ -473,7 +522,7 @@
                           <text value="Funcionários cadastrados"/>
                         </properties>
                       </component>
-                      <grid id="857f1" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
+                      <grid id="857f1" binding="panelBuscaFuncionario" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="4" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
@@ -507,7 +556,7 @@
                       </grid>
                     </children>
                   </grid>
-                  <grid id="eff96" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="eff96" binding="panelBotFuncionario" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
@@ -532,7 +581,7 @@
                       </component>
                     </children>
                   </grid>
-                  <scrollpane id="6ffb1">
+                  <scrollpane id="6ffb1" binding="scrollFuncionario">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -557,7 +606,7 @@
           </grid>
         </children>
       </tabbedpane>
-      <grid id="95e25" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="95e25" binding="panelBarraMenu" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="8" bottom="0" right="8"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -571,7 +620,7 @@
           <color color="-3026467"/>
         </border>
         <children>
-          <grid id="d46b5" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="16" vgap="-1">
+          <grid id="d46b5" binding="panelBenvindo" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="16" vgap="-1">
             <margin top="8" left="0" bottom="8" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
@@ -597,7 +646,7 @@
               </component>
             </children>
           </grid>
-          <grid id="13c07" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="16" vgap="-1">
+          <grid id="13c07" binding="panelMenus" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="16" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
@@ -652,7 +701,7 @@
           </grid>
         </children>
       </grid>
-      <grid id="8f74c" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="8f74c" binding="panelStatus" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="8" left="8" bottom="8" right="8"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -660,7 +709,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c7f0f" class="javax.swing.JLabel">
+          <component id="c7f0f" class="javax.swing.JLabel" binding="lblAcesso">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

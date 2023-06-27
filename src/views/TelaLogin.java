@@ -2,28 +2,37 @@ package views;
 
 import controllers.ControladorLogin;
 import controllers.ControladorUI;
+import controllers.interfaces.Cores;
 import controllers.interfaces.Dimensoes;
 import controllers.interfaces.FrameInterface;
 import controllers.interfaces.Strings;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
 public class TelaLogin implements FrameInterface {
 
-    private JPanel panel1;
+    private JPanel panelBG;
     private JPasswordField passwordField1;
     private JTextField textField1;
     private JLabel img;
     private JButton acessarButton;
     private JLabel footer;
+    private JPanel panellogin;
+    private JPanel panelTitulo;
+    private JPanel panelSeparador;
+    private JLabel lblTitulo;
+    private JLabel lblEmail;
+    private JLabel lblSenha;
 
     public TelaLogin() {
         super();
         img.setIcon(icone_64);
+        configurarCores();
 
         footer.setText(Strings.FOOTER + "  v" + Strings.VERSAO);
 
@@ -37,9 +46,24 @@ public class TelaLogin implements FrameInterface {
 
     }
 
+    private void configurarCores() {
+        panelBG.setBackground(Cores.BACKGROUND);
+        panellogin.setBackground(Cores.PAINEIS);
+        panellogin.setBorder(Cores.BORDA);
+
+        panelSeparador.setBackground(Cores.PAINEIS);
+
+        panelTitulo.setBackground(Cores.BACKGROUND);
+
+        lblEmail.setForeground(Cores.TEXTO);
+        lblSenha.setForeground(Cores.TEXTO);
+
+        lblTitulo.setForeground(Cores.TEXTO);
+    }
+
     @Override
     public void show() {
-        frame.setContentPane(new TelaLogin().panel1);
+        frame.setContentPane(new TelaLogin().panelBG);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setTitle(String.format("%s %s", Strings.LOGIN, Strings.SGI));
