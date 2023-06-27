@@ -254,8 +254,7 @@ public final class SGIBD {
                     getClienteByID(item.getInt("clid")),
                     getImovelByID(item.getInt("imid")),
                     item.getLong("dataInicio"),
-                    item.getLong("dataFim"),
-                    item.getBoolean("tipo")
+                    item.getLong("dataFim")
             );
 
             contratos.add(contrato);

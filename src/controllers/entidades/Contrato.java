@@ -1,6 +1,7 @@
 package controllers.entidades;
 
 import controllers.interfaces.Serializavel;
+import controllers.interfaces.Strings;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,15 +18,13 @@ public class Contrato implements Serializavel {
     private Imovel imovel;
     private long dataInicio;
     private long dataFim;
-    private boolean tipo;
 
-    public Contrato(int coid, Cliente cliente, Imovel imovel, long dataInicio, long dataFim, boolean tipo) {
+    public Contrato(int coid, Cliente cliente, Imovel imovel, long dataInicio, long dataFim) {
         this.coid = coid;
         this.cliente = cliente;
         this.imovel = imovel;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.tipo = tipo;
     }
 
     public int getCoid() {
@@ -64,12 +63,8 @@ public class Contrato implements Serializavel {
         this.dataFim = dataFim;
     }
 
-    public boolean isTipo() {
-        return tipo;
-    }
-
-    public void setTipo(boolean tipo) {
-        this.tipo = tipo;
+    public boolean isTerminado() {
+        return getDataInicio().getTime() > getDataFim().getTime();
     }
 
     /*Método criado para serializar dos dados para serem enviados ao model para armazenamento na base de dados*/
@@ -85,7 +80,7 @@ public class Contrato implements Serializavel {
                 getCliente().getCpf(),
                 simple.format(getDataInicio()),
                 simple.format(getDataFim()),
-                isTipo() ? "Venda" : "Locação"
+                getImovel().isVenda()? Strings.VENDA : Strings.LOCACAO
         };
     }
 
@@ -96,7 +91,6 @@ public class Contrato implements Serializavel {
                 ",\"imid\":" + imovel.getImid() +
                 ", \"dataInicio\":" + dataInicio +
                 ",\"dataFim\": " + dataFim +
-                ",\"tipo\": " + tipo +
                 " }";
     }
 }
