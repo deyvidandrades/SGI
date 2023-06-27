@@ -14,7 +14,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class TelaLogin implements FrameInterface {
+public class TelaLogin implements FrameInterface ,Cores{
 
     private JPanel panelBG;
     private JPasswordField passwordField1;
@@ -47,18 +47,18 @@ public class TelaLogin implements FrameInterface {
     }
 
     private void configurarCores() {
-        panelBG.setBackground(Cores.BACKGROUND);
-        panellogin.setBackground(Cores.PAINEIS);
-        panellogin.setBorder(Cores.BORDA);
+        panelBG.setBackground(BACKGROUND);
+        panellogin.setBackground(PAINEIS);
+        panellogin.setBorder(BORDA);
 
-        panelSeparador.setBackground(Cores.PAINEIS);
+        panelSeparador.setBackground(PAINEIS);
 
-        panelTitulo.setBackground(Cores.BACKGROUND);
+        panelTitulo.setBackground(BACKGROUND);
 
-        lblEmail.setForeground(Cores.TEXTO);
-        lblSenha.setForeground(Cores.TEXTO);
+        lblEmail.setForeground(TEXTO);
+        lblSenha.setForeground(TEXTO);
 
-        lblTitulo.setForeground(Cores.TEXTO);
+        lblTitulo.setForeground(TEXTO);
     }
 
     @Override

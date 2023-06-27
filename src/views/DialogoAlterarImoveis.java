@@ -3,13 +3,14 @@ package views;
 import controllers.ControladorImoveis;
 import controllers.ControladorUI;
 import controllers.entidades.Imovel;
+import controllers.interfaces.Cores;
 import controllers.interfaces.Strings;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class DialogoAlterarImoveis extends JDialog {
+public class DialogoAlterarImoveis extends JDialog implements Cores {
     private JPanel contentPane;
     private JButton btnSalvar;
     private JButton btnRemoverImovel;

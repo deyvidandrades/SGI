@@ -17,4 +17,5 @@ public interface Cores {
 
     Color DESTAQUE = new Color(64,131,201);
     Border BORDA = BorderFactory.createLineBorder(temaEscuro? new Color(100,100,110):new Color(209,209,209),1);
+    private void configurarCores() {}
 }

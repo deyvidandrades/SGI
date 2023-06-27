@@ -7,7 +7,7 @@ import controllers.interfaces.Strings;
 
 import javax.swing.*;
 
-public class DialogoConfiguracoes extends JDialog implements FrameInterface {
+public class DialogoConfiguracoes extends JDialog implements FrameInterface, Cores {
     private JPanel contentPane;
     private JButton buttonOK;
     private JLabel img;
@@ -45,7 +45,7 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface {
         comboPosicaoMenus.addItemListener(e -> ControladorUI.mudarPosicaoMenus(comboPosicaoMenus.getSelectedIndex()));
         comboTemaEscuro.addItemListener(e -> ControladorUI.mudarTema(comboTemaEscuro.getSelectedIndex() == 1));
 
-        comboPosicaoMenus.setSelectedIndex((int) ControladorUI.getConfiguracoes().get("posicaoMenus")-1);
+        comboPosicaoMenus.setSelectedIndex((int) ControladorUI.getConfiguracoes().get("posicaoMenus") - 1);
         comboTemaEscuro.setSelectedIndex((boolean) ControladorUI.getConfiguracoes().get("temaEscuro") ? 1 : 0);
 
         lblVersao.setText(Strings.VERSAO);
@@ -56,33 +56,33 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface {
 
 
     private void configurarCores() {
-        contentPane.setBackground(Cores.BACKGROUND);
+        contentPane.setBackground(BACKGROUND);
 
-        panelTop.setBackground(Cores.PAINEIS);
-        panelTop.setBorder(Cores.BORDA);
-        panelMid.setBackground(Cores.PAINEIS);
-        panelMid.setBorder(Cores.BORDA);
+        panelTop.setBackground(PAINEIS);
+        panelTop.setBorder(BORDA);
+        panelMid.setBackground(PAINEIS);
+        panelMid.setBorder(BORDA);
 
-        panelHolderConfiguracoes.setBackground(Cores.PAINEIS);
-        panelHolderCreditos.setBackground(Cores.PAINEIS);
+        panelHolderConfiguracoes.setBackground(PAINEIS);
+        panelHolderCreditos.setBackground(PAINEIS);
 
-        comboPosicaoMenus.setBackground(Cores.PAINEIS);
-        comboPosicaoMenus.setBorder(Cores.BORDA);
-        comboPosicaoMenus.setForeground(Cores.TEXTO);
+        comboPosicaoMenus.setBackground(PAINEIS);
+        comboPosicaoMenus.setBorder(BORDA);
+        comboPosicaoMenus.setForeground(TEXTO);
 
-        comboTemaEscuro.setBackground(Cores.PAINEIS);
-        comboTemaEscuro.setBorder(Cores.BORDA);
-        comboTemaEscuro.setForeground(Cores.TEXTO);
+        comboTemaEscuro.setBackground(PAINEIS);
+        comboTemaEscuro.setBorder(BORDA);
+        comboTemaEscuro.setForeground(TEXTO);
 
-        lblConfiguracoes.setForeground(Cores.TEXTO);
-        lblPosicao.setForeground(Cores.TEXTO);
-        lblTema.setForeground(Cores.TEXTO);
-        lblTitulo.setForeground(Cores.TEXTO);
-        lblDescricao.setForeground(Cores.TEXTO);
-        lblVersao1.setForeground(Cores.TEXTO);
-        lblVersao.setForeground(Cores.TEXTO);
-        lblDesenvolvidoPor.setForeground(Cores.TEXTO);
+        lblConfiguracoes.setForeground(TEXTO);
+        lblPosicao.setForeground(TEXTO);
+        lblTema.setForeground(TEXTO);
+        lblTitulo.setForeground(TEXTO);
+        lblDescricao.setForeground(TEXTO);
+        lblVersao1.setForeground(TEXTO);
+        lblVersao.setForeground(TEXTO);
+        lblDesenvolvidoPor.setForeground(TEXTO);
 
-        panelBot.setBackground(Cores.BACKGROUND);
+        panelBot.setBackground(BACKGROUND);
     }
 }

@@ -5,6 +5,7 @@ import controllers.ControladorUI;
 import controllers.entidades.Cliente;
 import controllers.entidades.Contrato;
 import controllers.entidades.Imovel;
+import controllers.interfaces.Cores;
 import controllers.interfaces.Strings;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DialogoAlterarContrato extends JDialog {
+public class DialogoAlterarContrato extends JDialog implements Cores {
     private JPanel contentPane;
     private JTextField fieldDataCriacao;
     private JComboBox<String> comboCliente;

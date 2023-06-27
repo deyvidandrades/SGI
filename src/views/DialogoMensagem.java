@@ -1,10 +1,11 @@
 package views;
 
+import controllers.interfaces.Cores;
 import controllers.interfaces.Strings;
 
 import javax.swing.*;
 
-public class DialogoMensagem extends JDialog {
+public class DialogoMensagem extends JDialog implements Cores {
     private JPanel contentPane;
     private JButton btnOK;
     private JLabel lblMensagem;

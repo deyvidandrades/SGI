@@ -3,13 +3,14 @@ package views;
 import controllers.ControladorFuncionarios;
 import controllers.ControladorUI;
 import controllers.entidades.Funcionario;
+import controllers.interfaces.Cores;
 import controllers.interfaces.Strings;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class DialogoAlterarFuncionario extends JDialog {
+public class DialogoAlterarFuncionario extends JDialog implements Cores {
     private JPanel contentPane;
     private JTextField fieldNome;
     private JTextField fieldCPF;

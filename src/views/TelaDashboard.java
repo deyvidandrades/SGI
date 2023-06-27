@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class TelaDashboard implements FrameInterface {
+public class TelaDashboard implements FrameInterface, Cores{
 
     public JPanel panel1;
     private JTable tabelaClientes;
@@ -144,127 +144,127 @@ public class TelaDashboard implements FrameInterface {
     }
 
     private void configurarCores() {
-        panelBarraMenu.setBackground(Cores.PAINEIS);
-        panelBarraMenu.setBorder(Cores.BORDA);
+        panelBarraMenu.setBackground(PAINEIS);
+        panelBarraMenu.setBorder(BORDA);
 
 
-        panelStatus.setBackground(Cores.PAINEIS);
-        panelBenvindo.setBackground(Cores.PAINEIS);
-        panelMenus.setBackground(Cores.PAINEIS);
+        panelStatus.setBackground(PAINEIS);
+        panelBenvindo.setBackground(PAINEIS);
+        panelMenus.setBackground(PAINEIS);
 
-        tabbedMenus.setBackground(Cores.PAINEIS);
-        tabbedMenus.setForeground(Cores.TEXTO);
-        tabbedMenus.setBorder(Cores.BORDA);
-        panel1.setBackground(Cores.PAINEIS);
-        panel1.setBorder(Cores.BORDA);
+        tabbedMenus.setBackground(PAINEIS);
+        tabbedMenus.setForeground(TEXTO);
+        tabbedMenus.setBorder(BORDA);
+        panel1.setBackground(PAINEIS);
+        panel1.setBorder(BORDA);
 
-        panelBgCliente.setBackground(Cores.BACKGROUND);
+        panelBgCliente.setBackground(BACKGROUND);
         panelBgCliente.setBorder(null);
-        panelBgImovel.setBackground(Cores.BACKGROUND);
+        panelBgImovel.setBackground(BACKGROUND);
         panelBgImovel.setBorder(null);
-        panelBgContrato.setBackground(Cores.BACKGROUND);
+        panelBgContrato.setBackground(BACKGROUND);
         panelBgContrato.setBorder(null);
-        panelBgFuncionario.setBackground(Cores.BACKGROUND);
+        panelBgFuncionario.setBackground(BACKGROUND);
         panelBgFuncionario.setBorder(null);
 
-        panelHolderCliente.setBackground(Cores.PAINEIS);
-        panelHolderCliente.setBorder(Cores.BORDA);
+        panelHolderCliente.setBackground(PAINEIS);
+        panelHolderCliente.setBorder(BORDA);
 
-        panelHolderImovel.setBackground(Cores.PAINEIS);
-        panelHolderImovel.setBorder(Cores.BORDA);
+        panelHolderImovel.setBackground(PAINEIS);
+        panelHolderImovel.setBorder(BORDA);
 
-        panelHolderContrato.setBackground(Cores.PAINEIS);
-        panelHolderContrato.setBorder(Cores.BORDA);
+        panelHolderContrato.setBackground(PAINEIS);
+        panelHolderContrato.setBorder(BORDA);
 
-        panelHolderFuncionario.setBackground(Cores.PAINEIS);
-        panelHolderFuncionario.setBorder(Cores.BORDA);
+        panelHolderFuncionario.setBackground(PAINEIS);
+        panelHolderFuncionario.setBorder(BORDA);
 
-        panelTopClientes.setBackground(Cores.PAINEIS);
-        panelBotClientes.setBackground(Cores.PAINEIS);
+        panelTopClientes.setBackground(PAINEIS);
+        panelBotClientes.setBackground(PAINEIS);
 
-        panelTopImovel.setBackground(Cores.PAINEIS);
-        panelBotImovel.setBackground(Cores.PAINEIS);
+        panelTopImovel.setBackground(PAINEIS);
+        panelBotImovel.setBackground(PAINEIS);
 
-        panelTopContratoAtivo.setBackground(Cores.PAINEIS);
-        panelTopContratoTerminado.setBackground(Cores.PAINEIS);
-        panelBotContrato.setBackground(Cores.PAINEIS);
+        panelTopContratoAtivo.setBackground(PAINEIS);
+        panelTopContratoTerminado.setBackground(PAINEIS);
+        panelBotContrato.setBackground(PAINEIS);
 
-        panelTopFuncionario.setBackground(Cores.PAINEIS);
-        panelBotFuncionario.setBackground(Cores.PAINEIS);
+        panelTopFuncionario.setBackground(PAINEIS);
+        panelBotFuncionario.setBackground(PAINEIS);
 
-        panelBuscaCliente.setBackground(Cores.PAINEIS);
-        panelBuscaImovel.setBackground(Cores.PAINEIS);
-        panelBuscaContratoAtivo.setBackground(Cores.PAINEIS);
-        panelBuscaContratoTerminado.setBackground(Cores.PAINEIS);
-        panelBuscaFuncionario.setBackground(Cores.PAINEIS);
+        panelBuscaCliente.setBackground(PAINEIS);
+        panelBuscaImovel.setBackground(PAINEIS);
+        panelBuscaContratoAtivo.setBackground(PAINEIS);
+        panelBuscaContratoTerminado.setBackground(PAINEIS);
+        panelBuscaFuncionario.setBackground(PAINEIS);
 
 
-        tabelaClientes.setBackground(Cores.PAINEIS);
+        tabelaClientes.setBackground(PAINEIS);
         tabelaClientes.setBorder(null);
-        tabelaClientes.setForeground(Cores.TEXTO);
-        tabelaImoveis.setBackground(Cores.PAINEIS);
+        tabelaClientes.setForeground(TEXTO);
+        tabelaImoveis.setBackground(PAINEIS);
         tabelaImoveis.setBorder(null);
-        tabelaImoveis.setForeground(Cores.TEXTO);
-        tabelaContratosAtivos.setBackground(Cores.PAINEIS);
+        tabelaImoveis.setForeground(TEXTO);
+        tabelaContratosAtivos.setBackground(PAINEIS);
         tabelaContratosAtivos.setBorder(null);
-        tabelaContratosAtivos.setForeground(Cores.TEXTO);
-        tabelaContratosTerminados.setBackground(Cores.PAINEIS);
+        tabelaContratosAtivos.setForeground(TEXTO);
+        tabelaContratosTerminados.setBackground(PAINEIS);
         tabelaContratosTerminados.setBorder(null);
-        tabelaContratosTerminados.setForeground(Cores.TEXTO);
-        tabelaFuncionarios.setBackground(Cores.PAINEIS);
+        tabelaContratosTerminados.setForeground(TEXTO);
+        tabelaFuncionarios.setBackground(PAINEIS);
         tabelaFuncionarios.setBorder(null);
-        tabelaFuncionarios.setForeground(Cores.TEXTO);
+        tabelaFuncionarios.setForeground(TEXTO);
 
-        scrollClientes.setBackground(Cores.PAINEIS);
-        scrollClientes.setBorder(Cores.BORDA);
+        scrollClientes.setBackground(PAINEIS);
+        scrollClientes.setBorder(BORDA);
 
-        scrollImovel.setBackground(Cores.PAINEIS);
-        scrollImovel.setBorder(Cores.BORDA);
+        scrollImovel.setBackground(PAINEIS);
+        scrollImovel.setBorder(BORDA);
 
-        scrollContratoAtivo.setBackground(Cores.PAINEIS);
-        scrollContratoAtivo.setBorder(Cores.BORDA);
+        scrollContratoAtivo.setBackground(PAINEIS);
+        scrollContratoAtivo.setBorder(BORDA);
 
-        scrollContratoTerminado.setBackground(Cores.PAINEIS);
-        scrollContratoTerminado.setBorder(Cores.BORDA);
+        scrollContratoTerminado.setBackground(PAINEIS);
+        scrollContratoTerminado.setBorder(BORDA);
 
-        scrollFuncionario.setBackground(Cores.PAINEIS);
-        scrollFuncionario.setBorder(Cores.BORDA);
+        scrollFuncionario.setBackground(PAINEIS);
+        scrollFuncionario.setBorder(BORDA);
 
-        scrollClientes.setBackground(Cores.PAINEIS);
-        scrollClientes.setBorder(Cores.BORDA);
+        scrollClientes.setBackground(PAINEIS);
+        scrollClientes.setBorder(BORDA);
 
-        buscarClientes.setBackground(Cores.PAINEIS);
-        buscarClientes.setForeground(Cores.TEXTO);
-        buscarClientes.setBorder(Cores.BORDA);
+        buscarClientes.setBackground(PAINEIS);
+        buscarClientes.setForeground(TEXTO);
+        buscarClientes.setBorder(BORDA);
 
-        buscarImoveis.setBackground(Cores.PAINEIS);
-        buscarImoveis.setForeground(Cores.TEXTO);
-        buscarImoveis.setBorder(Cores.BORDA);
+        buscarImoveis.setBackground(PAINEIS);
+        buscarImoveis.setForeground(TEXTO);
+        buscarImoveis.setBorder(BORDA);
 
-        buscarContratosTerminados.setBackground(Cores.PAINEIS);
-        buscarContratosTerminados.setForeground(Cores.TEXTO);
-        buscarContratosTerminados.setBorder(Cores.BORDA);
+        buscarContratosTerminados.setBackground(PAINEIS);
+        buscarContratosTerminados.setForeground(TEXTO);
+        buscarContratosTerminados.setBorder(BORDA);
 
-        buscarContratosAtivos.setBackground(Cores.PAINEIS);
-        buscarContratosAtivos.setForeground(Cores.TEXTO);
-        buscarContratosAtivos.setBorder(Cores.BORDA);
+        buscarContratosAtivos.setBackground(PAINEIS);
+        buscarContratosAtivos.setForeground(TEXTO);
+        buscarContratosAtivos.setBorder(BORDA);
 
-        buscarFuncionarios.setBackground(Cores.PAINEIS);
-        buscarFuncionarios.setForeground(Cores.TEXTO);
-        buscarFuncionarios.setBorder(Cores.BORDA);
+        buscarFuncionarios.setBackground(PAINEIS);
+        buscarFuncionarios.setForeground(TEXTO);
+        buscarFuncionarios.setBorder(BORDA);
 
 
 
-        lblAcesso.setForeground(Cores.TEXTO);
-        lblTipoFuncionario.setForeground(Cores.TEXTO);
-        lbl_ola.setForeground(Cores.TEXTO);
-        lblStats.setForeground(Cores.TEXTO);
+        lblAcesso.setForeground(TEXTO);
+        lblTipoFuncionario.setForeground(TEXTO);
+        lbl_ola.setForeground(TEXTO);
+        lblStats.setForeground(TEXTO);
 
-        lblClientesCadastrados.setForeground(Cores.TEXTO);
-        lblImoveisCadastrados.setForeground(Cores.TEXTO);
-        lblContratosVigencia.setForeground(Cores.TEXTO);
-        lblContratosTerminados.setForeground(Cores.TEXTO);
-        lblFuncionariosCadastrados.setForeground(Cores.TEXTO);
+        lblClientesCadastrados.setForeground(TEXTO);
+        lblImoveisCadastrados.setForeground(TEXTO);
+        lblContratosVigencia.setForeground(TEXTO);
+        lblContratosTerminados.setForeground(TEXTO);
+        lblFuncionariosCadastrados.setForeground(TEXTO);
     }
 
     public void atualizarDadosTabelas() {
