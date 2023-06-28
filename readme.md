@@ -28,6 +28,9 @@ O que você precisa instalar para desenvolver e rodar o projeto:
 $ git clone https://github.com/deyvidandrades/SGC.git
 ```
 
+## Baixe a versão mais recente do binario(.jar)
+[Binario SGI](https://github.com/deyvidandrades/SGI/releases/latest)
+
 ## Rodando o SGI:
 
 ```
