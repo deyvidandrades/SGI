@@ -12,6 +12,7 @@ import views.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /*
@@ -45,7 +46,7 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
     }
 
     public static void exibirDialogoAlterarCliente(int clienteID) {
-        Cliente cliente = BD.getClienteByID(clienteID);
+        Cliente cliente = ControladorClientes.getClienteById(clienteID);
 
         instanciaDialogoTela = new DialogoAlterarCliente(cliente);
         instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
@@ -55,7 +56,7 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
     }
 
     public static void exibirDialogoAlterarImoveis(int imovelID) {
-        Imovel imovel = BD.getImovelByID(imovelID);
+        Imovel imovel = ControladorImoveis.getImovelById(imovelID);
         instanciaDialogoTela = new DialogoAlterarImoveis(imovel);
         instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
         instanciaDialogoTela.setSize(Dimensoes.DIALOGO_ALTERAR_IMOVEL);
@@ -64,7 +65,7 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
     }
 
     public static void exibirDialogoAlterarContratos(int contratoID) {
-        Contrato contrato = BD.getContratoByID(contratoID);
+        Contrato contrato = ControladorContratos.getContratoById(contratoID);
         ArrayList<Imovel> arrayImoveis = contrato != null ? ControladorImoveis.getListaImoveis("") : ControladorImoveis.getListaImoveisDisponiveis();
         ArrayList<Cliente> arrayClientes = ControladorClientes.getListaClientes("");
 
@@ -94,7 +95,7 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
     }
 
     public static void exibirDialogoAlterarFuncionarios(int funcionarioID) {
-        Funcionario funcionario = BD.getFuncionarioByID(funcionarioID);
+        Funcionario funcionario = ControladorFuncionarios.getFuncionarioById(funcionarioID);
 
         instanciaDialogoTela = new DialogoAlterarFuncionario(funcionario, funcionario != null ? converterDeB64(funcionario.getSenha()) : "");
         instanciaDialogoTela.setIconImage(new ImageIcon(Strings.ICONE_32).getImage());
@@ -113,11 +114,20 @@ public abstract class ControladorUI extends ControladorAutenticacao implements D
 
     public static void mudarPosicaoMenus(int pos) {
         instanciaTelaDashboard.setMenuPosition(pos + 1);
-        BD.salvarConfiguracao(pos + 1, (boolean) BD.carregarConfiguracoes().get("temaEscuro"));
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("posicaoMenus", pos + 1);
+        map.put("temaEscuro", BD.carregarConfiguracoes().get("temaEscuro"));
+
+        BD.salvarConfiguracao(map);
     }
 
     public static void mudarTema(boolean temaEscuro) {
-        BD.salvarConfiguracao((int) BD.carregarConfiguracoes().get("posicaoMenus"), temaEscuro);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("posicaoMenus", BD.carregarConfiguracoes().get("posicaoMenus"));
+        map.put("temaEscuro", temaEscuro);
+
+        BD.salvarConfiguracao(map);
         exibirDialogoMensagens(Strings.MENSAGEM_MUDAR_TEMA);
     }
 

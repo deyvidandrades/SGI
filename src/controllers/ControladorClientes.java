@@ -1,19 +1,20 @@
 package controllers;
 
 import controllers.entidades.Cliente;
-import controllers.entidades.Contrato;
 import controllers.interfaces.Strings;
 import model.SGIBD;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 /*
  * Controlador responsável pelo processamento de dados do cliente
  */
-public abstract class ControladorClientes {
+public abstract class ControladorClientes implements Strings {
 
     private static final SGIBD BD = SGIBD.getInstance();
-    private static final ArrayList<Cliente> arrayClientes = BD.getClientes();
+    private static final ArrayList<Cliente> arrayClientes = carregarClientes();
 
     private static boolean clienteExiste(String cpf) {
         for (Cliente cliente : arrayClientes)
@@ -24,18 +25,49 @@ public abstract class ControladorClientes {
         return false;
     }
 
-    private static boolean verificarExisteContrato(int id) {
-        for (Contrato contrato : BD.getContratos()) {
-            if (contrato.getCliente().getClid() == id) {
-                return true;
-            }
+    private static void salvarClientes() {
+        JSONArray jsonArray = new JSONArray();
+        for (Cliente cliente : arrayClientes) {
+            jsonArray.put(new JSONObject(cliente.toString()));
         }
-        return false;
+        BD.salvarRegistros(DADOS_CLIENTES, jsonArray);
     }
 
-    private static void salvarClientes() {
-        BD.salvarClientes(arrayClientes);
+    private static int getProximoIdCliente() {
+        int id = 0;
+        for (Cliente c : arrayClientes)
+            if (c.getClid() > id)
+                id = c.getClid();
+
+        return id + 1;
     }
+
+    private static ArrayList<Cliente> carregarClientes() {
+        ArrayList<Cliente> clientes = new ArrayList<>();
+
+        for (Object object : BD.getRegistros(DADOS_CLIENTES)) {
+            JSONObject item = (JSONObject) object;
+
+            Cliente cliente = new Cliente(
+                    item.getInt("clid"),
+                    item.getString("nome"),
+                    item.getString("cpf"),
+                    item.getString("email"),
+                    item.getDouble("renda")
+            );
+            clientes.add(cliente);
+        }
+        return clientes;
+    }
+
+    public static Cliente getClienteById(int id) {
+        for (Cliente cliente : arrayClientes) {
+            if (cliente.getClid() == id)
+                return cliente;
+        }
+        return null;
+    }
+
 
     public static void adicionarCliente(String nome, String email, String cpf, String renda) {
         if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || renda.isEmpty()) {
@@ -49,7 +81,7 @@ public abstract class ControladorClientes {
         }
 
         arrayClientes.add(new Cliente(
-                BD.getProximoIdCliente(),
+                getProximoIdCliente(),
                 nome,
                 cpf,
                 email,
@@ -79,7 +111,7 @@ public abstract class ControladorClientes {
 
     public static void removerCliente(int clid) {
 
-        if (verificarExisteContrato(clid)) {
+        if (ControladorContratos.verificarExisteRegistroNoContrato(DADOS_CLIENTES, clid)) {
             ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EM_VIGENCIA_CLIENTE);
             return;
         }

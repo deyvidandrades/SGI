@@ -3,13 +3,15 @@ package controllers;
 import controllers.entidades.Funcionario;
 import controllers.interfaces.Strings;
 import model.SGIBD;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public abstract class ControladorFuncionarios extends ControladorAutenticacao {
+public abstract class ControladorFuncionarios extends ControladorAutenticacao implements Strings {
 
     private static final SGIBD BD = SGIBD.getInstance();
-    private static final ArrayList<Funcionario> arrayFuncionarios = BD.getFuncionarios();
+    private static final ArrayList<Funcionario> arrayFuncionarios = carregarFuncionarios();
 
     private static boolean funcionarioExiste(String cpf) {
         for (Funcionario funcionario : arrayFuncionarios)
@@ -18,27 +20,70 @@ public abstract class ControladorFuncionarios extends ControladorAutenticacao {
         return false;
     }
 
+    private static ArrayList<Funcionario> carregarFuncionarios() {
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+        for (Object object : BD.getRegistros(DADOS_FUNCIONARIOS)) {
+            JSONObject item = (JSONObject) object;
+
+            Funcionario funcionario = new Funcionario(
+                    item.getInt("fuid"),
+                    item.getString("nome"),
+                    item.getString("cpf"),
+                    item.getString("email"),
+                    item.getString("senha"),
+                    item.getDouble("salario"),
+                    item.getBoolean("gerente")
+            );
+
+            funcionarios.add(funcionario);
+        }
+        return funcionarios;
+    }
+
     private static void salvarFuncionarios() {
-        BD.salvarFuncionarios(arrayFuncionarios);
+        JSONArray jsonArray = new JSONArray();
+        for (Funcionario funcionario : arrayFuncionarios) {
+            jsonArray.put(new JSONObject(funcionario.toString()));
+        }
+        BD.salvarRegistros(DADOS_FUNCIONARIOS, jsonArray);
+    }
+
+    private static int getProximoIdFuncionario() {
+        int id = 0;
+        for (Funcionario f : arrayFuncionarios)
+            if (f.getFuid() > id)
+                id = f.getFuid();
+
+        return id + 1;
+    }
+
+    public static Funcionario getFuncionarioById(int id) {
+        for (Funcionario funcionario : arrayFuncionarios) {
+            if (funcionario.getFuid() == id)
+                return funcionario;
+        }
+        return null;
+
     }
 
     public static void adicionarFuncionario(String nome, String email, String cpf, String senha, String salario, boolean gerente) {
         if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || senha.isEmpty() || salario.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
 
         if (funcionarioExiste(cpf)) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_FUNCIONARIO_EXISTENTE);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_FUNCIONARIO_EXISTENTE);
             return;
         }
 
         arrayFuncionarios.add(new Funcionario(
-                BD.getProximoIdFuncionario(),
+                getProximoIdFuncionario(),
                 nome,
                 cpf,
                 email,
-                senha,
+                converterParaB64(senha),
                 Double.parseDouble(salario.replace(",", ".")),
                 gerente
         ));
@@ -48,7 +93,7 @@ public abstract class ControladorFuncionarios extends ControladorAutenticacao {
 
     public static void atualizarFuncionario(int fuid, String nome, String email, String cpf, String senha, String salario, boolean gerente) {
         if (nome.isEmpty() || email.isEmpty() || cpf.isEmpty() || senha.isEmpty() || salario.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
 
@@ -94,6 +139,6 @@ public abstract class ControladorFuncionarios extends ControladorAutenticacao {
     }
 
     public static String getNumeroFuncionarios() {
-        return (arrayFuncionarios.size() > 0 ? arrayFuncionarios.size() + " " + Strings.FUNCIONARIOS : Strings.NENHUM_FUNCIONARIO);
+        return (arrayFuncionarios.size() > 0 ? arrayFuncionarios.size() + " " + FUNCIONARIOS : NENHUM_FUNCIONARIO);
     }
 }

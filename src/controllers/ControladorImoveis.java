@@ -1,16 +1,17 @@
 package controllers;
 
-import controllers.entidades.Contrato;
 import controllers.entidades.Imovel;
 import controllers.interfaces.Strings;
 import model.SGIBD;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public abstract class ControladorImoveis {
+public abstract class ControladorImoveis implements Strings {
 
     private static final SGIBD BD = SGIBD.getInstance();
-    private static final ArrayList<Imovel> arrayImoveis = BD.getImoveis();
+    private static final ArrayList<Imovel> arrayImoveis = carregarImoveis();
 
     private static boolean imovelExiste(String endereco) {
         for (Imovel imovel : arrayImoveis)
@@ -19,32 +20,69 @@ public abstract class ControladorImoveis {
         return false;
     }
 
-    private static boolean verificarExisteContrato(int id) {
-        for (Contrato contrato : BD.getContratos()) {
-            if (contrato.getImovel().getImid() == id) {
-                return true;
-            }
+    private static ArrayList<Imovel> carregarImoveis() {
+        ArrayList<Imovel> imoveis = new ArrayList<>();
+
+        for (Object object : BD.getRegistros(DADOS_IMOVEIS)) {
+            JSONObject item = (JSONObject) object;
+
+            Imovel imovel = new Imovel(
+                    item.getInt("imid"),
+                    item.getString("nomeProprietario"),
+                    item.getDouble("valorLocacao"),
+                    item.getDouble("valorVenda"),
+                    item.getString("endereco"),
+                    item.getInt("numQuartos"),
+                    item.getInt("numBanheiros"),
+                    item.getBoolean("venda"),
+                    item.getBoolean("disponivel")
+            );
+
+            imoveis.add(imovel);
         }
-        return false;
+        return imoveis;
     }
 
     private static void salvarImoveis() {
-        BD.salvarImoveis(arrayImoveis);
+        JSONArray jsonArray = new JSONArray();
+        for (Imovel imovel : arrayImoveis) {
+            jsonArray.put(new JSONObject(imovel.toString()));
+        }
+
+        BD.salvarRegistros(DADOS_IMOVEIS, jsonArray);
+    }
+
+    private static int getProximoIdImovel() {
+        int id = 0;
+        for (Imovel i : arrayImoveis)
+            if (i.getImid() > id)
+                id = i.getImid();
+
+        return id + 1;
+    }
+
+    public static Imovel getImovelById(int id) {
+        for (Imovel imovel : arrayImoveis) {
+            if (imovel.getImid() == id)
+                return imovel;
+        }
+        return null;
+
     }
 
     public static void adicionarImovel(String proprietario, String endereco, String valorLocacao, String valorVenda, String numeroQuartos, String numeroBanheiros, boolean locacao) {
         if (proprietario.isEmpty() || endereco.isEmpty() || valorLocacao.isEmpty() || valorVenda.isEmpty() || numeroQuartos.isEmpty() || numeroBanheiros.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
 
         if (imovelExiste(endereco)) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_IMOVEL_EXISTENTE);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_IMOVEL_EXISTENTE);
             return;
         }
 
         arrayImoveis.add(new Imovel(
-                BD.getProximoIdImovel(),
+                getProximoIdImovel(),
                 proprietario,
                 Double.parseDouble(valorLocacao.replace(",", ".")),
                 Double.parseDouble(valorVenda.replace(",", ".")),
@@ -60,7 +98,7 @@ public abstract class ControladorImoveis {
 
     public static void atualizarImovel(int imid, String proprietario, String endereco, String valorLocacao, String valorVenda, String numeroQuartos, String numeroBanheiros, boolean locacao) {
         if (proprietario.isEmpty() || endereco.isEmpty() || valorLocacao.isEmpty() || valorVenda.isEmpty() || numeroQuartos.isEmpty() || numeroBanheiros.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
 
@@ -81,8 +119,8 @@ public abstract class ControladorImoveis {
 
     public static void removerImovel(int imid) {
 
-        if (verificarExisteContrato(imid)) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_CONTRATO_EM_VIGENCIA_IMOVEL);
+        if (ControladorContratos.verificarExisteRegistroNoContrato(DADOS_IMOVEIS, imid)) {
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_CONTRATO_EM_VIGENCIA_IMOVEL);
             return;
         }
 
@@ -138,6 +176,7 @@ public abstract class ControladorImoveis {
     }
 
     public static String getNumeroImoveis() {
-        return (arrayImoveis.size() > 0 ? arrayImoveis.size() + " " + Strings.IMOVEIS : Strings.NENHUM_IMOVEL) + " | ";
+        return (arrayImoveis.size() > 0 ? arrayImoveis.size() + " " + IMOVEIS : NENHUM_IMOVEL) + " | ";
     }
+
 }

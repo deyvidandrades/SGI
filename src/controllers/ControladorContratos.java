@@ -5,24 +5,82 @@ import controllers.entidades.Contrato;
 import controllers.entidades.Imovel;
 import controllers.interfaces.Strings;
 import model.SGIBD;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class ControladorContratos {
+public abstract class ControladorContratos implements Strings {
     private static final SGIBD BD = SGIBD.getInstance();
-    private static final ArrayList<Contrato> arrayContratos = BD.getContratos();
+    private static final ArrayList<Contrato> arrayContratos = carregarContratos();
 
     private static void salvarContratos() {
-        //todo mensagem
-        BD.salvarContratos(arrayContratos);
+        JSONArray jsonArray = new JSONArray();
+        for (Contrato contrato : arrayContratos) {
+            jsonArray.put(new JSONObject(contrato.toString()));
+        }
+        BD.salvarRegistros(DADOS_CONTRATOS, jsonArray);
     }
 
-    public static void adicionarContrato(Cliente cliente, Imovel imovel, String dataCriacao, String dataFim, boolean tipo) {
+    private static int getProximoIdContrato() {
+        int id = 0;
+        for (Contrato c : arrayContratos)
+            if (c.getCoid() > id)
+                id = c.getCoid();
+
+        return id + 1;
+    }
+
+    private static ArrayList<Contrato> carregarContratos() {
+        ArrayList<Contrato> contratos = new ArrayList<>();
+
+        for (Object object : BD.getRegistros(DADOS_CONTRATOS)) {
+            JSONObject item = (JSONObject) object;
+
+
+            Contrato contrato = new Contrato(
+                    item.getInt("coid"),
+                    ControladorClientes.getClienteById(item.getInt("clid")),
+                    ControladorImoveis.getImovelById(item.getInt("imid")),
+                    item.getLong("dataInicio"),
+                    item.getLong("dataFim")
+            );
+            contratos.add(contrato);
+        }
+        return contratos;
+    }
+
+    public static Contrato getContratoById(int id) {
+        for (Contrato contrato : arrayContratos) {
+            if (contrato.getCoid() == id)
+                return contrato;
+        }
+        return null;
+
+    }
+
+    public static boolean verificarExisteRegistroNoContrato(String key, int id) {
+        for (Contrato contrato : arrayContratos) {
+            switch (key) {
+                case DADOS_CLIENTES -> {
+                    if (contrato.getCliente().getClid() == id)
+                        return true;
+                }
+                case DADOS_IMOVEIS -> {
+                    if (contrato.getImovel().getImid() == id)
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void adicionarContrato(Cliente cliente, Imovel imovel, String dataCriacao, String dataFim) {
         if (dataCriacao.isEmpty() || dataFim.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
         try {
@@ -33,7 +91,7 @@ public abstract class ControladorContratos {
             ControladorImoveis.alterarDisponibilidade(imovel.getImid(), false);
 
             arrayContratos.add(new Contrato(
-                    BD.getProximoIdContrato(),
+                    getProximoIdContrato(),
                     cliente,
                     imovel,
                     dataC.getTime(),
@@ -42,13 +100,13 @@ public abstract class ControladorContratos {
 
             salvarContratos();
         } catch (ParseException e) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_ERRO);
         }
     }
 
-    public static void atualizarContrato(int coid, Cliente cliente, Imovel imovel, String dataCriacao, String dataFim, boolean tipo) {
+    public static void atualizarContrato(int coid, Cliente cliente, Imovel imovel, String dataCriacao, String dataFim) {
         if (dataCriacao.isEmpty() || dataFim.isEmpty()) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_DADOS_INVALIDOS);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_DADOS_INVALIDOS);
             return;
         }
         try {
@@ -67,7 +125,7 @@ public abstract class ControladorContratos {
 
             salvarContratos();
         } catch (ParseException e) {
-            ControladorUI.exibirDialogoMensagens(Strings.MENSAGEM_ERRO);
+            ControladorUI.exibirDialogoMensagens(MENSAGEM_ERRO);
         }
     }
 
@@ -130,8 +188,8 @@ public abstract class ControladorContratos {
             else
                 countTerminados++;
 
-        return ativo ? (countAtivos > 0 ? countAtivos + " " + Strings.CONTRATOS_ATIVOS : Strings.NENHUM_CONTRATO_ATIVO) + " | " :
-                (countTerminados > 0 ? countTerminados + " " + Strings.CONTRATOS_TERMINADOS : Strings.NENHUM_CONTRATO_TERMINADO) + " | ";
+        return ativo ? (countAtivos > 0 ? countAtivos + " " + CONTRATOS_ATIVOS : NENHUM_CONTRATO_ATIVO) + " | " :
+                (countTerminados > 0 ? countTerminados + " " + CONTRATOS_TERMINADOS : NENHUM_CONTRATO_TERMINADO) + " | ";
     }
 }
 
