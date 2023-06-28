@@ -101,7 +101,7 @@
       <recent name="res.valores" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SGI">
+  <component name="RunManager" selected="JAR Application.JAR">
     <configuration name="SGI" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="mSGI" />

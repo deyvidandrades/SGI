@@ -7,7 +7,7 @@ public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
     String SISTEMA_SGI = "sistemasgi";
-    String VERSAO = "0.2.4";
+    String VERSAO = "0.2.5";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//
@@ -55,6 +55,8 @@ public interface Strings {
     //CAMINHOS DE DADOS//
     String DADOS_RAIZ = "dados";
     String DADOS_CONTRATOS = "contratos";
+    String DADOS_CONTRATOS_ATIVOS = "contratos-ativos";
+    String DADOS_CONTRATOS_TERMINADOS = "contratos-terminados";
     String DADOS_IMOVEIS = "imoveis";
     String DADOS_CLIENTES = "clientes";
     String DADOS_FUNCIONARIOS = "funcionarios";

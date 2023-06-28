@@ -2,17 +2,30 @@
   "dados": {
     "contratos": [
       {
-        "tipo": true,
-        "dataFim": 1876273200000,
+        "dataFim": 1593263545000,
         "coid": 0,
         "clid": 1,
         "dataInicio": 1687230000000,
         "imid": 0
+      },
+      {
+        "dataFim": 1877223600000,
+        "coid": 1,
+        "clid": 2,
+        "dataInicio": 1687834800000,
+        "imid": 2
+      },
+      {
+        "dataFim": 1782529200000,
+        "coid": 2,
+        "clid": 0,
+        "dataInicio": 1687834800000,
+        "imid": 3
       }
     ],
     "funcionarios": [
       {
-        "senha": "admin",
+        "senha": "YWRtaW5zaXN0ZW1hc2dp",
         "salario": 0,
         "cpf": "0",
         "fuid": 0,
@@ -21,16 +34,16 @@
         "gerente": true
       },
       {
-        "senha": "luscas",
+        "senha": "YWxiZXJ0b3Npc3RlbWFzZ2k=",
         "salario": 1.5,
         "cpf": "777.777.777-77",
         "fuid": 2,
-        "nome": "Luscas",
-        "email": "luscas@sgi.com",
+        "nome": "Alberto pereira",
+        "email": "alberto@sgi.com",
         "gerente": false
       },
       {
-        "senha": "sgi",
+        "senha": "c2dpc2lzdGVtYXNnaQ==",
         "salario": 5000,
         "cpf": "123.456.789-10",
         "fuid": 1,
@@ -39,13 +52,22 @@
         "gerente": true
       },
       {
-        "senha": "enrico",
+        "senha": "am9hb3Npc3RlbWFzZ2k=",
         "salario": 111.1,
         "cpf": "888.888.888-88",
-        "fuid": 2,
-        "nome": "Enrico",
-        "email": "enrico@sgi.com",
+        "fuid": 3,
+        "nome": "João Souza",
+        "email": "joao@sgi.com",
         "gerente": false
+      },
+      {
+        "senha": "a2xlYmVyc2lzdGVtYXNnaQ==",
+        "salario": 123456,
+        "cpf": "123.456.789-56",
+        "fuid": 4,
+        "nome": "Kleber Halley",
+        "email": "kleber@sgi.com",
+        "gerente": true
       }
     ],
     "clientes": [
@@ -80,14 +102,47 @@
     ],
     "imoveis": [
       {
-        "venda": false,
+        "venda": true,
         "endereco": "Rua asd, 523, alguma cidade",
         "valorVenda": 147.563,
         "valorLocacao": 895.45,
-        "disponivel": true,
+        "disponivel": false,
         "nomeProprietario": "Alfredo Testando",
         "numQuartos": 2,
         "imid": 0,
+        "numBanheiros": 1
+      },
+      {
+        "venda": false,
+        "endereco": "asdf",
+        "valorVenda": 1,
+        "valorLocacao": 1,
+        "disponivel": true,
+        "nomeProprietario": "asdf",
+        "numQuartos": 1,
+        "imid": 1,
+        "numBanheiros": 1
+      },
+      {
+        "venda": false,
+        "endereco": "Rua ferreira silva",
+        "valorVenda": 125000,
+        "valorLocacao": 852,
+        "disponivel": false,
+        "nomeProprietario": "Francisco de Souza",
+        "numQuartos": 2,
+        "imid": 2,
+        "numBanheiros": 3
+      },
+      {
+        "venda": true,
+        "endereco": "Rua Abelino de Lima",
+        "valorVenda": 123555,
+        "valorLocacao": 986,
+        "disponivel": false,
+        "nomeProprietario": "Jonas Guimarães",
+        "numQuartos": 1,
+        "imid": 3,
         "numBanheiros": 1
       }
     ],
