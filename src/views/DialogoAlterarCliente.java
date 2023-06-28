@@ -72,7 +72,6 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_PERIOD) ||
                         (c == KeyEvent.VK_MINUS))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
@@ -85,7 +84,6 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_COMMA))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }

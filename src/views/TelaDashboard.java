@@ -335,19 +335,19 @@ public class TelaDashboard implements FrameInterface, Strings, Cores {
 
         switch (key) {
             case DADOS_CLIENTES -> {
-                for (Cliente cliente : ControladorClientes.getListaClientes(buscarFuncionarios.getText()))
+                for (Cliente cliente : ControladorClientes.getListaClientes(buscarClientes.getText()))
                     model.addRow(cliente.toObject());
             }
             case DADOS_CONTRATOS_ATIVOS -> {
-                for (Contrato contrato : ControladorContratos.getListaContratosAtivos(buscarFuncionarios.getText()))
+                for (Contrato contrato : ControladorContratos.getListaContratosAtivos(buscarContratosAtivos.getText()))
                     model.addRow(contrato.toObject());
             }
             case DADOS_CONTRATOS_TERMINADOS -> {
-                for (Contrato contrato : ControladorContratos.getListaContratosTerminados(buscarFuncionarios.getText()))
+                for (Contrato contrato : ControladorContratos.getListaContratosTerminados(buscarContratosTerminados.getText()))
                     model.addRow(contrato.toObject());
             }
             case DADOS_IMOVEIS -> {
-                for (Imovel imovel : ControladorImoveis.getListaImoveis(buscarFuncionarios.getText()))
+                for (Imovel imovel : ControladorImoveis.getListaImoveis(buscarImoveis.getText()))
                     model.addRow(imovel.toObject());
             }
             case DADOS_FUNCIONARIOS -> {

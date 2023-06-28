@@ -91,7 +91,6 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_COMMA))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
@@ -104,7 +103,6 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_COMMA))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
@@ -116,7 +114,6 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
                 if (!((c >= '0') && (c <= '9') ||
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
@@ -128,7 +125,6 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
                 if (!((c >= '0') && (c <= '9') ||
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
