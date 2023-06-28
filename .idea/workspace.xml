@@ -12,10 +12,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Binario 0.2.2">
+    <list default="true" id="f63b0773-dc88-4127-acfc-6229de013543" name="Changes" comment="* Binario 0.2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/mSGI.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dist/mSGI.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorContratos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorFuncionarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorImoveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ControladorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControladorUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SGIBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SGIBD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/dados/dados.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dados/dados.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/DialogoAlterarContrato.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,10 +90,10 @@
       <recent name="$PROJECT_DIR$/src/libs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controllers.entidades" />
       <recent name="controllers.interfaces" />
       <recent name="model" />
       <recent name="controllers" />
-      <recent name="controllers.entidades" />
       <recent name="res.valores" />
     </key>
   </component>
@@ -397,7 +405,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687893404372</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="* Binario 0.2.3">
+      <created>1687903990199</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687903990199</updated>
+    </task>
+    <task id="LOCAL-00037" summary="* Binario 0.2.3">
+      <created>1687904010703</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1687904010703</updated>
+    </task>
+    <task id="LOCAL-00038" summary="* Binario 0.2.3">
+      <created>1687904022173</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1687904022173</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -412,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="* Atualizando controladores para classes abstratas" />
     <MESSAGE value="+ Adição de setters" />
     <MESSAGE value="- Remoção de strings não utilizadas" />
     <MESSAGE value="* Atualização de controladores&#10;* Otimização das funções da SGIBD.java&#10;* Otimização do codigo dos controladores&#10;* Otimização nas views&#10;* Correção de bug DialogoAlterarContrato.form&#10;* Correção de bugs com parse double." />
@@ -437,6 +465,7 @@
     <MESSAGE value="* Correção de @Override de funções" />
     <MESSAGE value="* Limpeza de imports" />
     <MESSAGE value="* Binario 0.2.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Binario 0.2.2" />
+    <MESSAGE value="* Binario 0.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Binario 0.2.3" />
   </component>
 </project>

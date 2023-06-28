@@ -14,6 +14,13 @@
         "clid": 2,
         "dataInicio": 1687834800000,
         "imid": 2
+      },
+      {
+        "dataFim": 1782529200000,
+        "coid": 2,
+        "clid": 0,
+        "dataInicio": 1687834800000,
+        "imid": 3
       }
     ],
     "funcionarios": [
@@ -42,7 +49,7 @@
         "fuid": 1,
         "nome": "Deyvid Andrade",
         "email": "deyvid@sgi.com",
-        "gerente": false
+        "gerente": true
       },
       {
         "senha": "am9hb3Npc3RlbWFzZ2k=",
@@ -52,6 +59,15 @@
         "nome": "João Souza",
         "email": "joao@sgi.com",
         "gerente": false
+      },
+      {
+        "senha": "a2xlYmVyc2lzdGVtYXNnaQ==",
+        "salario": 123456,
+        "cpf": "123.456.789-56",
+        "fuid": 4,
+        "nome": "Kleber Halley",
+        "email": "kleber@sgi.com",
+        "gerente": true
       }
     ],
     "clientes": [
@@ -117,6 +133,17 @@
         "numQuartos": 2,
         "imid": 2,
         "numBanheiros": 3
+      },
+      {
+        "venda": true,
+        "endereco": "Rua Abelino de Lima",
+        "valorVenda": 123555,
+        "valorLocacao": 986,
+        "disponivel": false,
+        "nomeProprietario": "Jonas Guimarães",
+        "numQuartos": 1,
+        "imid": 3,
+        "numBanheiros": 1
       }
     ],
     "configuracoes": [
