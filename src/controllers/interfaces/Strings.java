@@ -7,7 +7,7 @@ public interface Strings {
     //STRINGS DO PROGRAMA//
     String SGI = "SGI";
     String SISTEMA_SGI = "sistemasgi";
-    String VERSAO = "0.2.5";
+    String VERSAO = "0.2.6";
     String DESCRICAO = "SGI - Sistema de Gestão de Imobiliárias";
 
     //STRINGS DE GUI//
