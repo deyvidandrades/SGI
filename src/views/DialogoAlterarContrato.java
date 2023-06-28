@@ -118,8 +118,7 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
                         clientes.get(comboCliente.getSelectedIndex()),
                         arrayImoveis.get(comboImoveis.getSelectedIndex()),
                         dataCriacao,
-                        dataFim,
-                        arrayImoveis.get(comboImoveis.getSelectedIndex()).isVenda()
+                        dataFim
                 );
             } else {
                 Date dataUpdate = contrato.getDataFim();
@@ -129,8 +128,7 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
                         contrato.getCliente(),
                         contrato.getImovel(),
                         simple.format(contrato.getDataInicio()),
-                        simple.format(dataUpdate),
-                        contrato.getImovel().isVenda()
+                        simple.format(dataUpdate)
                 );
             }
 
