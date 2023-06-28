@@ -37,6 +37,17 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
         getRootPane().setDefaultButton(btnSalvar);
         configurarCores();
 
+        /*Se existir o imovel preenchemos os campos com os dados*/
+        configurarUI(cliente);
+
+        /*Configuração dos listeners de busca*/
+        configurarFiltros();
+
+        /*Configuração dos listeners de botes*/
+        configurarBotoes(cliente);
+    }
+
+    private void configurarUI(Cliente cliente) {
         if (cliente != null) {
             setTitle(Strings.ALTERAR_CLIENTE);
             fieldNome.setText(cliente.getNome());
@@ -45,17 +56,14 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
             fieldEmail.setText(cliente.getEmail());
 
 
-            btnRemoverCliente.addActionListener(e -> {
-                ControladorClientes.removerCliente(cliente.getClid());
-
-                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-                dispose();
-            });
         } else {
             setTitle(Strings.CADASTRAR_CLIENTE);
         }
 
+        btnRemoverCliente.setVisible(cliente != null);
+    }
 
+    private void configurarFiltros() {
         fieldCPF.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -82,10 +90,19 @@ public class DialogoAlterarCliente extends JDialog implements Cores {
                 }
             }
         });
+    }
 
-        btnRemoverCliente.setVisible(cliente != null);
-
+    private void configurarBotoes(Cliente cliente) {
         btnCancelar.addActionListener(e -> dispose());
+
+        btnRemoverCliente.addActionListener(e -> {
+            if (cliente != null) {
+                ControladorClientes.removerCliente(cliente.getClid());
+
+                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+                dispose();
+            }
+        });
 
         btnSalvar.addActionListener(e -> {
             if (cliente == null)

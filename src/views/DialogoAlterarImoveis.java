@@ -47,6 +47,18 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
         getRootPane().setDefaultButton(btnSalvar);
         configurarCores();
 
+        /*Se existir o imovel preenchemos os campos com os dados*/
+        configurarUI(imovel);
+
+        /*Configuração dos listeners de busca*/
+        configurarFiltros();
+
+        /*Configuração dos listeners de botes*/
+        configurarBotoes(imovel);
+
+    }
+
+    private void configurarUI(Imovel imovel) {
         if (imovel != null) {
             setTitle(Strings.ALTERAR_IMOVEL);
             fieldNomeProprietario.setText(imovel.getNomeProprietario());
@@ -58,12 +70,6 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
             radioDisponivelLocacao.setSelected(imovel.isVenda());
             radioDisponivelVenda.setSelected(!imovel.isVenda());
 
-            btnRemoverImovel.addActionListener(e -> {
-                ControladorImoveis.removerImovel(imovel.getImid());
-
-                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-                dispose();
-            });
 
         } else {
             setTitle(Strings.CADASTRAR_IMOVEL);
@@ -75,37 +81,9 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
         ButtonGroup grupoBtnRadio = new ButtonGroup();
         grupoBtnRadio.add(radioDisponivelVenda);
         grupoBtnRadio.add(radioDisponivelLocacao);
+    }
 
-        btnCancelar.addActionListener(e -> dispose());
-
-        btnSalvar.addActionListener(e -> {
-            if (imovel == null)
-                ControladorImoveis.adicionarImovel(
-                        fieldNomeProprietario.getText(),
-                        fieldEndereco.getText(),
-                        fieldValorLocacao.getText(),
-                        fieldValorVenda.getText(),
-                        fieldNumeroQuartos.getText(),
-                        fieldNumeroBanheiros.getText(),
-                        radioDisponivelLocacao.isSelected()
-                );
-            else
-                ControladorImoveis.atualizarImovel(
-                        imovel.getImid(),
-                        fieldNomeProprietario.getText(),
-                        fieldEndereco.getText(),
-                        fieldValorLocacao.getText(),
-                        fieldValorVenda.getText(),
-                        fieldNumeroQuartos.getText(),
-                        fieldNumeroBanheiros.getText(),
-                        radioDisponivelLocacao.isSelected()
-                );
-
-            ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-            dispose();
-        });
-
-
+    private void configurarFiltros() {
         fieldValorVenda.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -154,6 +132,46 @@ public class DialogoAlterarImoveis extends JDialog implements Cores {
                     e.consume();
                 }
             }
+        });
+    }
+
+    private void configurarBotoes(Imovel imovel) {
+        btnCancelar.addActionListener(e -> dispose());
+
+        btnRemoverImovel.addActionListener(e -> {
+            if (imovel != null) {
+                ControladorImoveis.removerImovel(imovel.getImid());
+
+                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+                dispose();
+            }
+        });
+
+        btnSalvar.addActionListener(e -> {
+            if (imovel == null)
+                ControladorImoveis.adicionarImovel(
+                        fieldNomeProprietario.getText(),
+                        fieldEndereco.getText(),
+                        fieldValorLocacao.getText(),
+                        fieldValorVenda.getText(),
+                        fieldNumeroQuartos.getText(),
+                        fieldNumeroBanheiros.getText(),
+                        radioDisponivelLocacao.isSelected()
+                );
+            else
+                ControladorImoveis.atualizarImovel(
+                        imovel.getImid(),
+                        fieldNomeProprietario.getText(),
+                        fieldEndereco.getText(),
+                        fieldValorLocacao.getText(),
+                        fieldValorVenda.getText(),
+                        fieldNumeroQuartos.getText(),
+                        fieldNumeroBanheiros.getText(),
+                        radioDisponivelLocacao.isSelected()
+                );
+
+            ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+            dispose();
         });
     }
 

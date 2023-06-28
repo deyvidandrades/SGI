@@ -42,13 +42,23 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
     private JPanel panelOpcoes;
     private JPanel panelBot;
 
-    @SuppressWarnings("deprecation")
     public DialogoAlterarContrato(Contrato contrato, ArrayList<Imovel> imoveis, ArrayList<Cliente> clientes, int posicaoImovel, int posicaoCliente) {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(btnSalvar);
         configurarCores();
 
+        /*Adicionando imoveis para serem exibidos na seleção suspensa*/
+        popularComboBoxes(clientes, imoveis, contrato);
+
+        /*Se existir o imovel preenchemos os campos com os dados*/
+        configurarUI(contrato, imoveis, posicaoCliente, posicaoImovel);
+
+        /*Configuração dos listeners de botes*/
+        configurarBotoes(contrato, clientes);
+    }
+
+    private void popularComboBoxes(ArrayList<Cliente> clientes, ArrayList<Imovel> imoveis, Contrato contrato) {
         for (int i = 0; i <= 10; i++) {
             comboVigencia.addItem(String.valueOf(i));
         }
@@ -63,7 +73,9 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
                 arrayImoveis.add(imovel);
             }
         }
+    }
 
+    private void configurarUI(Contrato contrato, ArrayList<Imovel> imoveis, int posicaoCliente, int posicaoImovel) {
         fieldDataCriacao.setEditable(contrato == null);
         fieldDataTermino.setEditable(contrato == null);
         panelCriacao.setVisible(contrato != null);
@@ -74,7 +86,6 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
 
 
         boolean venda = contrato != null ? arrayImoveis.get(comboImoveis.getSelectedIndex()).isVenda() : imoveis.get(0).isVenda();
-
         comboImoveis.addActionListener(e -> lblTipoContrato.setText(venda ? Strings.VENDA : Strings.LOCACAO));
 
         if (contrato != null) {
@@ -91,17 +102,23 @@ public class DialogoAlterarContrato extends JDialog implements Cores {
             comboImoveis.setSelectedIndex(posicaoImovel);
             lblTipoContrato.setText(venda ? Strings.VENDA : Strings.LOCACAO);
 
-            btnRemoverContrato.addActionListener(e -> {
-                ControladorContratos.removerContrato(contrato.getCoid());
-
-                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-                dispose();
-            });
         } else {
             setTitle(Strings.CADASTRAR_CONTRATO);
         }
+    }
 
+
+    @SuppressWarnings("deprecation")
+    private void configurarBotoes(Contrato contrato, ArrayList<Cliente> clientes) {
         btnCancelar.addActionListener(e -> dispose());
+
+        btnRemoverContrato.addActionListener(e -> {
+            if (contrato != null) {
+                ControladorContratos.removerContrato(contrato.getCoid());
+                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+                dispose();
+            }
+        });
 
         btnSalvar.addActionListener(e -> {
             DateFormat simple = new SimpleDateFormat("dd/MM/yyyy");

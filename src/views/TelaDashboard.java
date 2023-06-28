@@ -15,11 +15,13 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-public class TelaDashboard implements FrameInterface, Cores {
+public class TelaDashboard implements FrameInterface, Strings, Cores {
 
     public JPanel panel1;
     private JTable tabelaClientes;
@@ -93,6 +95,27 @@ public class TelaDashboard implements FrameInterface, Cores {
         img.setIcon(icone_32);
         configurarCores();
 
+        /*Configura os valores para a UI*/
+        configurarUI(funcionarioLogado, configuracoes);
+
+        /*Adiciona os listeners aos botões*/
+        configurarBotoes();
+
+        /*Cria os mouse listener das tabelas */
+        inicializarTabela(tabelaClientes, DADOS_CLIENTES);
+        inicializarTabela(tabelaImoveis, DADOS_IMOVEIS);
+        inicializarTabela(tabelaContratosAtivos, DADOS_CONTRATOS_ATIVOS);
+        inicializarTabela(tabelaContratosTerminados, DADOS_CONTRATOS_TERMINADOS);
+        inicializarTabela(tabelaFuncionarios, DADOS_FUNCIONARIOS);
+
+        /*Configura o listener dos campos de busca*/
+        configurarBusca();
+
+        /*Atualiza as tabelas*/
+        atualizarDadosTabelas();
+    }
+
+    private void configurarUI(Funcionario funcionarioLogado, Map<String, Object> configuracoes) {
         btnSair.setIcon(icone_sair);
         btnSettings.setIcon(icone_configuracoes);
         btnAtualizar.setIcon(icone_atualizar);
@@ -111,9 +134,9 @@ public class TelaDashboard implements FrameInterface, Cores {
         tabbedMenus.setTabPlacement((int) configuracoes.get("posicaoMenus"));
 
 
-        lbl_ola.setText(Strings.OLA + funcionarioLogado.getNome().split(" ")[0] + "," + Strings.BEM_VINDO);
+        lbl_ola.setText(OLA + funcionarioLogado.getNome().split(" ")[0] + "," + BEM_VINDO);
 
-        lblTipoFuncionario.setText(funcionarioLogado.isGerente() ? Strings.GERENTE : Strings.FUNCIONARIO);
+        lblTipoFuncionario.setText(funcionarioLogado.isGerente() ? GERENTE : FUNCIONARIO);
 
 
         lblStats.setText(
@@ -127,20 +150,221 @@ public class TelaDashboard implements FrameInterface, Cores {
         btnCadastrarContrato.setEnabled(funcionarioLogado.isGerente());
         btnCadastrarImovel.setEnabled(funcionarioLogado.isGerente());
         btnCadastrarFuncionario.setEnabled(funcionarioLogado.isGerente());
+    }
 
-
-        btnSettings.addActionListener(e -> ControladorUI.exibirDialogoConfiguracoes());
-        btnSair.addActionListener(e -> ControladorUI.exibirTelaLogin());
-        btnAtualizar.addActionListener(e -> atualizarDadosTabelas());
-
-        inicializarTabelas();
-        configurarBusca();
-        atualizarDadosTabelas();
-
+    private void configurarBotoes() {
         btnCadastrarCliente.addActionListener(e -> ControladorUI.exibirDialogoAlterarCliente(-1));
         btnCadastrarImovel.addActionListener(e -> ControladorUI.exibirDialogoAlterarImoveis(-1));
         btnCadastrarContrato.addActionListener(e -> ControladorUI.exibirDialogoAlterarContratos(-1));
         btnCadastrarFuncionario.addActionListener(e -> ControladorUI.exibirDialogoAlterarFuncionarios(-1));
+
+        btnSettings.addActionListener(e -> ControladorUI.exibirDialogoConfiguracoes());
+        btnSair.addActionListener(e -> ControladorUI.exibirTelaLogin());
+        btnAtualizar.addActionListener(e -> atualizarDadosTabelas());
+    }
+
+    public void atualizarDadosTabelas() {
+        configurarTabela(tabelaClientes, DADOS_CLIENTES, COLUNAS_CLIENTES);
+        configurarTabela(tabelaImoveis, DADOS_IMOVEIS, COLUNAS_IMOVEIS);
+        configurarTabela(tabelaContratosAtivos, DADOS_CONTRATOS_ATIVOS, COLUNAS_CONTRATOS);
+        configurarTabela(tabelaContratosTerminados, DADOS_CONTRATOS_TERMINADOS, COLUNAS_CONTRATOS);
+        configurarTabela(tabelaFuncionarios, DADOS_FUNCIONARIOS, COLUNAS_FUNCIONARIOS);
+
+        lblStats.setText(
+                ControladorClientes.getNumeroClientes() +
+                        ControladorContratos.getNumeroContratos(true) +
+                        ControladorContratos.getNumeroContratos(false) +
+                        ControladorImoveis.getNumeroImoveis() +
+                        ControladorFuncionarios.getNumeroFuncionarios()
+        );
+    }
+
+    private void inicializarTabela(JTable tabela, String key) {
+
+        MouseAdapter mouseAdapter = null;
+
+        switch (key) {
+            case DADOS_CLIENTES -> mouseAdapter = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    int row = tabela.rowAtPoint(e.getPoint());
+                    if (row >= 0) {
+                        ControladorUI.exibirDialogoAlterarCliente(Integer.parseInt(tabela.getValueAt(row, 0).toString()));
+                    }
+                }
+            };
+            case DADOS_IMOVEIS -> mouseAdapter = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    int row = tabela.rowAtPoint(e.getPoint());
+                    if (row >= 0) {
+                        ControladorUI.exibirDialogoAlterarImoveis(Integer.parseInt(tabela.getValueAt(row, 0).toString()));
+                    }
+                }
+            };
+            case DADOS_CONTRATOS_ATIVOS -> mouseAdapter = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    int row = tabela.rowAtPoint(e.getPoint());
+                    if (row >= 0) {
+                        ControladorUI.exibirDialogoAlterarContratos(Integer.parseInt(tabela.getValueAt(row, 0).toString()));
+                    }
+                }
+            };
+            case DADOS_CONTRATOS_TERMINADOS -> mouseAdapter = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    int row = tabela.rowAtPoint(e.getPoint());
+                    if (row >= 0) {
+                        ControladorUI.exibirDialogoAlterarContratos(Integer.parseInt(tabela.getValueAt(row, 0).toString()));
+                    }
+                }
+            };
+            case DADOS_FUNCIONARIOS -> mouseAdapter = new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    super.mouseClicked(e);
+                    int row = tabela.rowAtPoint(e.getPoint());
+                    if (row >= 0) {
+                        ControladorUI.exibirDialogoAlterarFuncionarios(Integer.parseInt(tabela.getValueAt(row, 0).toString()));
+                    }
+                }
+            };
+        }
+
+        if (mouseAdapter != null)
+            tabela.addMouseListener(mouseAdapter);
+    }
+
+    private void configurarBusca() {
+        buscarClientes.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configurarTabela(tabelaClientes, DADOS_CLIENTES, COLUNAS_CLIENTES);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        buscarImoveis.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configurarTabela(tabelaImoveis, DADOS_IMOVEIS, COLUNAS_IMOVEIS);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        buscarContratosAtivos.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configurarTabela(tabelaContratosAtivos, DADOS_CONTRATOS_ATIVOS, COLUNAS_CONTRATOS);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        buscarContratosTerminados.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configurarTabela(tabelaContratosTerminados, DADOS_CONTRATOS_TERMINADOS, COLUNAS_CONTRATOS);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+
+        buscarFuncionarios.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent keyEvent) {
+                configurarTabela(tabelaFuncionarios, DADOS_FUNCIONARIOS, COLUNAS_FUNCIONARIOS);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
+            }
+        });
+    }
+
+    private void configurarTabela(JTable tabela, String key, String[] cabecalho) {
+        DefaultTableModel model = new DefaultTableModel();
+
+        for (Object name : cabecalho)
+            model.addColumn(name);
+
+        switch (key) {
+            case DADOS_CLIENTES -> {
+                for (Cliente cliente : ControladorClientes.getListaClientes(buscarFuncionarios.getText()))
+                    model.addRow(cliente.toObject());
+            }
+            case DADOS_CONTRATOS_ATIVOS -> {
+                for (Contrato contrato : ControladorContratos.getListaContratosAtivos(buscarFuncionarios.getText()))
+                    model.addRow(contrato.toObject());
+            }
+            case DADOS_CONTRATOS_TERMINADOS -> {
+                for (Contrato contrato : ControladorContratos.getListaContratosTerminados(buscarFuncionarios.getText()))
+                    model.addRow(contrato.toObject());
+            }
+            case DADOS_IMOVEIS -> {
+                for (Imovel imovel : ControladorImoveis.getListaImoveis(buscarFuncionarios.getText()))
+                    model.addRow(imovel.toObject());
+            }
+            case DADOS_FUNCIONARIOS -> {
+                for (Funcionario funcionario : ControladorFuncionarios.getListaFuncionarios(buscarFuncionarios.getText()))
+                    model.addRow(funcionario.toObject());
+            }
+        }
+
+        tabela.setModel(model);
+
+        tabela.getColumnModel().getColumn(0).setMinWidth(0);
+        tabela.getColumnModel().getColumn(0).setMaxWidth(0);
+        tabela.getColumnModel().getColumn(0).setWidth(0);
+    }
+
+    public void setMenuPosition(int selectedIndex) {
+        tabbedMenus.setTabPlacement(selectedIndex);
     }
 
     @Override
@@ -267,312 +491,17 @@ public class TelaDashboard implements FrameInterface, Cores {
         lblFuncionariosCadastrados.setForeground(TEXTO);
     }
 
-    public void atualizarDadosTabelas() {
-        configurarTabelaClientes();
-        configurarTabelaImoveis();
-        configurarTabelaContratosAtivos();
-        configurarTabelaContratosTerminados();
-        configurarTabelaFuncionarios();
-
-        lblStats.setText(
-                ControladorClientes.getNumeroClientes() +
-                        ControladorContratos.getNumeroContratos(true) +
-                        ControladorContratos.getNumeroContratos(false) +
-                        ControladorImoveis.getNumeroImoveis() +
-                        ControladorFuncionarios.getNumeroFuncionarios()
-        );
-    }
-
-    private void inicializarTabelas() {
-
-        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = tabelaClientes.rowAtPoint(evt.getPoint());
-                int col = tabelaClientes.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-                    ControladorUI.exibirDialogoAlterarCliente(Integer.parseInt(tabelaClientes.getValueAt(row, 0).toString()));
-                }
-            }
-        });
-
-
-        tabelaImoveis.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = tabelaImoveis.rowAtPoint(evt.getPoint());
-                int col = tabelaImoveis.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-                    ControladorUI.exibirDialogoAlterarImoveis(Integer.parseInt(tabelaImoveis.getValueAt(row, 0).toString()));
-                }
-            }
-        });
-
-
-        tabelaContratosAtivos.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = tabelaContratosAtivos.rowAtPoint(evt.getPoint());
-                int col = tabelaContratosAtivos.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-                    ControladorUI.exibirDialogoAlterarContratos(Integer.parseInt(tabelaContratosAtivos.getValueAt(row, 0).toString()));
-                }
-            }
-        });
-
-        tabelaContratosTerminados.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = tabelaContratosTerminados.rowAtPoint(evt.getPoint());
-                int col = tabelaContratosTerminados.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-                    ControladorUI.exibirDialogoAlterarContratos(Integer.parseInt(tabelaContratosTerminados.getValueAt(row, 0).toString()));
-                }
-            }
-        });
-
-        tabelaFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = tabelaFuncionarios.rowAtPoint(evt.getPoint());
-                int col = tabelaFuncionarios.columnAtPoint(evt.getPoint());
-                if (row >= 0 && col >= 0) {
-                    ControladorUI.exibirDialogoAlterarFuncionarios(Integer.parseInt(tabelaFuncionarios.getValueAt(row, 0).toString()));
-                }
-            }
-        });
-    }
-
-    private void configurarBusca() {
-        buscarClientes.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaClientes();
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
-
-        buscarImoveis.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaImoveis();
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
-
-        buscarContratosAtivos.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaContratosAtivos();
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
-
-        buscarContratosTerminados.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaContratosTerminados();
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
-
-        buscarFuncionarios.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent keyEvent) {
-                configurarTabelaFuncionarios();
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent) {
-
-            }
-        });
-    }
-
-    private void configurarTabelaClientes() {
-        DefaultTableModel model = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int i, int i1) {
-                return false;
-            }
-
-        };
-
-        for (Object name : Strings.COLUNAS_CLIENTES) {
-            model.addColumn(name);
-        }
-
-        for (Cliente cliente : ControladorClientes.getListaClientes(buscarClientes.getText()))
-            model.addRow(cliente.toObject());
-
-        tabelaClientes.setModel(model);
-
-
-        tabelaClientes.getColumnModel().getColumn(0).setMinWidth(0);
-        tabelaClientes.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabelaClientes.getColumnModel().getColumn(0).setWidth(0);
-    }
-
-    private void configurarTabelaImoveis() {
-        DefaultTableModel model = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int i, int i1) {
-                return false;
-            }
-
-        };
-
-        for (Object name : Strings.COLUNAS_IMOVEIS) {
-            model.addColumn(name);
-        }
-
-        for (Imovel imovel : ControladorImoveis.getListaImoveis(buscarImoveis.getText()))
-            model.addRow(imovel.toObject());
-
-        tabelaImoveis.setModel(model);
-
-        tabelaImoveis.getColumnModel().getColumn(0).setMinWidth(0);
-        tabelaImoveis.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabelaImoveis.getColumnModel().getColumn(0).setWidth(0);
-    }
-
-    private void configurarTabelaContratosAtivos() {
-        DefaultTableModel model = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int i, int i1) {
-                return false;
-            }
-
-        };
-
-        for (Object name : Strings.COLUNAS_CONTRATOS) {
-            model.addColumn(name);
-        }
-
-
-        for (Contrato contrato : ControladorContratos.getListaContratosAtivos(buscarContratosAtivos.getText()))
-            if (!contrato.isTerminado())
-                model.addRow(contrato.toObject());
-
-
-        tabelaContratosAtivos.setModel(model);
-
-        tabelaContratosAtivos.getColumnModel().getColumn(0).setMinWidth(0);
-        tabelaContratosAtivos.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabelaContratosAtivos.getColumnModel().getColumn(0).setWidth(0);
-    }
-
-    private void configurarTabelaContratosTerminados() {
-        DefaultTableModel model = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int i, int i1) {
-                return false;
-            }
-
-        };
-
-        for (Object name : Strings.COLUNAS_CONTRATOS) {
-            model.addColumn(name);
-        }
-
-
-        for (Contrato contrato : ControladorContratos.getListaContratosTerminados(buscarContratosTerminados.getText()))
-            if (contrato.isTerminado())
-                model.addRow(contrato.toObject());
-
-
-        tabelaContratosTerminados.setModel(model);
-
-        tabelaContratosTerminados.getColumnModel().getColumn(0).setMinWidth(0);
-        tabelaContratosTerminados.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabelaContratosTerminados.getColumnModel().getColumn(0).setWidth(0);
-    }
-
-    private void configurarTabelaFuncionarios() {
-        System.out.println(buscarFuncionarios.getText().toUpperCase());
-        DefaultTableModel model = new DefaultTableModel() {
-
-            @Override
-            public boolean isCellEditable(int i, int i1) {
-                return false;
-            }
-
-        };
-
-        for (Object name : Strings.COLUNAS_FUNCIONARIOS) {
-            model.addColumn(name);
-        }
-
-        for (Funcionario funcionario : ControladorFuncionarios.getListaFuncionarios(buscarFuncionarios.getText()))
-            model.addRow(funcionario.toObject());
-
-        tabelaFuncionarios.setModel(model);
-
-        tabelaFuncionarios.getColumnModel().getColumn(0).setMinWidth(0);
-        tabelaFuncionarios.getColumnModel().getColumn(0).setMaxWidth(0);
-        tabelaFuncionarios.getColumnModel().getColumn(0).setWidth(0);
-    }
-
-    public void setMenuPosition(int selectedIndex) {
-        tabbedMenus.setTabPlacement(selectedIndex);
-    }
-
     @Override
     public void show() {
         frame.setContentPane(panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setTitle(Strings.DESCRICAO + " - v" + Strings.VERSAO);
+        frame.setTitle(DESCRICAO + " - v" + VERSAO);
         frame.setSize(Dimensoes.DASHBOARD);
         frame.setLocation(Dimensoes.getCentroTela(frame.getWidth(), frame.getHeight()));
 
         try {
-            frame.setIconImage(ImageIO.read(new File(Strings.ICONE_64)));
+            frame.setIconImage(ImageIO.read(new File(ICONE_64)));
         } catch (IOException e) {
             e.printStackTrace();
         }

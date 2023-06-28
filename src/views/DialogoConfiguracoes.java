@@ -36,6 +36,14 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface, Cor
 
         img.setIcon(icone_32);
 
+        /*Carrega a ui*/
+        configurarUI();
+
+        /*Fehca dialogo*/
+        buttonOK.addActionListener(e -> dispose());
+    }
+
+    private void configurarUI() {
         comboPosicaoMenus.addItem(Strings.MENU_TOPO);
         comboPosicaoMenus.addItem(Strings.MENU_ESQUERDA);
 
@@ -50,8 +58,6 @@ public class DialogoConfiguracoes extends JDialog implements FrameInterface, Cor
 
         lblVersao.setText(Strings.VERSAO);
         lblDesenvolvidoPor.setText(Strings.FOOTER);
-
-        buttonOK.addActionListener(e -> dispose());
     }
 
     @Override

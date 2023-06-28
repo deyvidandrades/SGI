@@ -19,7 +19,10 @@ public class DialogoMensagem extends JDialog implements Cores {
         setTitle(Strings.SGI);
         configurarCores();
 
+        /*Carrega a mensagem*/
         lblMensagem.setText(mensagem);
+
+        /*Fecha o dialogo*/
         btnOK.addActionListener(e -> dispose());
     }
 

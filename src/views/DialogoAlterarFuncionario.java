@@ -44,8 +44,18 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
         getRootPane().setDefaultButton(btnSalvar);
         configurarCores();
 
-        btnRemoverFuncionario.setVisible(funcionario != null);
+        /*Se existir o funcionário preenchemos os campos com os dados*/
+        configurarUI(funcionario, senha);
 
+        /*Configuração dos listeners de busca*/
+        configurarFiltros();
+
+        /*Configuração dos listeners de botes*/
+        configurarBotoes(funcionario);
+    }
+
+    /*Recebe a senha decodificada para alteração*/
+    private void configurarUI(Funcionario funcionario, String senha) {
         if (funcionario != null) {
             setTitle(Strings.ALTERAR_FUNCIONARIO);
             fieldNome.setText(funcionario.getNome());
@@ -57,12 +67,6 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
             radioFuncionario.setSelected(!funcionario.isGerente());
             radioGerente.setSelected(funcionario.isGerente());
 
-            btnRemoverFuncionario.addActionListener(e -> {
-                ControladorFuncionarios.removerFuncionario(funcionario.getFuid());
-
-                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
-                dispose();
-            });
 
             fieldNome.setEditable(funcionario.getFuid() != 0 && ControladorUI.funcionarioLogado.isGerente());
             fieldCPF.setEditable(funcionario.getFuid() != 0 && ControladorUI.funcionarioLogado.isGerente());
@@ -78,6 +82,14 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
             setTitle(Strings.CADASTRAR_FUNCIONARIO);
         }
 
+        btnRemoverFuncionario.setVisible(funcionario != null);
+
+        ButtonGroup grupoBtnRadio = new ButtonGroup();
+        grupoBtnRadio.add(radioFuncionario);
+        grupoBtnRadio.add(radioGerente);
+    }
+
+    private void configurarFiltros() {
         fieldSalario.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
@@ -85,7 +97,6 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
                         (c == KeyEvent.VK_BACK_SPACE) ||
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_COMMA))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
@@ -99,17 +110,24 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
                         (c == KeyEvent.VK_DELETE) ||
                         (c == KeyEvent.VK_PERIOD) ||
                         (c == KeyEvent.VK_MINUS))) {
-                    getToolkit().beep();
                     e.consume();
                 }
             }
         });
+    }
 
-        ButtonGroup grupoBtnRadio = new ButtonGroup();
-        grupoBtnRadio.add(radioFuncionario);
-        grupoBtnRadio.add(radioGerente);
+    private void configurarBotoes(Funcionario funcionario) {
 
         btnCancelar.addActionListener(e -> dispose());
+
+        btnRemoverFuncionario.addActionListener(e -> {
+            if (funcionario != null) {
+                ControladorFuncionarios.removerFuncionario(funcionario.getFuid());
+
+                ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
+                dispose();
+            }
+        });
 
         btnSalvar.addActionListener(e -> {
 
@@ -136,7 +154,6 @@ public class DialogoAlterarFuncionario extends JDialog implements Cores {
 
             ControladorUI.instanciaTelaDashboard.atualizarDadosTabelas();
             dispose();
-
         });
     }
 
